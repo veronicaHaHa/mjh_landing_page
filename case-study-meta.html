@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram Creator Marketplace — MinJee Hahm</title>
+  <meta name="description" content="Case study: AI-Powered Creator Recommendations for Instagram Creator Marketplace by MinJee Hahm.">
+  <meta name="author" content="MinJee Hahm">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/case-study.css">
+</head>
+<body class="case-study-page">
+
+  <!-- Navigation -->
+  <nav class="site-nav case-study-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-name" aria-label="Back to home">&#8592; MinJee Hahm</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 1. Hero -->
+    <section class="cs-hero cs-hero--full-image">
+      <div class="cs-hero-bg"></div>
+      <div class="cs-hero-cover">
+        <img src="img/instagram-cm-hero.png" alt="Instagram Creator Marketplace — AI-powered creator recommendations" loading="eager">
+      </div>
+      <div class="container cs-hero-content">
+        <span class="cs-hero-label">Case Study &middot; Instagram Creator Marketplace</span>
+        <h1 class="cs-hero-title">AI-Powered Creator Recommendations</h1>
+        <p class="cs-hero-subtitle">Brands were struggling to find the right creators for partnership ads — the fastest-growing ad format on Instagram. I led the strategy and design to make Creator Marketplace intelligently match brands with creators, driving conversions at scale.</p>
+        <div class="cs-hero-results">
+          <p class="cs-results-label">Key Results</p>
+          <div class="cs-result-item">
+            <span class="cs-result-number"><span class="cs-result-plus">+</span>30%</span>
+            <span class="cs-result-label">Brand-Creator Matches</span>
+          </div>
+          <div class="cs-result-item">
+            <span class="cs-result-number"><span class="cs-result-plus">+</span>25%</span>
+            <span class="cs-result-label">Engagement Rates</span>
+          </div>
+          <div class="cs-result-item">
+            <span class="cs-result-number"><span class="cs-result-plus">+</span>20%</span>
+            <span class="cs-result-label">User Satisfaction Scores</span>
+          </div>
+        </div>
+        <div class="cs-hero-prototype">
+          <video src="img/creator_marketplace_recommendations_prototype.mp4" autoplay loop muted playsinline aria-label="Prototype walkthrough of the redesigned Discover experience with AI-powered creator recommendations"></video>
+        </div>
+        <div class="cs-hero-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Role</span>
+            <span class="cs-meta-value">Product Strategy + MVP Execution</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Company</span>
+            <span class="cs-meta-value">Instagram, Meta</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Duration</span>
+            <span class="cs-meta-value">Aug 2023 &mdash; Jan 2024</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Announcement</span>
+            <a class="cs-meta-value cs-meta-link" href="https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/" target="_blank" rel="noopener noreferrer">Feature Launch &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Challenge -->
+    <section class="cs-section cs-section--alt cs-section--challenge">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Challenge</span>
+          <h2 class="cs-section-title">From Directory to Matchmaker</h2>
+        </div>
+        <div class="cs-body">
+          <p>Instagram's Creator Marketplace connects brands with creators for <a class="cs-inline-link" href="https://help.instagram.com/292748974937716/?helpref=uf_share" target="_blank" rel="noopener noreferrer">partnership ads</a> — one of the platform's most powerful ad formats. Major advertisers like Nike rely on creators like @ad__sneaks to drive traction through genuine, culturally relevant content. But the marketplace was operating as a passive directory — <strong>77% of searches resulted in no match</strong>, creator agencies typically spent <strong>1.5 months</strong> sourcing creators, and brands had to do all the heavy lifting to find the right fit.</p>
+        </div>
+        <div class="cs-problems">
+          <div class="cs-problem is-selected" data-image="img/current-creator-marketplace.png" data-caption="The existing Creator Marketplace recommendations — lacking brand relevance, with no direct way to preview creator content or surface ad-related performance data.">
+            <span class="cs-problem-icon">1</span>
+            <h3>Limited UX</h3>
+            <p>Only basic search filters were available — follower count, location, and category — with no way to preview content or past campaign performance, leading to poor brand-creator matches.</p>
+          </div>
+          <div class="cs-problem" data-image="img/manual-creator-sourcing.png" data-caption="Sourcing creators was highly manual — brands and agencies spent weeks evaluating creators with no structured workflow.">
+            <span class="cs-problem-icon">2</span>
+            <h3>Manual Creator Sourcing</h3>
+            <p>Sourcing and evaluating creators was highly manual — often outsourced entirely to third-party agencies — making it the biggest pain point in running partnership ads efficiently.</p>
+          </div>
+        </div>
+        <div class="cs-problem-visual">
+          <img id="problem-image" src="img/current-creator-marketplace.png" alt="Current Creator Marketplace search interface showing limited creator discovery experience" loading="lazy">
+          <p class="cs-image-caption" id="problem-caption">The existing Creator Marketplace recommendations — lacking brand relevance, with no direct way to preview creator content or surface ad-related performance data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Strategy & Role -->
+    <section class="cs-section cs-section--dark">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Strategy &amp; Role</span>
+          <h2 class="cs-section-title">The Strategic Pivot</h2>
+        </div>
+        <div class="cs-body">
+          <p>I identified a critical opportunity: leverage Meta's ML capabilities to intelligently surface creators whose content would drive the highest ad conversions — directly fueling Creator Marketplace's strategic pivot toward partnership ads, Instagram's fastest-growing ad format.</p>
+        </div>
+        <div class="cs-bubbles" aria-label="My responsibilities visualized as interconnected bubbles">
+          <div class="cs-bubble cs-bubble--lg cs-bubble--1">
+            <span>Set a product vision</span>
+          </div>
+          <div class="cs-bubble cs-bubble--lg cs-bubble--2">
+            <span>Define strategy</span>
+          </div>
+          <div class="cs-bubble cs-bubble--ml cs-bubble--3">
+            <span>Stakeholder &amp; Leadership alignment</span>
+          </div>
+          <div class="cs-bubble cs-bubble--md cs-bubble--4">
+            <span>Shape roadmaps</span>
+          </div>
+          <div class="cs-bubble cs-bubble--sm cs-bubble--5">
+            <span>Prototyping</span>
+          </div>
+          <div class="cs-bubble cs-bubble--sm cs-bubble--6">
+            <span>Cross-org collabs</span>
+          </div>
+          <div class="cs-bubble cs-bubble--sm cs-bubble--7">
+            <span>Design reviews</span>
+          </div>
+          <div class="cs-bubble cs-bubble--sm cs-bubble--8">
+            <span>Design explorations</span>
+          </div>
+        </div>
+        <p class="cs-image-caption cs-bubbles-caption">My role spanned from high-level vision down to hands-on execution — I set the product direction, aligned leadership and cross-functional stakeholders, shaped the roadmap, and led design reviews and prototyping through launch.</p>
+      </div>
+    </section>
+
+    <!-- 4. Process -->
+    <section class="cs-section cs-image-section">
+      <div class="container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Process</span>
+          <h2 class="cs-section-title">From Brainstorm to Signal</h2>
+        </div>
+        <div class="cs-image-full">
+          <img src="img/cm-figjam.png" alt="FigJam board — H2 2023 Matchmaking Pro strategy and planning" loading="lazy">
+        </div>
+        <p class="cs-image-caption">I led strategic planning — mapping the end-to-end matchmaking experience, defining brand Jobs To Be Done, impact-sizing to prioritize MVP features, and aligning with leadership on the H2 2023 roadmap.</p>
+        <p class="cs-body cs-body--spaced">I partnered with ML and data science to identify the 6 signals most predictive of ad conversion — translating brainstorming insights into the inputs that power creator-brand matching.</p>
+        <div class="cs-signals">
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F4B5;</span>
+            <h3>Ad Conversion History</h3>
+          </div>
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F91D;</span>
+            <h3>Partnership Track Record</h3>
+          </div>
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F3F7;</span>
+            <h3>Mentioned or Tagged Brand</h3>
+          </div>
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F465;</span>
+            <h3>Worked with Similar Brands</h3>
+          </div>
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F517;</span>
+            <h3>Affiliate Content</h3>
+          </div>
+          <div class="cs-signal">
+            <span class="cs-signal-icon">&#x1F4CA;</span>
+            <h3>Audience Engagement</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section cs-section--alt cs-image-section">
+      <div class="container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Design</span>
+          <h2 class="cs-section-title">Creator Card Explorations</h2>
+        </div>
+        <div class="cs-image-full">
+          <img class="cs-img-padded" src="img/creator-card-explorations.png" alt="Creator card design iterations — multiple layout explorations for ad_sneaks profile card" loading="lazy">
+        </div>
+        <p class="cs-image-caption">Multiple iterations of creator profile cards exploring different layouts for photos, stats, partnership history, and engagement data.</p>
+      </div>
+    </section>
+
+    <!-- 5. Solution -->
+    <section class="cs-section">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Solution</span>
+          <h2 class="cs-section-title">From Manual Search to Intelligent Matching</h2>
+        </div>
+        <div class="cs-principles">
+          <div class="cs-principle">
+            <span class="cs-principle-number">01</span>
+            <h3>Smart Recommendations</h3>
+            <p>Use ML to surface creators whose content and audience align with brand campaign goals — not just follower count.</p>
+          </div>
+          <div class="cs-principle">
+            <span class="cs-principle-number">02</span>
+            <h3>Efficient Creator Discovery</h3>
+            <p>Let brands explore creator content, engagement data, and partnership history before committing — all in one place.</p>
+          </div>
+          <div class="cs-principle">
+            <span class="cs-principle-number">03</span>
+            <h3>Optimized Ad Considerations</h3>
+            <p>Surface creators and content that are most likely to convert when amplified as partnership ads.</p>
+          </div>
+        </div>
+        <div class="cs-before-after">
+          <div class="cs-ba-card cs-ba-card--before">
+            <span class="cs-ba-tag cs-ba-tag--before">Before</span>
+            <div class="cs-ba-image">
+              <img src="img/Before.png" alt="Old Creator Marketplace — manual search with basic filters" loading="lazy">
+            </div>
+            <ul class="cs-ba-list">
+              <li>Scroll through hundreds of irrelevant profiles</li>
+              <li>No way to preview content or past performance</li>
+              <li>Weeks spent evaluating creator fit</li>
+              <li>Brands often gave up and hired agencies</li>
+            </ul>
+          </div>
+          <div class="cs-ba-card cs-ba-card--after">
+            <span class="cs-ba-tag cs-ba-tag--after">After</span>
+            <div class="cs-ba-image">
+              <img src="img/After.png" alt="New Creator Marketplace — ML-powered recommendations with rich creator cards" loading="lazy">
+            </div>
+            <ul class="cs-ba-list">
+              <li>Top matches surfaced in seconds</li>
+              <li>Rich cards with content, stats &amp; history</li>
+              <li>Matching optimized for ad conversions</li>
+              <li>Brands discover creators self-serve</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 6. Impact -->
+    <section class="cs-section cs-section--dark" id="impact">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Impact</span>
+          <h2 class="cs-section-title">Generating New Revenue Streams &amp; Partnerships</h2>
+        </div>
+        <div class="cs-body">
+          <p>The feature launched in February 2024 and immediately drove measurable results — improving match quality, increasing engagement, and unlocking new advertiser partnerships across global markets.</p>
+        </div>
+
+        <div class="cs-impact-grid">
+          <div class="cs-impact-card">
+            <span class="cs-impact-icon">&#x1F4B0;</span>
+            <h3>+30% Brand-Creator Matches</h3>
+            <p>ML-powered recommendations directly improved match quality and drove ad conversions, unlocking new revenue channels for Creator Marketplace.</p>
+          </div>
+          <div class="cs-impact-card">
+            <span class="cs-impact-icon">&#x1F310;</span>
+            <h3>+25% Engagement Rates</h3>
+            <p>Higher-quality creator-brand pairings led to stronger content performance, expanding adoption beyond the U.S. into global markets.</p>
+          </div>
+          <div class="cs-impact-card">
+            <span class="cs-impact-icon">&#x1F91D;</span>
+            <h3>Major Advertisers Onboarded</h3>
+            <p>Onboarded top global advertisers to Creator Marketplace with +20% user satisfaction, validating the platform as a scalable channel for partnership ads.</p>
+            <div class="cs-brand-tags">
+              <span class="cs-brand-tag"><img src="img/Temu-Logo.png" alt="TEMU" class="cs-brand-logo">TEMU</span>
+              <span class="cs-brand-tag"><img src="img/Shein-Logo.jpg" alt="SHEIN" class="cs-brand-logo cs-brand-logo--bordered">SHEIN</span>
+              <span class="cs-brand-tag"><img src="img/Amazone-Logo.png" alt="Amazon" class="cs-brand-logo">Amazon</span>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="cs-quote">
+          <p>&ldquo;In Alpha testing with 10 brands, the new recommendations surface was rated extremely intuitive with zero functionality issues. <strong>100% of partners</strong> said the ability to narrow down and inform creator recommendations would increase the value they experience with the product.&rdquo;</p>
+          <cite>Alpha Test Results</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 7. Reflections -->
+    <section class="cs-section" id="reflections">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Reflections</span>
+          <h2 class="cs-section-title">What I Learned</h2>
+        </div>
+        <div class="cs-reflections">
+          <div class="cs-reflection">
+            <h3>Recommendations Alone Aren't Enough</h3>
+            <p>After launch, brands wanted more control — not just passive recommendations. This led to a follow-up design merging search and recommendations into one experience, letting brands refine ML suggestions on their own terms.</p>
+          </div>
+          <div class="cs-reflection">
+            <h3>Ad Performance ≠ Content Quality</h3>
+            <p>A creator can meet every partnership ads criterion and still produce content that doesn't resonate. The real challenge was balancing ad conversions with authentic, high-quality content — too complex for MVP but essential for long-term trust.</p>
+          </div>
+          <div class="cs-reflection">
+            <h3>Defining Strategy Is a Design Skill</h3>
+            <p>This project pushed me beyond design execution into product strategy — defining vision, aligning leadership, and shaping roadmaps. The most effective designers don't just solve the brief; they reframe the problem.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to Top -->
+  <a href="#" class="cs-back-to-top" id="back-to-top" aria-label="Back to top"><span class="cs-back-to-top-arrow">&uarr;</span><span class="cs-back-to-top-label">Top</span></a>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <span class="footer-credit">&copy; <span class="footer-year"></span> MinJee Hahm &middot; Designed & developed by MinJee Hahm</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var yearEl = document.querySelector('.footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Toggle nav color when scrolled past hero
+    var hero = document.querySelector('.cs-hero');
+    var nav = document.querySelector('.case-study-nav');
+    if (hero && nav) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY >= hero.offsetHeight) {
+          nav.classList.add('nav-past-hero');
+        } else {
+          nav.classList.remove('nav-past-hero');
+        }
+      });
+    }
+
+    // Problem card selection
+    var problemCards = document.querySelectorAll('.cs-problem');
+    var problemImage = document.getElementById('problem-image');
+    var problemCaption = document.getElementById('problem-caption');
+    if (problemImage) {
+      problemImage.addEventListener('load', function() {
+        if (!problemImage.parentElement.dataset.heightLocked) {
+          problemImage.parentElement.style.minHeight = problemImage.offsetHeight + 'px';
+          problemImage.parentElement.dataset.heightLocked = 'true';
+        }
+      });
+    }
+    problemCards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        if (card.classList.contains('is-selected')) return;
+        problemCards.forEach(function(c) { c.classList.remove('is-selected'); });
+        card.classList.add('is-selected');
+        if (problemImage) {
+          problemImage.classList.add('is-fading');
+          if (problemCaption) problemCaption.classList.add('is-fading');
+          setTimeout(function() {
+            problemImage.src = card.dataset.image;
+            if (card.dataset.image.indexOf('manual-creator-sourcing') !== -1) {
+              problemImage.classList.add('is-small');
+            } else {
+              problemImage.classList.remove('is-small');
+            }
+            if (problemCaption) {
+              problemCaption.textContent = card.dataset.caption;
+              problemCaption.classList.remove('is-fading');
+            }
+            problemImage.classList.remove('is-fading');
+          }, 350);
+        }
+      });
+    });
+
+    // Animate metrics on scroll
+    var results = document.querySelector('.cs-hero-results');
+    if (results) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.3 }).observe(results);
+    }
+
+    // Back to top button
+    var backToTop = document.getElementById('back-to-top');
+    var impactSection = document.getElementById('impact');
+    var footer = document.querySelector('.site-footer');
+    var reflectionsSection = document.getElementById('reflections');
+    var showTargets = [reflectionsSection, footer].filter(Boolean);
+    if (backToTop && showTargets.length) {
+      var visibleCount = 0;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          visibleCount += entry.isIntersecting ? 1 : -1;
+        });
+        if (visibleCount > 0) {
+          backToTop.classList.add('is-visible');
+        } else {
+          backToTop.classList.remove('is-visible');
+        }
+      }, { threshold: 0 });
+      showTargets.forEach(function(el) { observer.observe(el); });
+    }
+  </script>
+
+</body>
+</html>
