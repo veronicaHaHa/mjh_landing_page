@@ -76,6 +76,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -83,6 +92,7 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+  animation: pageFadeIn 0.5s ease-out;
 }
 
 img {
@@ -249,8 +259,8 @@ button {
 
 /* --- Hero Section --- */
 .hero {
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 80vh;
+  min-height: 80dvh;
   display: flex;
   align-items: center;
   padding: var(--space-5xl) 0 var(--space-4xl);
@@ -265,7 +275,6 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 
 .hero-content {
@@ -393,6 +402,11 @@ button {
   padding: var(--space-section) 0;
 }
 
+#work {
+  padding-top: var(--space-2xl);
+  padding-bottom: 0;
+}
+
 .section-label {
   font-family: var(--font-body);
   font-size: var(--text-xs);
@@ -400,7 +414,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-lg);
 }
 
 /* --- Project Cards --- */
@@ -455,6 +469,14 @@ button {
 
 .project-card-image--grab {
   background: #f5f0eb;
+}
+
+.project-card-image--grab img {
+  object-position: center 70%;
+}
+
+.project-card-image--cashtree img {
+  object-position: center calc(50% + 5px);
 }
 
 .project-card-image--placeholder {
@@ -548,6 +570,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
+  justify-content: space-between;
 }
 
 .skills-list {
@@ -746,7 +769,7 @@ button {
   border-radius: 8px;
   outline: none;
   margin-bottom: 12px;
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.12em;
   box-sizing: border-box;
   transition: border-color 0.2s;

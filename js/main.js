@@ -111,19 +111,31 @@
   }
 
   if (modal) {
-    // Intercept clicks on protected project cards
-    document.querySelectorAll('a.project-card[href="case-study-meta.html"]').forEach(function (card) {
+    // Intercept clicks on protected links
+    function showPasscodeModal(e, href) {
+      if (sessionStorage.getItem('cs-unlocked') === '1') return;
+      e.preventDefault();
+      pendingHref = href;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalError.style.display = 'none';
+      modalInput.value = '';
+      setTimeout(function () { modalInput.focus(); }, 100);
+    }
+
+    document.querySelectorAll('a.project-card[href="case-study-meta.html"], a.project-card[href="case-study-metaverse.html"]').forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (sessionStorage.getItem('cs-unlocked') === '1') return;
-        e.preventDefault();
-        pendingHref = card.getAttribute('href');
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        modalError.style.display = 'none';
-        modalInput.value = '';
-        setTimeout(function () { modalInput.focus(); }, 100);
+        showPasscodeModal(e, card.getAttribute('href'));
       });
     });
+
+    // Protect resume download
+    var resumeLink = document.getElementById('resume-link');
+    if (resumeLink) {
+      resumeLink.addEventListener('click', function (e) {
+        showPasscodeModal(e, resumeLink.getAttribute('href'));
+      });
+    }
 
     modalForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -226,18 +238,26 @@
 
     var time = 0;
 
-    // Color gradient: warm rose → accent purple → cool blue
+    // Color gradient: rose → pink → warm orange → yellow → green → turquoise → cool blue → indigo → purple → violet
     var gradientStops = [
-      [200, 140, 100],   // warm gold/rose
-      [124, 58, 237],    // accent purple (#7c3aed)
-      [80, 120, 235]     // cool blue
+      [200, 120, 150],   // rose
+      [230, 100, 150],   // pink
+      [210, 150, 100],   // warm orange
+      [220, 200, 80],    // yellow
+      [80, 200, 120],    // green
+      [60, 200, 180],    // turquoise
+      [80, 120, 235],    // cool blue
+      [100, 90, 236],    // indigo
+      [124, 58, 237],    // purple (#7c3aed)
+      [160, 50, 220]     // violet
     ];
 
     function lerpColor(t) {
-      // Map t (0–1) across 3 stops
-      var seg = t * 2; // 0–2 range across 3 stops
-      var idx = Math.min(Math.floor(seg), 1);
+      var seg = t * (gradientStops.length - 1);
+      var idx = Math.min(Math.floor(seg), gradientStops.length - 2);
       var frac = seg - idx;
+      // Smoothstep for smoother transitions
+      frac = frac * frac * (3 - 2 * frac);
       var a = gradientStops[idx];
       var b = gradientStops[idx + 1];
       return [
@@ -247,15 +267,79 @@
       ];
     }
 
+    // Interaction state
+    var isDragging = false;
+    var dragStartX = 0, dragStartY = 0;
+    var dragRotY = 0, dragRotX = 0;
+    var userRotY = 0, userRotX = 0;
+    var returnSpeed = 0.03;
+
+    var heroSection = canvas.parentElement;
+
+    heroSection.addEventListener('mousedown', function(e) {
+      var rect = heroSection.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width;
+      if (relX < 0.45) return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      dragRotY = userRotY;
+      dragRotX = userRotX;
+      heroSection.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      userRotY = dragRotY + (e.clientX - dragStartX) * 0.01;
+      userRotX = dragRotX + (e.clientY - dragStartY) * 0.01;
+    });
+
+    window.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        heroSection.style.cursor = '';
+      }
+    });
+
+    // Touch support
+    heroSection.addEventListener('touchstart', function(e) {
+      var rect = heroSection.getBoundingClientRect();
+      var relX = (e.touches[0].clientX - rect.left) / rect.width;
+      if (relX < 0.45) return;
+      isDragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartY = e.touches[0].clientY;
+      dragRotY = userRotY;
+      dragRotX = userRotX;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      userRotY = dragRotY + (e.touches[0].clientX - dragStartX) * 0.01;
+      userRotX = dragRotX + (e.touches[0].clientY - dragStartY) * 0.01;
+    }, { passive: true });
+
+    window.addEventListener('touchend', function() {
+      isDragging = false;
+    });
+
     function animate() {
       var w = canvas.width / dpr;
       var h = canvas.height / dpr;
       ctx.clearRect(0, 0, w, h);
 
-      time += 0.004;
-      var rotY = time * 0.8;
-      var rotX = Math.sin(time * 0.6) * 0.4 + Math.cos(time * 0.25) * 0.15;
-      var rotZ = Math.cos(time * 0.45) * 0.2 + Math.sin(time * 0.35) * 0.1;
+      time += 0.002;
+
+      // Ease user rotation back to zero when not dragging
+      if (!isDragging) {
+        userRotY *= (1 - returnSpeed);
+        userRotX *= (1 - returnSpeed);
+      }
+
+      var rotY = time * 0.4 + userRotY;
+      var rotX = Math.sin(time * 0.3) * 0.4 + Math.cos(time * 0.12) * 0.15 + userRotX;
+      var rotZ = Math.cos(time * 0.22) * 0.2 + Math.sin(time * 0.17) * 0.1;
 
       // Position sphere on the right
       var centerX = w * 0.72;
@@ -265,6 +349,8 @@
       var cosY = Math.cos(rotY), sinY = Math.sin(rotY);
       var cosX = Math.cos(rotX), sinX = Math.sin(rotX);
       var cosZ = Math.cos(rotZ), sinZ = Math.sin(rotZ);
+
+      var projected = [];
 
       for (var i = 0; i < spherePoints.length; i++) {
         var p = spherePoints[i];
@@ -315,11 +401,11 @@
         var shimmerBoost = Math.max(0, 1 - shimmerDist * 2.5) * 0.45;
 
         if (p.type === 'grid') {
-          var alpha = 0.06 + depth * 0.22 + shimmerBoost * 0.5;
-          var dotSize = 0.5;
+          var alpha = (0.06 + depth * 0.22 + shimmerBoost * 0.5) * 0.25;
+          var dotSize = 0.8;
         } else {
-          var alpha = 0.12 + depth * 0.55 + shimmerBoost;
-          var dotSize = 0.5;
+          var alpha = (0.12 + depth * 0.55 + shimmerBoost) * 0.3;
+          var dotSize = 0.8;
         }
 
         // Brighten color toward white near shimmer hotspot
@@ -331,6 +417,33 @@
         ctx.arc(screenX, screenY, dotSize * scale, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(' + sr + ',' + sg + ',' + sb + ',' + alpha + ')';
         ctx.fill();
+
+        // Store front-facing non-grid points for connection lines
+        if (p.type !== 'grid' && z2 > -0.2) {
+          projected.push({ sx: screenX, sy: screenY, depth: depth, col: col });
+        }
+      }
+
+      // Draw proximity-triggered connection lines
+      var maxDist = baseRadius * 0.35;
+      var maxDistSq = maxDist * maxDist;
+      for (var i = 0; i < projected.length; i++) {
+        for (var j = i + 1; j < projected.length; j++) {
+          var dx = projected[i].sx - projected[j].sx;
+          var dy = projected[i].sy - projected[j].sy;
+          var distSq = dx * dx + dy * dy;
+          if (distSq < maxDistSq) {
+            var dist = Math.sqrt(distSq);
+            var lineAlpha = (1 - dist / maxDist) * 0.08 * Math.min(projected[i].depth, projected[j].depth);
+            var mc = projected[i].depth > projected[j].depth ? projected[i].col : projected[j].col;
+            ctx.beginPath();
+            ctx.moveTo(projected[i].sx, projected[i].sy);
+            ctx.lineTo(projected[j].sx, projected[j].sy);
+            ctx.strokeStyle = 'rgba(' + mc[0] + ',' + mc[1] + ',' + mc[2] + ',' + lineAlpha + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
       }
 
       requestAnimationFrame(animate);

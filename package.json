@@ -1,0 +1,7 @@
+{
+  "name": "minjee-hahm-portfolio",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/regression.test.js"
+  }
+}
