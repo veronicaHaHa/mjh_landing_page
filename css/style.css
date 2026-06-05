@@ -398,39 +398,6 @@ button {
 }
 
 /* --- Sphere rotation hint --- */
-.sphere-hint {
-  position: absolute;
-  left: 72%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0;
-  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.38));
-  animation: sphereHintFade 2.5s ease-in-out 1s forwards;
-}
-
-.sphere-hint svg {
-  animation: sphereHintDrag 1.8s ease-in-out 1.3s both;
-}
-
-@keyframes sphereHintFade {
-  0%   { opacity: 0; }
-  16%  { opacity: 1; }
-  78%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes sphereHintDrag {
-  0%   { transform: translateX(0) rotate(0deg); }
-  30%  { transform: translateX(-20px) rotate(-8deg); }
-  70%  { transform: translateX(20px) rotate(8deg); }
-  100% { transform: translateX(0) rotate(0deg); }
-}
-
-@media (max-width: 767px) {
-  .sphere-hint { display: none; }
-}
 
 /* --- Section Shared --- */
 .section {

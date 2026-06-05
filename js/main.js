@@ -197,18 +197,6 @@
     });
   }
 
-  // --- Sphere rotation hint (first visit only) ---
-  var sphereHint = document.getElementById('sphere-hint');
-  if (sphereHint) {
-    if (localStorage.getItem('sphere-hint-shown')) {
-      sphereHint.remove();
-    } else {
-      localStorage.setItem('sphere-hint-shown', '1');
-      setTimeout(function () {
-        if (sphereHint.parentNode) sphereHint.parentNode.removeChild(sphereHint);
-      }, 3800);
-    }
-  }
 
   // --- Hero particle sphere animation ---
   var canvas = document.getElementById('hero-canvas');
