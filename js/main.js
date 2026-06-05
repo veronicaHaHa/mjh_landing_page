@@ -93,12 +93,14 @@
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // --- Passcode modal for protected case studies ---
+  // --- Passcode modal for selected work ---
   var PASSCODE_HASH = 'f24beb7de6d29ad33c807d73b2fefc452020c9294af5df445ef295e838bbfc0d';
   var modal = document.getElementById('passcode-modal');
   var modalForm = document.getElementById('passcode-form');
   var modalInput = document.getElementById('passcode-input');
   var modalError = document.getElementById('passcode-error');
+  var modalTitle = document.getElementById('modal-title');
+  var modalDesc = document.querySelector('.modal-desc');
   var modalClose = document.getElementById('modal-close');
   var pendingHref = null;
 
@@ -111,11 +113,23 @@
   }
 
   if (modal) {
-    // Intercept clicks on protected links
     function showPasscodeModal(e, href) {
-      if (sessionStorage.getItem('cs-unlocked') === '1') return;
+      if (href === 'work.html') {
+        // Work gate — already unlocked, navigate directly
+        if (sessionStorage.getItem('cs-unlocked') === '1') {
+          window.location.href = 'work.html';
+          return;
+        }
+      } else if (href) {
+        // Resume gate — already unlocked, let default download proceed
+        if (sessionStorage.getItem('resume-unlocked') === '1') {
+          return;
+        }
+      }
       e.preventDefault();
       pendingHref = href;
+      if (modalTitle) modalTitle.textContent = href === 'work.html' ? 'Selected Work' : 'Download Resume';
+      if (modalDesc) modalDesc.textContent = href === 'work.html' ? 'Enter the passcode to view case studies.' : 'Enter the passcode to download the resume.';
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       modalError.style.display = 'none';
@@ -123,10 +137,22 @@
       setTimeout(function () { modalInput.focus(); }, 100);
     }
 
-    document.querySelectorAll('a.project-card[href="case-study-meta.html"], a.project-card[href="case-study-metaverse.html"]').forEach(function (card) {
-      card.addEventListener('click', function (e) {
-        showPasscodeModal(e, card.getAttribute('href'));
+    // Hero "View Work" button
+    var heroViewWorkBtn = document.getElementById('hero-view-work');
+    if (heroViewWorkBtn) {
+      heroViewWorkBtn.addEventListener('click', function (e) {
+        showPasscodeModal(e, 'work.html');
       });
+    }
+
+    // Nav + footer "Work" links
+    ['nav-work-link', 'footer-work-link'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('click', function (e) {
+          showPasscodeModal(e, 'work.html');
+        });
+      }
     });
 
     // Protect resume download
@@ -141,10 +167,15 @@
       e.preventDefault();
       hashPasscode(modalInput.value).then(function (hash) {
         if (hash === PASSCODE_HASH) {
-          sessionStorage.setItem('cs-unlocked', '1');
           modal.classList.remove('is-open');
           modal.setAttribute('aria-hidden', 'true');
-          if (pendingHref) window.location.href = pendingHref;
+          if (pendingHref === 'work.html') {
+            sessionStorage.setItem('cs-unlocked', '1');
+            window.location.href = 'work.html';
+          } else {
+            sessionStorage.setItem('resume-unlocked', '1');
+            window.location.href = pendingHref;
+          }
         } else {
           modalError.style.display = 'block';
           modalInput.value = '';
@@ -164,6 +195,19 @@
         modal.setAttribute('aria-hidden', 'true');
       }
     });
+  }
+
+  // --- Sphere rotation hint (first visit only) ---
+  var sphereHint = document.getElementById('sphere-hint');
+  if (sphereHint) {
+    if (localStorage.getItem('sphere-hint-shown')) {
+      sphereHint.remove();
+    } else {
+      localStorage.setItem('sphere-hint-shown', '1');
+      setTimeout(function () {
+        if (sphereHint.parentNode) sphereHint.parentNode.removeChild(sphereHint);
+      }, 3800);
+    }
   }
 
   // --- Hero particle sphere animation ---

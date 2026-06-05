@@ -37,8 +37,8 @@
         <span></span>
       </button>
       <div class="nav-links" id="nav-links" role="menubar">
-        <a href="#work" role="menuitem">Work</a>
-        <a href="#about" role="menuitem">About</a>
+        <a href="#experience" role="menuitem">Experience</a>
+<a href="#about" role="menuitem">About</a>
         <a href="#footer" role="menuitem">Contact</a>
       </div>
     </div>
@@ -49,119 +49,104 @@
     <!-- Hero -->
     <section class="hero" id="hero" aria-label="Introduction">
       <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="sphere-hint" id="sphere-hint" aria-hidden="true">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rotation arc top-right with arrowhead -->
+          <path d="M36 10 A26 26 0 0 1 62 36" stroke="rgba(255,255,255,0.88)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M56 27 L62 36 L53 37" stroke="rgba(255,255,255,0.88)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Rotation arc bottom-left with arrowhead -->
+          <path d="M36 62 A26 26 0 0 1 10 36" stroke="rgba(255,255,255,0.88)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M16 45 L10 36 L19 35" stroke="rgba(255,255,255,0.88)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Pointer cursor hand: drawn back-to-front so palm overlaps knuckle bases -->
+          <!-- Middle, ring, pinky knuckle bumps (curled fingers peeking above palm) -->
+          <rect x="38" y="24" width="8" height="12" rx="4"   fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2"/>
+          <rect x="47" y="27" width="7" height="9"  rx="3.5" fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2"/>
+          <rect x="55" y="30" width="6" height="6"  rx="3"   fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2"/>
+          <!-- Index finger (extended, pointing up) -->
+          <rect x="27" y="12" width="10" height="26" rx="5"  fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2"/>
+          <!-- Palm (covers knuckle bases + finger base) -->
+          <rect x="18" y="32" width="46" height="26" rx="7"  fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2"/>
+          <!-- Thumb (left side, angled out) -->
+          <rect x="10" y="40" width="10" height="16" rx="5"  fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1.2" transform="rotate(-20 15 40)"/>
+        </svg>
+      </div>
       <div class="container hero-content">
         <div class="hero-label" aria-label="Product Designer">
           <span class="hero-label-text">
             <span class="role" aria-hidden="true">Product Designer</span>
             <span class="role" aria-hidden="true">Design Leader</span>
-            <span class="role" aria-hidden="true">Experience Architect</span>
-            <span class="role" aria-hidden="true">Design Mentor</span>
+<span class="role" aria-hidden="true">Design Mentor</span>
             <span class="role" aria-hidden="true">Strategic Thinker</span>
           </span>
         </div>
         <h1 class="hero-headline">Defining new ways to express and connect — for <span style="background-color:rgba(124,58,237,0.12); padding:2px 6px; border-radius:4px">billions of people</span>.</h1>
-        <p class="hero-credentials">Currently at Instagram, Meta <span>&middot;</span> Previously Grab, NAVER, SK Planet</p>
-        <a href="#work" class="hero-cta">View Work <span class="arrow">&darr;</span></a>
+        <p class="hero-credentials">Currently at Instagram <span>&middot;</span> Previously Grab, NAVER, SK Planet</p>
+        <div class="hero-actions">
+          <button type="button" class="hero-cta" id="hero-view-work">View Work <span class="arrow">↗</span></button>
+          <!-- <a href="img/MinJeeHahm_Resume_2026.pdf" class="resume-link" id="resume-link" download="MinJeeHahm_Resume_2026.pdf">Download Resume ↓</a> -->
+        </div>
       </div>
     </section>
 
-    <!-- Selected Work -->
-    <section class="section" id="work" aria-label="Selected work">
+    <!-- Work Experience -->
+    <section class="section" id="experience" aria-label="Work experience">
       <div class="container">
-        <div class="projects-grid fade-in-stagger">
+        <div class="experience-list">
 
-          <!-- Project 1: Instagram Metaverse (wide) -->
-          <a class="project-card project-card--wide" href="case-study-metaverse.html" aria-label="View Bridge to Metaverse case study">
-            <div class="project-card-image project-card-image--metaverse">
-              <img src="img/metaverse-hero.png" alt="Bridge to Metaverse — avatar pets, playful expressions, and virtual spaces on Instagram" loading="lazy">
+          <div class="experience-item fade-in">
+            <div class="experience-meta">
+              <span class="experience-period">2021 – Present</span>
             </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Product Vision &amp; Strategy &middot; Nov 2024 &mdash; Mar 2025</span>
-              <h2 class="project-card-title">Bridge to Metaverse Vision</h2>
-              <p class="project-card-desc">Envisioned Instagram as a gateway to the metaverse for teens — designing playful expressions, avatar pets, and immersive spaces that spark connection and self-exploration.</p>
-              <span class="project-card-cta">View case study &#8594;</span>
+            <div class="experience-body">
+              <h3 class="experience-company">Instagram</h3>
+              <span class="experience-role">Product Designer</span>
+              <p class="experience-desc">Designed creator tools and metaverse experiences for Instagram. Led AI-powered creator matchmaking and vision for immersive social experiences.</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Project 2: Meta (wide) -->
-          <a class="project-card project-card--wide" href="case-study-meta.html" aria-label="View Instagram Creator Marketplace case study">
-            <div class="project-card-image project-card-image--meta">
-              <img src="img/instagram-cm-hero.png?v=2" alt="Instagram Creator Marketplace — AI-powered creator card showing ad_sneaks with partnership insights" loading="lazy">
+          <div class="experience-item fade-in">
+            <div class="experience-meta">
+              <span class="experience-period">2018 – 2020</span>
             </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Product Strategy &middot; Aug 2023 &mdash; Jan 2024</span>
-              <h2 class="project-card-title">AI-Powered Creator Recommendations</h2>
-              <p class="project-card-desc">Transformed Instagram's Creator Marketplace from a passive search directory into an intelligent matchmaker using ML — driving ad conversions and onboarding major advertisers like TEMU, SHEIN, and Amazon.</p>
-              <span class="project-card-cta">View case study &#8594;</span>
+            <div class="experience-body">
+              <h3 class="experience-company">Grab</h3>
+              <span class="experience-role">Product Design Manager</span>
+              <p class="experience-desc">Led product design for parcel and courier delivery experiences across 8 countries in Southeast Asia.</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Project 3: Grab (wide) -->
-          <article class="project-card project-card--wide">
-            <div class="project-card-image project-card-image--grab">
-              <img src="img/grabexpress-hero-2.png" alt="GrabExpress delivery app showing Welcome to Delivery screen with delivery status tracking" loading="lazy">
+          <div class="experience-item fade-in">
+            <div class="experience-meta">
+              <span class="experience-period">2016 – 2017</span>
             </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Design Strategy &middot; 2018 &mdash; 2020</span>
-              <h2 class="project-card-title">Southeast Asia's Superapp</h2>
-              <p class="project-card-desc">Led product design for parcel and courier delivery experiences serving users across 8 countries in Southeast Asia. Improved customer and driver flows in one of the most complex mobile and web ecosystems at Grab.</p>
-              <span class="project-card-cta">Case study available on request &#8594;</span>
+            <div class="experience-body">
+              <h3 class="experience-company">Cashtree for Indonesia</h3>
+              <span class="experience-role">Head of Design</span>
+              <p class="experience-desc">Led a full rebrand and ground-up mobile redesign for a high-growth Indonesian startup, introducing gamification to drive engagement and retention.</p>
             </div>
-          </article>
+          </div>
 
-          <!-- Project 3: Cashtree (half) -->
-          <a class="project-card" href="https://www.behance.net/gallery/55477439/Cashtree" target="_blank" rel="noopener noreferrer" aria-label="View Cashtree project">
-            <div class="project-card-image project-card-image--cashtree">
-              <img src="img/cashtree-hero.webp" alt="Cashtree — Indonesia's leading reward app" loading="lazy">
+          <div class="experience-item fade-in">
+            <div class="experience-meta">
+              <span class="experience-period">2014 – 2016</span>
             </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Design Leadership &middot; 2015 &mdash; 2018</span>
-              <h3 class="project-card-title">Cashtree</h3>
-              <p class="project-card-desc">Head of Design for Indonesia's leading reward app. Led full rebrand, gamification strategy, and design team development.</p>
-              <span class="project-card-cta">View on Behance &#8594;</span>
+            <div class="experience-body">
+              <h3 class="experience-company">SK Planet</h3>
+              <span class="experience-role">Lead UI/UX Designer</span>
+              <p class="experience-desc">Sole designer on an incubation team, partnering closely with the CEO to build VOLO — a mobile app and travel blog.</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Project 4: VOLO (half) -->
-          <a class="project-card" href="https://www.behance.net/gallery/32293399/VOLO-Your-Travel-Journal" target="_blank" rel="noopener noreferrer" aria-label="View VOLO project">
-            <div class="project-card-image">
-              <img src="img/VOLO_hero_03.png" alt="VOLO travel journal shown on laptop and phone with mountain landscape" loading="lazy" style="background:#ffffff">
+          <div class="experience-item fade-in">
+            <div class="experience-meta">
+              <span class="experience-period">2011 – 2014</span>
             </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Product Design &middot; 2014 &mdash; 2015</span>
-              <h3 class="project-card-title">VOLO</h3>
-              <p class="project-card-desc">Led end-to-end UX design for a travel journal and sharing service. Created interactive prototypes and delivered production-quality design.</p>
-              <span class="project-card-cta">View on Behance &#8594;</span>
+            <div class="experience-body">
+              <h3 class="experience-company">NAVER</h3>
+              <span class="experience-role">UI Designer</span>
+              <p class="experience-desc">Core designer for BAND, a top-grossing all-in-one group communication platform, and Me2day, Korea's first social network.</p>
             </div>
-          </a>
-
-          <!-- Project 5: BAND / NAVER (half) — hidden for now
-          <a class="project-card" href="https://www.behance.net/VeronicaHaha" target="_blank" rel="noopener noreferrer" aria-label="View BAND project">
-            <div class="project-card-image">
-              <img src="img/prf_05.png" alt="BAND mobile app splash screen showing The Ultimate Mobile Community" loading="lazy">
-            </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Product Design &middot; 2012 &mdash; 2014</span>
-              <h3 class="project-card-title">BAND</h3>
-              <p class="project-card-desc">Core UX designer for NAVER's top-grossing mobile community platform. Shipped design across iOS, Android, and Web.</p>
-              <span class="project-card-cta">View on Behance &#8594;</span>
-            </div>
-          </a>
-          -->
-
-          <!-- Project 6: Me2day (half) — hidden for now
-          <a class="project-card" href="https://www.behance.net/VeronicaHaha" target="_blank" rel="noopener noreferrer" aria-label="View Me2day project">
-            <div class="project-card-image">
-              <img src="img/prf_02.png" alt="Me2day social network mobile app screens with posts and map views" loading="lazy">
-            </div>
-            <div class="project-card-content">
-              <span class="project-card-label">Product Design &middot; 2011 &mdash; 2012</span>
-              <h3 class="project-card-title">Me2day</h3>
-              <p class="project-card-desc">Designed Korea's first social network service. Led branding renewal and complex UX specifications across web and mobile.</p>
-              <span class="project-card-cta">View on Behance &#8594;</span>
-            </div>
-          </a>
-          -->
+          </div>
 
         </div>
       </div>
@@ -174,27 +159,12 @@
 
         <div class="about-content fade-in">
           <div class="about-text">
-            <p>I'm MinJee — a product designer with 15+ years of experience building digital products used by millions. I've designed all-in-one group communication app, BAND at NAVER, led the rebrand of Indonesia's top reward app, shaped parcel delivery experience at Grab, and now design creator and metaverse experiences for Instagram at Meta.</p>
-            <p>From Seoul to Jakarta to Singapore to the Bay Area — I'm a designer shaped by working across cultures, attuned to nuance, and energized by ambiguity and complexity at scale.</p>
+            <p>I'm a product designer with 15+ years of experience shaping products across multiple technology shifts, from mobile to spatial computing. I'm drawn to the spaces between ecosystems: where people, businesses, and technologies depend on each other but don't always speak the same language.</p>
+            <p>Most recently at Instagram, I led initiatives spanning creator monetization, advertiser-creator marketplaces, and emerging social experiences. My work helped creators showcase their value to brands, improved creator-brand matching by 30%, and shaped cross-platform strategy across Instagram and Reality Labs.</p>
+            <p>I enjoy bringing together teams across disciplines to shape shared visions and turn ambiguity into scalable experiences. I'm most interested in how technology can align the needs of diverse participants — and open up new forms of human connection.</p>
           </div>
           <div class="about-aside">
-            <!--
-            <div>
-              <h3 class="sr-only">Skills and disciplines</h3>
-              <ul class="skills-list">
-                <li>Product Design</li>
-                <li>Product Strategy</li>
-                <li>Design Strategy</li>
-                <li>Design Leadership</li>
-                <li>Design Systems</li>
-                <li>Prototyping</li>
-                <li>User Research</li>
-                <li>Visual Design</li>
-                <li>Cross-functional Collaboration</li>
-              </ul>
-            </div>
-            -->
-            <a href="img/2025_MinJeeHahm_Resume.pdf" class="resume-link" id="resume-link" download>Download Resume &#8595;</a>
+            <img src="img/Keynote speaker at Future Conference.jpeg" alt="MinJee Hahm — Keynote speaker at Future Conference" class="about-photo">
           </div>
         </div>
       </div>
@@ -210,9 +180,9 @@
       <div class="footer-columns fade-in">
         <div class="footer-column">
           <p class="footer-column-title">Navigation</p>
-          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
           <a href="#about">About</a>
-          <a href="img/2025_MinJeeHahm_Resume.pdf" download>Resume</a>
+          <a href="#footer">Contact</a>
         </div>
         <div class="footer-column">
           <p class="footer-column-title">Let's Chat</p>
@@ -222,6 +192,7 @@
         <div class="footer-column">
           <p class="footer-column-title">Find Me</p>
           <a href="https://www.behance.net/VeronicaHaha" target="_blank" rel="noopener noreferrer">Behance</a>
+          <a href="https://dribbble.com/minjeehahm" target="_blank" rel="noopener noreferrer">Dribbble</a>
         </div>
       </div>
 
@@ -235,8 +206,8 @@
   <div class="modal-overlay" id="passcode-modal" aria-hidden="true">
     <div class="modal" role="dialog" aria-labelledby="modal-title">
       <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-      <h2 class="modal-title" id="modal-title">Protected Case Study</h2>
-      <p class="modal-desc">Enter the passcode to view this project.</p>
+      <h2 class="modal-title" id="modal-title">Selected Work</h2>
+      <p class="modal-desc">Enter the passcode to view case studies.</p>
       <form id="passcode-form" autocomplete="off">
         <input type="password" id="passcode-input" class="modal-input" placeholder="Enter passcode">
         <button type="submit" class="modal-btn">Unlock</button>
