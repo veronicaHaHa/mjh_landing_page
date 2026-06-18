@@ -4,6 +4,47 @@
    Inspired by amylalai.com + michellegore.com
    ============================================================ */
 
+/* --- Self-hosted Aeonik (CoType Foundry, licensed) --- */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-font/web/aeonik-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-font/web/aeonik-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-font/web/aeonik-regular-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-font/web/aeonik-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-font/web/aeonik-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- Design Tokens --- */
 :root {
   /* Colors — Light Theme */
@@ -20,8 +61,8 @@
   --color-card:         #ffffff;
 
   /* Typography */
-  --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Aeonik', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Aeonik', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 
   /* Type Scale */
@@ -330,7 +371,7 @@ button {
 }
 
 .hero-headline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body);
   font-size: clamp(2.25rem, 5vw, 3.75rem);
   font-weight: 600;
   line-height: 1.1;
@@ -652,7 +693,7 @@ button {
 }
 
 .project-card-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--text-2xl);
   font-weight: 600;
   line-height: 1.2;
@@ -716,9 +757,10 @@ button {
 }
 
 .about-photo {
-  width: 100%;
+  width: 80%;
   border-radius: 28px;
   object-fit: cover;
+  display: block;
 }
 
 .skills-list {
@@ -791,7 +833,7 @@ button {
 }
 
 .footer-closing {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body);
   font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
   font-weight: 500;
   line-height: 1.2;
@@ -976,22 +1018,6 @@ button:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .project-card--wide {
-    grid-column: 1 / -1;
-  }
-
-  .project-card--wide .project-card-image {
-    aspect-ratio: 2.2 / 1;
-  }
-
-  .project-card--wide .project-card-content {
-    padding: var(--space-2xl);
-  }
-
-  .project-card--wide .project-card-title {
-    font-size: var(--text-3xl);
-  }
-
   .about-content {
     grid-template-columns: 1fr;
   }
@@ -1006,10 +1032,6 @@ button:focus-visible {
 
   .project-card-title {
     font-size: var(--text-3xl);
-  }
-
-  .project-card--wide .project-card-title {
-    font-size: var(--text-4xl);
   }
 }
 
@@ -1096,3 +1118,6 @@ button:focus-visible {
     align-items: flex-start;
   }
 }
+
+/* SCREENSHOT_OVERRIDE */
+.fade-in, .fade-in-stagger > * { opacity: 1 !important; transform: none !important; }
