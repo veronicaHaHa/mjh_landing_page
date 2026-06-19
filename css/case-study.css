@@ -120,7 +120,8 @@
   margin-top: var(--space-xl);
 }
 
-.cs-solution-image img {
+.cs-solution-image img,
+.cs-solution-image video {
   width: 100%;
   border-radius: 12px;
   display: block;
