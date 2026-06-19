@@ -371,8 +371,8 @@ button {
 }
 
 .hero-headline {
-  font-family: var(--font-body);
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
   font-weight: 600;
   line-height: 1.1;
   color: #1a1a2e;

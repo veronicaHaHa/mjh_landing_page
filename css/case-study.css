@@ -441,7 +441,8 @@
   font-family: var(--font-body);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
+  padding-bottom: 0.08em;
   background: linear-gradient(45deg, #FF5C00 0%, #FF0169 30%, #D300C5 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -462,7 +463,7 @@
 
 /* --- Section --- */
 .cs-section {
-  padding: var(--space-2xl) 0;
+  padding: 5rem 0;
 }
 
 .cs-page--meta .cs-section {
@@ -813,6 +814,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.mv-challenge-card .cs-problem-thumb {
+  flex: 1;
+  max-width: 50%;
+  margin-bottom: 0;
 }
 
 .mv-modal-visual.has-image {
@@ -1867,7 +1874,7 @@
 .mv-impact-app-icon {
   position: absolute;
   top: 50%;
-  left: -24px;
+  left: -30px;
   transform: translateY(-50%) rotate(-22deg);
   width: 48px;
   height: 48px;
@@ -2097,47 +2104,27 @@
 }
 
 /* --- Metaverse Exploration Horizontal Scroll --- */
-.mv-explore-scroll {
-  display: flex;
-  gap: var(--space-lg);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.mv-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--space-xl);
+  row-gap: var(--space-2xl);
   margin-top: var(--space-2xl);
-  padding: 0 0 var(--space-lg);
-  margin-left: 0;
-  margin-right: 0;
-  scrollbar-width: none;
-}
-
-.mv-explore-scroll::-webkit-scrollbar {
-  display: none;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mv-explore-card {
-  flex: 0 0 416px;
-  scroll-snap-align: start;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-}
-
-.mv-explore-card:first-child {
-  margin-left: 0;
-}
-
-.mv-explore-card:last-child {
-  margin-right: var(--space-lg);
 }
 
 .mv-explore-media {
   width: 100%;
   overflow: hidden;
   background: #f0f0f0;
-  border-radius: 28px 28px 0 0;
+  border-radius: 28px;
 }
 
 .mv-explore-media img,
@@ -2147,7 +2134,7 @@
 }
 
 .mv-explore-info {
-  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  padding: var(--space-md) 4px 0;
   flex: 1;
 }
 
@@ -2174,15 +2161,21 @@
   color: var(--color-text-light);
 }
 
+@media (max-width: 900px) {
+  .mv-explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
-  .mv-explore-card {
-    flex: 0 0 320px;
+  .mv-explore-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 /* --- Full-width Image Sections --- */
 .cs-image-section {
-  padding-top: var(--space-2xl);
+  padding-top: 5rem;
 }
 
 .cs-image-section .cs-section-header {
@@ -2535,6 +2528,10 @@
   }
 
   .cs-problem-content {
+    max-width: 100%;
+  }
+
+  .mv-challenge-card .cs-problem-thumb {
     max-width: 100%;
   }
 
