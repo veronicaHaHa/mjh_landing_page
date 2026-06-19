@@ -88,7 +88,7 @@
             <img class="cs-context-bg" src="img/Old_creator card_grid.png" alt="Old creator marketplace creator card grid" loading="lazy">
           </div>
           <div class="cs-context-video">
-            <video src="img/What brands look for.mp4" controls playsinline preload="metadata" aria-label="What brands look for in creators on Instagram's creator marketplace"></video>
+            <video src="img/What brands look for.mp4" controls muted playsinline preload="metadata" aria-label="What brands look for in creators on Instagram's creator marketplace"></video>
           </div>
         </div>
       </div>
@@ -102,14 +102,14 @@
           <h2 class="cs-section-title">&ldquo;Look and feel&rdquo; metrics for finding creators</h2>
         </div>
         <div class="cs-body">
-          <p>Instagram's creator marketplace connects brands with creators for partnerships. Major advertisers like Nike rely on niche creators to drive traction through content that is both authentic and ad performant. But the marketplace was operating as a passive directory — <strong>77% of searches resulted in no match</strong>, creator agencies typically spent <strong>1.5 months</strong> sourcing creators, and brands had to do all the heavy lifting to find the right fit.</p>
+          <p>In paid marketing, brands rely on niche creators to produce content that feels authentic and drives ad performance. However, the marketplace operated as a passive directory&mdash;<strong>77% of searches returned no matches</strong>, agencies spent up to <strong>1.5 months</strong> sourcing creators, and brands were left doing the heavy lifting to find the right creators.</p>
         </div>
         <div class="cs-problems">
           <div class="cs-problem">
             <div class="cs-problem-content">
               <span class="cs-problem-icon">1</span>
               <h3>Content Buried in the Layout</h3>
-              <p>For brands, content quality matters more than who's posting it — it's the strongest signal of whether a partnership ad will convert. But the creator card was built around creator stats like follower count, location, and category, with no way to preview the content itself, leaving brands unable to evaluate what actually drives results.</p>
+              <p>For paid marketing, content quality matters. But the creator card was built around creator stats like follower count, location, and category, with no way to preview the content itself, leaving brands unable to evaluate what actually drives results.</p>
             </div>
             <div class="cs-problem-image">
               <img src="img/Old_Creator Card.png" alt="Old creator card design showing limited creator discovery experience" loading="lazy">
@@ -173,7 +173,7 @@
         <div class="cs-process-heading-group">
           <div class="cs-section-header">
             <span class="cs-section-label">Process</span>
-            <h2 class="cs-section-title">Prioritizing mid-funnel</h2>
+            <h2 class="cs-section-title">Prioritizing the mid-funnel</h2>
           </div>
           <div class="cs-body">
             <p id="cs-process-description">From 50+ ideas, impact sizing surfaced four high-potential concepts. In partnership with leadership, we focused on content and creator sourcing&mdash;the highest-leverage point in the mid-funnel to improve match quality and drive downstream conversion.</p>
@@ -230,16 +230,16 @@
             <tbody>
               <tr class="cs-signals-table-highlight">
                 <td>1</td>
-                <td>&num; of creatives that are PA/BC</td>
+                <td>&num; of creatives that are branded content</td>
                 <td>Medium</td>
                 <td>High</td>
                 <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_01.png" alt="Text variant example 1" loading="lazy"></td>
               </tr>
               <tr class="cs-signals-table-highlight">
                 <td>2</td>
-                <td>&num; of times a creator has mentioned the brand</td>
+                <td>&num; of creatives that are partnership ads</td>
+                <td>Medium</td>
                 <td>High</td>
-                <td>Low</td>
                 <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_02.png" alt="Text variant example 2" loading="lazy"></td>
               </tr>
               <tr class="cs-signals-table-highlight">
@@ -251,17 +251,17 @@
               </tr>
               <tr class="cs-signals-table-highlight">
                 <td>4</td>
-                <td>&num; of times a creator has tagged the product of the brand</td>
+                <td>Worked with similar brands</td>
                 <td>Medium</td>
                 <td>Low/Medium</td>
-                <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_05.png" alt="Text variant example 4" loading="lazy"></td>
+                <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_06.png" alt="Text variant example 4" loading="lazy"></td>
               </tr>
               <tr class="cs-signals-table-highlight">
                 <td>5</td>
                 <td>&num; of affiliate content a creator has for the brand</td>
                 <td>Low</td>
                 <td>High</td>
-                <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_06.png" alt="Text variant example 5" loading="lazy"></td>
+                <td><img class="cs-signals-table-img" src="img/Creator card explorations/text_var_05.png" alt="Text variant example 5" loading="lazy"></td>
               </tr>
               <tr class="cs-signals-table-highlight cs-signals-table-last-visible">
                 <td>6</td>
@@ -441,21 +441,15 @@
     var yearEl = document.querySelector('.footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // On the first scroll, snap the hero title to the top instead of landing mid-hero
-    var heroTitle = document.querySelector('.cs-hero-title');
-    if (heroTitle) {
-      window.addEventListener('scroll', function() {
-        var target = heroTitle.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: target, behavior: 'smooth' });
-      }, { passive: true, once: true });
-    }
-
-    // Toggle nav color when scrolled past hero
+    // Show the nav's blurred background once scrolled past the hero IMAGE
+    // (transparent/white over the image, solid background everywhere after).
     var hero = document.querySelector('.cs-hero');
+    var heroCover = document.querySelector('.cs-hero-cover');
+    var navTrigger = heroCover || hero;
     var nav = document.querySelector('.case-study-nav');
-    if (hero && nav) {
+    if (navTrigger && nav) {
       window.addEventListener('scroll', function() {
-        if (window.scrollY >= hero.offsetHeight) {
+        if (window.scrollY >= navTrigger.offsetHeight - 1) {
           nav.classList.add('nav-past-hero');
         } else {
           nav.classList.remove('nav-past-hero');
@@ -490,12 +484,21 @@
       }, { threshold: 0.3 }).observe(results);
     }
 
-    // Context section — fade background to dark on scroll into view
+    // Context section — fade background to dark and autoplay video on scroll into view
     var contextSection = document.querySelector('.cs-section--context');
     if (contextSection) {
+      var contextVideo = contextSection.querySelector('video');
       new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           contextSection.classList.toggle('is-dark', entry.isIntersecting);
+          if (contextVideo) {
+            if (entry.isIntersecting) {
+              var p = contextVideo.play();
+              if (p && p.catch) p.catch(function() {});
+            } else {
+              contextVideo.pause();
+            }
+          }
         });
       }, { threshold: 0.35 }).observe(contextSection);
     }
@@ -571,20 +574,27 @@
         var progress = (NAV_CLEARANCE - descBottom) / fadeRange;
         progress = Math.max(0, Math.min(1, progress));
         var exitP = Math.min(1, progress / 0.6);
-        var collapseP = progress;
 
-        ideaCards.forEach(function(card, i) {
-          var col = i % 2 === 0 ? -1 : 1;
-          var row = card.classList.contains('cs-idea-card--top') ? -1 : 1;
-          var x = col * exitP * SPREAD_X;
-          var y = row * exitP * SPREAD_Y;
-          card.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        // Cards fade in place (no spreading).
+        ideaCards.forEach(function(card) {
           card.style.opacity = String(1 - exitP);
         });
 
-        ideasCollapse.style.height = (naturalHeight * (1 - collapseP)) + 'px';
+        // Collapse the cards' empty space over a scroll distance equal to their
+        // own height, so the height shrinks at the same rate you scroll — keeping
+        // the ML section visually pinned as the cards collapse above it (no "stuck"
+        // feeling, no jump). Purely scroll-driven, so it's fully reversible and
+        // never oscillates (the description above doesn't move when cards collapse).
+        var fadeDoneDescBottom = NAV_CLEARANCE - 0.6 * fadeRange;
+        var collapseP = naturalHeight > 0 ? (fadeDoneDescBottom - descBottom) / naturalHeight : 0;
+        collapseP = Math.max(0, Math.min(1, collapseP));
+        if (collapseP < 0.001) {
+          ideasCollapse.style.height = '';
+        } else {
+          ideasCollapse.style.height = (naturalHeight * (1 - collapseP)) + 'px';
+        }
 
-        var shouldReveal = progress > 0.02;
+        var shouldReveal = collapseP > 0;
         if (shouldReveal !== revealShown) {
           revealShown = shouldReveal;
           if (signalsReveal) signalsReveal.classList.toggle('is-visible', shouldReveal);
@@ -596,6 +606,7 @@
         update();
       });
       window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('load', function() { measure(); update(); });
       measure();
       update();
 
@@ -606,6 +617,19 @@
           update();
         }).observe(ideasGrid);
       }
+    }
+
+    // Stagger the signals table rows in when the table scrolls into view
+    var signalsTableWrap = document.querySelector('.cs-signals-table-wrap');
+    if (signalsTableWrap) {
+      new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 }).observe(signalsTableWrap);
     }
 
     // Back to top button

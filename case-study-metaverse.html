@@ -492,12 +492,15 @@
     var yearEl = document.querySelector('.footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Toggle nav color when scrolled past hero
+    // Show the nav's blurred background once scrolled past the hero IMAGE
+    // (transparent/white over the image, solid background everywhere after).
     var hero = document.querySelector('.cs-hero');
+    var heroCover = document.querySelector('.cs-hero-cover');
+    var navTrigger = heroCover || hero;
     var nav = document.querySelector('.case-study-nav');
-    if (hero && nav) {
+    if (navTrigger && nav) {
       window.addEventListener('scroll', function() {
-        if (window.scrollY >= hero.offsetHeight) {
+        if (window.scrollY >= navTrigger.offsetHeight - 1) {
           nav.classList.add('nav-past-hero');
         } else {
           nav.classList.remove('nav-past-hero');

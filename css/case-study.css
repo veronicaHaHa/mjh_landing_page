@@ -14,6 +14,7 @@
   background-color: transparent;
   backdrop-filter: none;
   box-shadow: none;
+  padding: 1rem 0;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -167,9 +168,9 @@
 
 .cs-context-gradient {
   position: absolute;
-  left: -22%;
-  bottom: -18%;
-  width: 75%;
+  left: -40%;
+  top: -56%;
+  width: 120%;
   z-index: 0;
   pointer-events: none;
   user-select: none;
@@ -1342,6 +1343,7 @@
   border-collapse: collapse;
   font-family: var(--font-body);
   font-size: var(--text-sm);
+  text-align: left;
 }
 
 .cs-signals-table th {
@@ -1356,13 +1358,11 @@
 }
 
 .cs-signals-table td {
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   border-bottom: 1px solid #f0f0f0;
   color: #4b5563;
 }
 
-.cs-signals-table td:nth-child(1),
-.cs-signals-table th:nth-child(1),
 .cs-signals-table td:nth-child(3),
 .cs-signals-table th:nth-child(3),
 .cs-signals-table td:nth-child(4),
@@ -1370,6 +1370,24 @@
 .cs-signals-table td:nth-child(5),
 .cs-signals-table th:nth-child(5) {
   text-align: center;
+}
+
+/* Narrow the Feature column so the rating columns sit closer in */
+.cs-signals-table th:nth-child(2),
+.cs-signals-table td:nth-child(2) {
+  width: 38%;
+}
+
+/* Give the Coverage column a touch more room */
+.cs-signals-table th:nth-child(3),
+.cs-signals-table td:nth-child(3) {
+  width: 14%;
+}
+
+/* Trim the Content quality column a little */
+.cs-signals-table th:nth-child(4),
+.cs-signals-table td:nth-child(4) {
+  width: 12%;
 }
 
 .cs-signals-table-highlight td {
@@ -1389,6 +1407,25 @@
   border-bottom: none;
 }
 
+/* Staggered row-by-row reveal when the signals table scrolls into view */
+.cs-signals-table tbody tr:not(.cs-signals-table-hidden) {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.cs-signals-table-wrap.is-revealed tbody tr:not(.cs-signals-table-hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(1) { transition-delay: 0.10s; }
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(2) { transition-delay: 0.22s; }
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(3) { transition-delay: 0.34s; }
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(4) { transition-delay: 0.46s; }
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(5) { transition-delay: 0.58s; }
+.cs-signals-table-wrap.is-revealed tbody tr:nth-child(6) { transition-delay: 0.70s; }
+
 .cs-signals-table-img {
   display: block;
   width: 170px;
@@ -1397,8 +1434,8 @@
 }
 
 .cs-signals-table td:has(.cs-signals-table-img) {
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-md);
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
 }
 
 .cs-idea-card h3 {
