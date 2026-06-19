@@ -127,6 +127,86 @@
   display: block;
 }
 
+/* Context section — grid image with overlapping portrait video */
+.cs-section--context {
+  background: #ffffff;
+  transition: background-color 0.8s var(--ease-out);
+}
+
+.cs-section--context.is-dark {
+  background: #1a1a2e;
+}
+
+.cs-section--context .cs-section-title {
+  transition: color 0.8s var(--ease-out);
+}
+
+.cs-section--context.is-dark .cs-section-title {
+  color: #ffffff;
+}
+
+.cs-section--context .cs-section-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cs-context-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1060px;
+  margin: 5rem auto 0;
+}
+
+.cs-context-grid-wrap {
+  position: relative;
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.cs-context-gradient {
+  position: absolute;
+  left: -22%;
+  bottom: -18%;
+  width: 75%;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cs-context-bg {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-context-video {
+  width: 30%;
+  margin-left: -4%;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-context-video video {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .cs-context-bg {
+    width: 64%;
+  }
+
+  .cs-context-video {
+    width: 30%;
+  }
+}
+
 .cs-workflow-visual {
   position: relative;
   max-width: 75%;
@@ -468,6 +548,18 @@
 
 .cs-page--meta .cs-section {
   padding: 5rem 0;
+}
+
+.cs-page--meta .cs-section-title {
+  text-transform: lowercase;
+}
+
+.cs-page--meta .cs-section-title::first-letter {
+  text-transform: uppercase;
+}
+
+.cs-keep-upper {
+  text-transform: uppercase;
 }
 
 .cs-page--meta .cs-results-label,
