@@ -372,11 +372,11 @@ button {
 
 .hero-headline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-size: clamp(2.5rem, 5.25vw, 4.25rem);
   font-weight: 600;
   line-height: 1.1;
   color: #1a1a2e;
-  max-width: 600px;
+  max-width: 760px;
   margin-bottom: var(--space-lg);
   opacity: 0;
   transform: translateY(20px);
@@ -459,7 +459,7 @@ button {
 }
 
 #about {
-  padding: var(--space-2xl) 0 var(--space-2xl);
+  padding: 5rem 0;
 }
 
 /* --- Work Experience Section --- */
@@ -709,6 +709,10 @@ button {
   color: #4b5563;
   margin-bottom: var(--space-lg);
   max-width: 560px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-card-cta {
@@ -726,6 +730,15 @@ button {
 
 .project-card:hover .project-card-cta {
   gap: var(--space-sm);
+}
+
+/* Muted, non-interactive CTA for case studies that aren't ready */
+.project-card-cta--soon {
+  color: var(--color-muted);
+}
+
+.project-card:hover .project-card-cta--soon {
+  gap: var(--space-xs);
 }
 
 /* --- About Section --- */
@@ -761,6 +774,66 @@ button {
   border-radius: 28px;
   object-fit: cover;
   display: block;
+}
+
+/* Flippable profile card */
+.about-flip {
+  width: 80%;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.about-flip-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3931 / 4589;
+  transform-style: preserve-3d;
+  transform: rotate(-3deg);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-flip:hover .about-flip-inner {
+  transform: rotate(-3deg) translateY(-6px);
+}
+
+.about-flip.is-flipped .about-flip-inner {
+  transform: rotateY(180deg) rotate(-3deg);
+}
+
+.about-flip.is-flipped:hover .about-flip-inner {
+  transform: rotateY(180deg) rotate(-3deg) translateY(-6px);
+}
+
+.about-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(17, 12, 46, 0.18);
+  transition: box-shadow 0.5s ease;
+}
+
+.about-flip:hover .about-flip-face {
+  box-shadow: 0 28px 56px rgba(17, 12, 46, 0.24);
+}
+
+.about-flip-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-flip-back {
+  transform: rotateY(180deg);
+}
+
+.about-flip:focus-visible {
+  outline: 2px solid var(--color-accent, #7c3aed);
+  outline-offset: 4px;
+  border-radius: 28px;
 }
 
 .skills-list {

@@ -354,9 +354,9 @@
       var rotZ = Math.cos(time * 0.22) * 0.2 + Math.sin(time * 0.17) * 0.1;
 
       // Position sphere on the right
-      var centerX = w * 0.72;
+      var centerX = w * 0.66;
       var centerY = h * 0.5;
-      var baseRadius = Math.min(w, h) * 0.28;
+      var baseRadius = Math.min(w, h) * 0.34;
 
       var cosY = Math.cos(rotY), sinY = Math.sin(rotY);
       var cosX = Math.cos(rotX), sinX = Math.sin(rotX);
@@ -495,6 +495,22 @@
     }
 
     animate();
+  }
+
+  // --- Flippable profile card (About) ---
+  var aboutFlip = document.getElementById('about-flip');
+  if (aboutFlip) {
+    function toggleFlip() {
+      var flipped = aboutFlip.classList.toggle('is-flipped');
+      aboutFlip.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    }
+    aboutFlip.addEventListener('click', toggleFlip);
+    aboutFlip.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        toggleFlip();
+      }
+    });
   }
 
 })();
