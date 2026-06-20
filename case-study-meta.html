@@ -7,10 +7,7 @@
   <meta name="description" content="Case study: AI-Powered Creator Recommendations for Instagram creator marketplace by MinJee Hahm.">
   <meta name="author" content="MinJee Hahm">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <!-- Fonts: Aeonik is self-hosted via @font-face in css/style.css -->
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico">
@@ -99,7 +96,7 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Challenge</span>
-          <h2 class="cs-section-title">&ldquo;Look and feel&rdquo; metrics for finding creators</h2>
+          <h2 class="cs-section-title">Creator discovery was slow and subjective &mdash; it was hard to evaluate which creators truly aligned with a brand&rsquo;s values.</h2>
         </div>
         <div class="cs-body">
           <p>In paid marketing, brands rely on niche creators to produce content that feels authentic and drives ad performance. However, the marketplace operated as a passive directory&mdash;<strong>77% of searches returned no matches</strong>, agencies spent up to <strong>1.5 months</strong> sourcing creators, and brands were left doing the heavy lifting to find the right creators.</p>
@@ -139,12 +136,12 @@
       </div>
     </section>
 
-    <!-- 4. Strategy & Role -->
+    <!-- 4. Hypothesis -->
     <section class="cs-section cs-section--dark">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Strategy</span>
-          <h2 class="cs-section-title">From passive directory to intelligent matchmaker</h2>
+          <span class="cs-section-label">Hypothesis</span>
+          <h2 class="cs-section-title">Leveraging Meta&rsquo;s rich data to power ad-optimized, <span class="cs-keep-upper">ML</span>-driven recommendations would increase brand-creator matches.</h2>
         </div>
         <div class="cs-body">
           <p>I identified a critical opportunity: leverage Meta's ML capabilities to intelligently surface creators whose content would drive the highest ad conversions — directly fueling creator marketplace's strategic pivot toward partnership ads, Instagram's fastest-growing ad format.</p>
@@ -163,20 +160,67 @@
             <line id="workflow-line-path-2" x1="54.1" y1="51.6" x2="86.6" y2="51.9" stroke="url(#workflowLineGradient)" stroke-width="0.4" stroke-linecap="round"/>
           </svg>
         </div>
-        <p class="cs-image-caption cs-bubbles-caption">Hypothesis: leveraging Meta's rich data to power ad-optimized, ML-driven recommendations would increase usage of Partnership Ads.</p>
       </div>
     </section>
 
-    <!-- 5. Process -->
+    <!-- 5. Principles -->
+    <section class="cs-section">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Approach</span>
+          <h2 class="cs-section-title cs-hidden">Guiding principles rooted in brands&rsquo; core needs</h2>
+        </div>
+        <!-- Principle 01 — feature card -->
+        <div class="cs-principle-feature">
+          <div class="cs-principle-feature-text">
+            <span class="cs-principle-feature-num">01</span>
+            <h3>Content-first discovery</h3>
+            <p>Use ML to surface creators whose content and audience align with brand campaign goals — not just follower count.</p>
+          </div>
+          <div class="cs-principle-feature-visual">
+            <img src="img/New_Creator card.png" alt="Annotated creator card highlighting content type, main content, creator handle, supporting text, and insights" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Principle 02 — feature card -->
+        <div class="cs-principle-feature cs-principle-feature--reverse">
+          <div class="cs-principle-feature-text">
+            <span class="cs-principle-feature-num">02</span>
+            <h3>Intelligent matchmaking</h3>
+            <p>Let brands explore creator content, engagement data, and partnership history before committing — all in one place.</p>
+          </div>
+          <div class="cs-principle-feature-visual">
+            <img src="img/Creator card explorations/single_05.png" alt="Creator card surfacing engagement data and partnership history for matchmaking" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Principle 03 — feature card -->
+        <div class="cs-principle-feature">
+          <div class="cs-principle-feature-text">
+            <span class="cs-principle-feature-num">03</span>
+            <h3>Ad-optimized recommendations</h3>
+            <p>Surface creators and content that are most likely to convert when amplified as partnership ads.</p>
+          </div>
+          <div class="cs-principle-feature-visual">
+            <img src="img/Creator card explorations/single_06.png" alt="Creator card surfacing ad-optimized signals and conversion metrics" loading="lazy">
+          </div>
+        </div>
+        <div class="cs-body cs-body--bridge">
+          <p>With these principles as a north star, I led a cross-functional brainstorm &mdash; translating each into concrete product concepts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Process -->
     <section class="cs-section">
       <div class="container">
         <div class="cs-process-heading-group">
           <div class="cs-section-header">
             <span class="cs-section-label">Process</span>
-            <h2 class="cs-section-title">Prioritizing the mid-funnel</h2>
+            <h2 class="cs-section-title">Aligning leadership around high-impact opportunities</h2>
           </div>
           <div class="cs-body">
-            <p id="cs-process-description">From 50+ ideas, impact sizing surfaced four high-potential concepts. In partnership with leadership, we focused on content and creator sourcing&mdash;the highest-leverage point in the mid-funnel to improve match quality and drive downstream conversion.</p>
+            <p id="cs-process-description">From 50+ ideas, four high-potential concepts emerged. I aligned leadership on matchmaking — the highest-leverage moment in the mid-funnel — laying the foundation for an ML-driven creator marketplace.</p>
           </div>
         </div>
         <div class="cs-ideas-collapse" id="cs-ideas-collapse">
@@ -308,30 +352,6 @@
             </tbody>
           </table>
         </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cs-section cs-section--alt cs-image-section">
-      <div class="container">
-        <div class="cs-section-header cs-section-header--creator-cards">
-          <span class="cs-section-label">Design</span>
-          <h2 class="cs-section-title">Creator Card Explorations</h2>
-        </div>
-        <div class="cs-image-full cs-creator-gif-wrap">
-          <img class="cs-creator-gif-bg" src="img/Creator card explorations/creator_card_explorations_bg.png" alt="" loading="lazy">
-          <img class="cs-img-padded cs-img-padded--half cs-creator-gif-fg" src="img/Creator card explorations/creator_card_explorations.gif" alt="Creator card design explorations" loading="lazy">
-        </div>
-        <div class="cs-image-full">
-          <img class="cs-img-padded cs-img-padded--large" src="img/Creator card pros_and_cons.png" alt="Creator card design pros and cons" loading="lazy">
-        </div>
-        <div class="cs-creator-card-row cs-hidden">
-          <div class="cs-image-full">
-            <img class="cs-img-padded" src="img/New_Creator card.png" alt="Creator card design iterations — multiple layout explorations for ad_sneaks profile card" loading="lazy">
-          </div>
-          <div class="cs-image-full">
-            <img class="cs-img-padded" src="img/Creator card supporting text variants.png" alt="Creator card supporting text variants" loading="lazy">
-          </div>
         </div>
       </div>
     </section>
