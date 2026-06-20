@@ -210,7 +210,7 @@
 
 .cs-workflow-visual {
   position: relative;
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto var(--space-sm);
   padding-top: 2rem;
 }
@@ -1525,7 +1525,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
 }
 
 .cs-principle-feature-visual > img {
@@ -1621,11 +1621,10 @@
 
 /* Editable creator card (principle 01) */
 .creator-card {
-  width: 270px;
+  width: 232px;
   max-width: 82%;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial, sans-serif;
@@ -1648,8 +1647,8 @@
 
 .creator-card-reel {
   position: absolute;
-  top: 9px;
-  right: 9px;
+  top: 16px;
+  right: 16px;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
 }
 
@@ -1701,14 +1700,21 @@
 .creator-card-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 2px;
+  padding: 16px 2px;
 }
 
 .creator-card-action {
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.creator-card-action img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: block;
 }
 
 .ai-search {
