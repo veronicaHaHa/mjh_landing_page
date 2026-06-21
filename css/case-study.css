@@ -168,8 +168,8 @@
 
 .cs-context-gradient {
   position: absolute;
-  left: -40%;
-  top: -56%;
+  left: -35%;
+  top: -50%;
   width: 120%;
   z-index: 0;
   pointer-events: none;
@@ -589,7 +589,7 @@
 }
 
 .cs-section--dark .cs-section-label {
-  color: var(--color-accent-hover);
+  color: #a78bfa;
 }
 
 .cs-section--dark .cs-section-title {
@@ -647,16 +647,6 @@
 
 .cs-body--spaced {
   margin-top: var(--space-3xl);
-}
-
-.cs-body--bridge {
-  margin-top: var(--space-2xl);
-}
-
-.cs-body--bridge p {
-  font-weight: 500;
-  color: #1a1a2e;
-  max-width: 760px;
 }
 
 .cs-inline-link {
@@ -1263,215 +1253,8 @@
   color: #6b7280;
 }
 
-.cs-process-heading-group {
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-xl);
-}
-
-.cs-ideas-collapse {
-  overflow: hidden;
-}
-
-.cs-signals-heading {
-  margin-bottom: var(--space-sm);
-}
-
-.cs-ideas-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--space-lg);
-  row-gap: var(--space-3xl);
-}
-
-.cs-idea-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  text-align: center;
-}
-
-.cs-idea-card--top,
-.cs-idea-card--bottom {
-  will-change: transform, opacity;
-}
-
-.cs-signals-reveal {
-  opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-
-.cs-signals-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  .cs-ideas-collapse {
-    height: auto !important;
-    overflow: visible;
-  }
-
-  .cs-idea-card--top,
-  .cs-idea-card--bottom {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-
-.cs-idea-image {
-  margin-bottom: var(--space-md);
-  border-radius: 8px;
-}
-
-.cs-idea-card h3 {
-  margin-top: auto;
-}
-
-.cs-idea-image img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-}
-
-.cs-ideas-grid .cs-idea-image img {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.cs-ideas-grid .cs-idea-image img.cs-idea-image--small {
-  width: 70%;
-}
-
-.cs-signals-table-wrap {
-  margin-top: var(--space-xl);
-  overflow-x: auto;
-}
-
-.cs-signals-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  text-align: left;
-}
-
-.cs-signals-table th {
-  text-align: left;
-  font-weight: 500;
-  color: #6b7280;
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: var(--space-sm) var(--space-md);
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.cs-signals-table td {
-  padding: var(--space-xs) var(--space-md);
-  border-bottom: 1px solid #f0f0f0;
-  color: #4b5563;
-}
-
-.cs-signals-table td:nth-child(3),
-.cs-signals-table th:nth-child(3),
-.cs-signals-table td:nth-child(4),
-.cs-signals-table th:nth-child(4),
-.cs-signals-table td:nth-child(5),
-.cs-signals-table th:nth-child(5) {
-  text-align: center;
-}
-
-/* Narrow the Feature column so the rating columns sit closer in */
-.cs-signals-table th:nth-child(2),
-.cs-signals-table td:nth-child(2) {
-  width: 38%;
-}
-
-/* Give the Coverage column a touch more room */
-.cs-signals-table th:nth-child(3),
-.cs-signals-table td:nth-child(3) {
-  width: 14%;
-}
-
-/* Trim the Content quality column a little */
-.cs-signals-table th:nth-child(4),
-.cs-signals-table td:nth-child(4) {
-  width: 12%;
-}
-
-.cs-signals-table-highlight td {
-  color: #1a1a2e;
-  font-weight: 700;
-}
-
-.cs-signals-table-hidden {
-  display: none;
-}
-
 .cs-hidden {
   display: none !important;
-}
-
-.cs-signals-table-last-visible td {
-  border-bottom: none;
-}
-
-/* Staggered row-by-row reveal when the signals table scrolls into view */
-.cs-signals-table tbody tr:not(.cs-signals-table-hidden) {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-}
-
-.cs-signals-table-wrap.is-revealed tbody tr:not(.cs-signals-table-hidden) {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(1) { transition-delay: 0.15s; }
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(2) { transition-delay: 0.40s; }
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(3) { transition-delay: 0.65s; }
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(4) { transition-delay: 0.90s; }
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(5) { transition-delay: 1.15s; }
-.cs-signals-table-wrap.is-revealed tbody tr:nth-child(6) { transition-delay: 1.40s; }
-
-.cs-signals-table-img {
-  display: block;
-  width: 170px;
-  margin: 0 auto;
-  border-radius: 6px;
-}
-
-.cs-signals-table td:has(.cs-signals-table-img) {
-  padding-top: var(--space-sm);
-  padding-bottom: var(--space-sm);
-}
-
-.cs-idea-card h3 {
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: #1a1a2e;
-  margin-bottom: 0.25rem;
-}
-
-.cs-idea-card p {
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: #4b5563;
-}
-
-@media (max-width: 768px) {
-  .cs-ideas-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .cs-ideas-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* --- Design Principles (feature cards) --- */
@@ -1505,14 +1288,14 @@
 
 .cs-principle-feature-text h3 {
   font-family: var(--font-body);
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   font-weight: 600;
   color: #1a1a2e;
   margin-bottom: var(--space-sm);
 }
 
 .cs-principle-feature-text p {
-  font-size: var(--text-md);
+  font-size: var(--text-sm);
   line-height: 1.7;
   color: #6b7280;
   max-width: 420px;
@@ -1537,51 +1320,6 @@
   display: block;
 }
 
-/* Principle 03 — signals table inside the panel */
-.cs-principle-feature--table {
-  grid-template-columns: 0.55fr 2fr;
-}
-
-.cs-principle-feature-visual--table {
-  aspect-ratio: auto;
-  display: block;
-  padding: var(--space-lg) var(--space-xl);
-}
-
-.cs-principle-feature-visual--table .cs-signals-table-wrap {
-  margin-top: 0;
-  background: rgba(255, 255, 255, 0.88);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  padding: var(--space-md) var(--space-lg);
-}
-
-.cs-principle-feature-visual--table .cs-signals-table {
-  font-size: var(--text-xs);
-}
-
-.cs-principle-feature-visual--table .cs-signals-table td,
-.cs-principle-feature-visual--table .cs-signals-table th {
-  border-bottom-color: rgba(0, 0, 0, 0.1);
-}
-
-.cs-principle-feature-visual--table .cs-signals-table th {
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-/* Center the Example column header and images */
-.cs-principle-feature-visual--table .cs-signals-table th:nth-child(5),
-.cs-principle-feature-visual--table .cs-signals-table td:nth-child(5) {
-  text-align: center;
-}
-
-.cs-principle-feature-visual--table .cs-signals-table-img {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Blurred abstract background for principle panels */
 .cs-principle-feature-visual--bg {
   position: relative;
@@ -1602,9 +1340,25 @@
 .cs-principle-feature-visual--bg > img,
 .cs-principle-feature-visual--bg .ai-search,
 .cs-principle-feature-visual--bg .creator-card,
-.cs-principle-feature-visual--bg .cs-signals-table-wrap {
+.cs-principle-feature-visual--bg .cs-signals-grid {
   position: relative;
   z-index: 1;
+}
+
+/* Principle 03 — 6 example signal images in a 3x2 grid */
+.cs-signals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 96%;
+  max-width: 600px;
+}
+
+.cs-signals-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .cs-principle-feature-visual--bg-01::before {
@@ -1799,14 +1553,9 @@
   }
 }
 
-.cs-principle-feature-visual--table .cs-signals-table-img {
-  width: 130px;
-}
-
 @media (max-width: 768px) {
   .cs-principle-feature,
-  .cs-principle-feature--reverse,
-  .cs-principle-feature--table {
+  .cs-principle-feature--reverse {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
