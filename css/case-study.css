@@ -114,7 +114,7 @@
 }
 
 .cs-solution-image {
-  margin: 0 0 1rem;
+  margin: var(--space-2xl) 0 1rem;
 }
 
 #impact .cs-solution-image {
@@ -2535,13 +2535,21 @@
   font-family: var(--font-body);
   font-size: var(--text-lg);
   font-weight: 600;
-  color: #ffffff;
+  color: #1a1a2e;
   margin-bottom: var(--space-sm);
 }
 
 .cs-impact-card p {
   font-size: var(--text-sm);
   line-height: 1.7;
+  color: #4b5563;
+}
+
+.cs-section--dark .cs-impact-card h3 {
+  color: #ffffff;
+}
+
+.cs-section--dark .cs-impact-card p {
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -2558,13 +2566,17 @@
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   background: none;
   border: none;
   padding: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+.cs-section--dark .cs-brand-tag {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .cs-brand-logo {
@@ -2580,10 +2592,30 @@
 }
 
 /* --- Quote --- */
+.cs-quote-brands {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.cs-quote-brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.cs-quote-brand-logo:not(:first-child) {
+  margin-left: -14px;
+}
+
 .cs-quote {
   margin-top: var(--space-3xl);
   border-left: none;
-  border-top: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: var(--space-xl);
   text-align: center;
 }
@@ -2593,7 +2625,7 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 500;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.85);
+  color: #1a1a2e;
   line-height: 1.4;
   margin-bottom: var(--space-md);
 }
@@ -2602,8 +2634,20 @@
   font-family: var(--font-body);
   font-style: normal;
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.45);
+  color: #6b7280;
   font-weight: 500;
+}
+
+.cs-section--dark .cs-quote {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.cs-section--dark .cs-quote p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cs-section--dark .cs-quote cite {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* --- Reflections --- */
