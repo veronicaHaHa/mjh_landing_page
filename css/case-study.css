@@ -2535,7 +2535,11 @@
   font-family: var(--font-body);
   font-size: var(--text-lg);
   font-weight: 600;
-  color: #1a1a2e;
+  background: linear-gradient(45deg, #FF5C00 0%, #FF0169 30%, #D300C5 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-bottom: var(--space-sm);
 }
 
