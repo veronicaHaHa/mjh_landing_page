@@ -326,8 +326,8 @@
 
 .cs-hero-results {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xs);
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 5rem;
   row-gap: var(--space-xs);
   margin-top: var(--space-2xl);
   text-align: left;
