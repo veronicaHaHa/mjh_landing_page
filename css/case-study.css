@@ -1929,6 +1929,18 @@
   margin-bottom: var(--space-sm);
 }
 
+.mv-approach-media {
+  margin-top: var(--space-xl);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mv-approach-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .mv-sprint-image {
   border-radius: 12px;
   overflow: hidden;
