@@ -897,7 +897,7 @@
 .cs-problem-thumb {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
   margin-bottom: var(--space-md);
 }
@@ -1929,13 +1929,197 @@
   margin-bottom: var(--space-sm);
 }
 
-.mv-approach-media {
+.mv-approach-row {
   margin-top: var(--space-xl);
-  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.mv-approach-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.mv-approach-media {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
   overflow: hidden;
 }
 
-.mv-approach-media img {
+.mv-approach-caption {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+/* Options spectrum (Simple → Scalable) */
+.mv-spectrum {
+  margin-top: var(--space-2xl);
+}
+
+.mv-spectrum-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.mv-spectrum-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  padding-left: 64px;
+}
+
+/* gradient axis line running through the pills */
+.mv-spectrum-grid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16px;
+  height: 2px;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, #FF0169 0%, #D300C5 50%, #2B9BFF 100%);
+  z-index: 0;
+}
+
+.mv-spectrum-arrow {
+  position: absolute;
+  top: 16px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  z-index: 0;
+}
+
+.mv-spectrum-arrow--left {
+  left: -3px;
+  border-right: 8px solid #FF0169;
+}
+
+.mv-spectrum-arrow--right {
+  right: -3px;
+  border-left: 8px solid #2B9BFF;
+}
+
+.mv-spectrum-col {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mv-spectrum-pill {
+  align-self: flex-start;
+  margin-bottom: var(--space-md);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: #ffffff;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.mv-spectrum-pill--1 { background: linear-gradient(135deg, #FF3D9E, #E21CA0); }
+.mv-spectrum-pill--2 { background: linear-gradient(135deg, #C026C9, #9A2BE6); }
+.mv-spectrum-pill--3 { background: linear-gradient(135deg, #7E2CE6, #5B4BE8); }
+
+.mv-spectrum-title {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.mv-spectrum-title--1 { color: #E5249E; }
+.mv-spectrum-title--2 { color: #A22BD6; }
+.mv-spectrum-title--3 { color: #8B2BE0; }
+
+.mv-spectrum-list {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.mv-spectrum-list li {
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: #4b5563;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .mv-spectrum-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    padding-left: 0;
+  }
+  .mv-spectrum-grid::before,
+  .mv-spectrum-arrow,
+  .mv-spectrum-head {
+    display: none;
+  }
+  .mv-spectrum-pill {
+    align-self: flex-start;
+  }
+}
+
+/* Game nav overlay (Figma node 1370:208278 — 390x44 phone bar) */
+.mv-approach-media--nav {
+  container-type: inline-size;
+}
+
+.mv-game-nav {
+  position: absolute;
+  top: 13.85cqw;   /* 54/390 */
+  left: 0;
+  right: 0;
+  height: 11.28cqw; /* 44/390 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4.1cqw; /* 16/390 */
+  box-sizing: border-box;
+}
+
+.mv-game-nav__close {
+  width: 6.4cqw;   /* 25/390 */
+  height: 6.4cqw;
+  color: #000;
+  display: block;
+}
+
+.mv-game-nav__close svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mv-game-nav__score {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 5.13cqw; /* 20/390 */
+  line-height: 1;
+  letter-spacing: -0.115cqw;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.mv-approach-media img,
+.mv-approach-media video {
   width: 100%;
   height: auto;
   display: block;
@@ -1957,6 +2141,13 @@
   .mv-sprint-images {
     grid-template-columns: 1fr;
   }
+  .mv-approach-row {
+    flex-direction: column;
+  }
+  .mv-approach-item {
+    flex: none;
+    width: 100%;
+  }
 }
 
 /* --- Solution Principle Cards --- */
@@ -1973,20 +2164,28 @@
   background: #fff;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.mv-solution-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-sm);
 }
 
 .mv-solution-icon {
   font-size: 1.5rem;
-  display: block;
-  margin-bottom: var(--space-sm);
+  line-height: 1;
 }
 
 .mv-solution-card h3 {
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  font-weight: 500;
+  font-weight: 600;
   color: #1a1a2e;
-  margin-bottom: var(--space-xs);
+  margin: 0;
 }
 
 .mv-solution-card p {
@@ -2080,6 +2279,7 @@
 
 .mv-impact-phone .mv-impact-screen {
   width: 100%;
+  border-radius: 24px;
 }
 
 .mv-impact-app-icon {
@@ -2105,6 +2305,7 @@
 
 .mv-impact-video-wrap .mv-impact-screen {
   width: 100%;
+  border-radius: 24px;
 }
 
 .mv-impact-app-icon--right {
@@ -2314,6 +2515,25 @@
   color: #1a1a2e;
 }
 
+/* Big bets section on dark background */
+.cs-section--dark .mv-eval-table th {
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+.cs-section--dark .mv-eval-table td {
+  color: rgba(255, 255, 255, 0.78);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.cs-section--dark .mv-eval-highlight {
+  background: rgba(255, 1, 105, 0.16);
+}
+
+.cs-section--dark .mv-eval-highlight td {
+  color: #ffffff;
+}
+
 /* --- Metaverse Exploration Horizontal Scroll --- */
 .mv-explore-grid {
   display: grid;
@@ -2336,6 +2556,10 @@
   overflow: hidden;
   background: #f0f0f0;
   border-radius: 28px;
+}
+
+.mv-explore-card--bordered .mv-explore-media {
+  border: 1px solid #e5e7eb;
 }
 
 .mv-explore-media img,
