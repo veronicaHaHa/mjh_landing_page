@@ -915,6 +915,19 @@
   margin-bottom: 0;
 }
 
+.cs-problem-thumb--bordered {
+  position: relative;
+}
+
+.cs-problem-thumb--bordered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px solid #000000;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 .mv-modal-visual.has-image {
   background: none;
   border: none;
