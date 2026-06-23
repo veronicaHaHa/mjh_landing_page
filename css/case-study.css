@@ -2038,6 +2038,30 @@
 .mv-spectrum-pill--2 { background: linear-gradient(135deg, #C026C9, #9A2BE6); }
 .mv-spectrum-pill--3 { background: linear-gradient(135deg, #7E2CE6, #5B4BE8); }
 
+/* Selected option (Option 2) */
+.mv-spectrum-col--selected .mv-spectrum-pill {
+  box-shadow: 0 0 0 3px rgba(154, 43, 230, 0.22), 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.mv-spectrum-selected {
+  display: none; /* hidden for now — set to inline-flex to re-enable */
+  position: absolute;
+  top: -26px;
+  left: 0;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #faf5ff;
+  border: 1px solid #9A2BE6;
+  color: #9A2BE6;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .mv-spectrum-title {
   font-family: var(--font-body);
   font-size: var(--text-lg);
@@ -2047,7 +2071,7 @@
 
 .mv-spectrum-title--1 { color: #E5249E; }
 .mv-spectrum-title--2 { color: #A22BD6; }
-.mv-spectrum-title--3 { color: #8B2BE0; }
+.mv-spectrum-title--3 { color: #4A5DF9; }
 
 .mv-spectrum-list {
   margin: 0;
@@ -2257,7 +2281,7 @@
 .mv-impact-media-stack {
   display: flex;
   align-items: center;
-  max-width: 648px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -2271,8 +2295,8 @@
 .mv-impact-phone {
   position: relative;
   flex-shrink: 0;
-  width: 200px;
-  margin-right: -40px;
+  width: 250px;
+  margin-right: -120px;
   transform: rotate(-3deg);
   z-index: 2;
 }
@@ -2285,11 +2309,11 @@
 .mv-impact-app-icon {
   position: absolute;
   top: 50%;
-  left: -30px;
+  left: -45px;
   transform: translateY(-50%) rotate(-22deg);
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
   z-index: 3;
 }
@@ -2297,7 +2321,7 @@
 /* Video wrapper */
 .mv-impact-video-wrap {
   position: relative;
-  flex: 1;
+  flex: 0 1 540px;
   min-width: 0;
   z-index: 1;
   transform: rotate(3deg);
@@ -2312,7 +2336,7 @@
   top: auto;
   bottom: 8px;
   left: auto;
-  right: -24px;
+  right: -32px;
   transform: rotate(22deg);
 }
 
