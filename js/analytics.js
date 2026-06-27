@@ -44,4 +44,25 @@
       page_path: location.pathname
     });
   }, true);
+
+  // Derive a readable name for a video: aria-label, else the file name.
+  function videoName(video) {
+    var label = (video.getAttribute('aria-label') || '').trim();
+    if (label) return label.slice(0, 100);
+    var src = video.currentSrc || video.getAttribute('src') || '';
+    return decodeURIComponent(src.split('/').pop().replace(/\.[a-z0-9]+$/i, ''));
+  }
+
+  // GA4 custom event: track clicks on prototype/demo videos.
+  document.addEventListener('click', function (e) {
+    var video = e.target && e.target.closest ? e.target.closest('video') : null;
+    if (!video) return;
+    if (typeof window.gtag !== 'function') return;
+
+    window.gtag('event', 'video_click', {
+      video_name: videoName(video),
+      video_src: (video.currentSrc || video.getAttribute('src') || '').split('/').pop(),
+      page_path: location.pathname
+    });
+  }, true);
 })();
