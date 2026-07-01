@@ -88,7 +88,7 @@
   --space-3xl:  4rem;
   --space-4xl:  6rem;
   --space-5xl:  8rem;
-  --space-section: clamp(5rem, 12vh, 8rem);
+  --space-section: clamp(3rem, 7vh, 5rem);
 
   /* Layout */
   --max-width: 1200px;
@@ -302,7 +302,7 @@ button {
 .hero {
   display: flex;
   align-items: center;
-  padding: 6rem 0 0;
+  padding: 6rem 0 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -442,12 +442,15 @@ button {
 
 /* --- Section Shared --- */
 .section {
-  padding: var(--space-section) 0;
+  padding: 5rem 0 var(--space-section);
 }
 
 #experience {
-  padding-top: var(--space-2xl);
-  padding-bottom: 0;
+  padding: 0;
+}
+
+#about {
+  padding: 3rem 0;
 }
 
 #work {
@@ -458,14 +461,10 @@ button {
   padding: var(--space-xl) 0;
 }
 
-#about {
-  padding: 5rem 0;
-}
-
 /* --- Work Experience Section --- */
 .experience-list {
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: 3rem;
 }
 
 .experience-item {
@@ -744,7 +743,7 @@ button {
 /* --- About Section --- */
 .about-content {
   display: grid;
-  grid-template-columns: 7fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-3xl);
   align-items: start;
 }
@@ -902,7 +901,7 @@ button {
 .site-footer {
   background-color: var(--color-deep);
   color: #ffffff;
-  padding: var(--space-2xl) 0 var(--space-2xl);
+  padding: 3rem 0 var(--space-2xl);
 }
 
 .footer-closing {
@@ -1113,7 +1112,15 @@ button:focus-visible {
   .experience-item {
     grid-template-columns: 1fr;
     gap: var(--space-xs);
-    padding: var(--space-xl) 0;
+    padding: var(--space-md) 0;
+  }
+
+  .about-aside {
+    align-items: center;
+  }
+
+  .about-flip {
+    width: 60%;
   }
 
   .experience-meta {
@@ -1165,8 +1172,7 @@ button:focus-visible {
   }
 
   .hero {
-    min-height: 85vh;
-    min-height: 85dvh;
+    min-height: auto;
   }
 
   .projects-grid {
