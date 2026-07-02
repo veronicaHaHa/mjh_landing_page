@@ -1387,6 +1387,158 @@
   background-image: url("../img/Abstract_bg_04.jpg");
 }
 
+.cs-confidential-note {
+  margin: var(--space-3xl) 0 0;
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+}
+
+/* --- Craft deep-dive: creator card redesign --- */
+.cc-architectures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.cc-arch-summary {
+  margin-top: var(--space-3xl);
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.2;
+}
+
+.cc-arch {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.cc-arch-verdict {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.cc-arch-verdict--cut {
+  background: rgba(0, 0, 0, 0.05);
+  color: #9ca3af;
+}
+
+.cc-arch-reason {
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.cc-arch h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: var(--space-sm);
+}
+
+.cc-arch p {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.cc-arch-media {
+  height: 360px;
+  margin-bottom: var(--space-lg);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cc-arch-media img {
+  max-width: 186px;
+  max-height: 100%;
+  display: block;
+}
+
+.cc-decisions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl) var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.cc-decision {
+  text-align: center;
+}
+
+.cc-decision-num {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(124, 58, 237, 0.4);
+}
+
+.cc-decision h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: var(--space-xs);
+}
+
+.cc-decision p {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.cc-figure {
+  margin: var(--space-4xl) auto 0;
+  max-width: 600px;
+  text-align: center;
+}
+
+.cc-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.cc-figure figcaption {
+  margin-top: var(--space-sm);
+}
+
+.cc-closing {
+  margin-top: var(--space-2xl);
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .cc-architectures {
+    grid-template-columns: 1fr;
+  }
+  .cc-decisions {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Editable creator card (principle 01) */
 .creator-card {
   width: 232px;

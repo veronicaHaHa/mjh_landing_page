@@ -68,16 +68,16 @@
         <div class="cs-hero-results">
           <p class="cs-results-label">Key Results</p>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="30">0</span>%</span>
-            <span class="cs-result-label">Brand-Creator Matches</span>
+            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="158">0</span>%</span>
+            <span class="cs-result-label">Brand&harr;Creator Engagement</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="25">0</span>%</span>
-            <span class="cs-result-label">Engagement Rates</span>
+            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="415">0</span>%</span>
+            <span class="cs-result-label">ARR YoY Growth</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="20">0</span>%</span>
-            <span class="cs-result-label">User Satisfaction Scores</span>
+            <span class="cs-result-number">4.6K</span>
+            <span class="cs-result-label">Brand&harr;Creator Partnerships</span>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@
           <div class="cs-principle-feature-text">
             <span class="cs-principle-feature-num">01</span>
             <h3>Content-first discovery</h3>
-            <p>Use machine learning to surface creators' top-performing content that aligns with a brand's values and objectives.</p>
+            <p>Use machine learning to surface the creator's top-performing post that aligns with a brand's values and objectives.</p>
           </div>
           <div class="cs-principle-feature-visual cs-principle-feature-visual--bg cs-principle-feature-visual--bg-03">
             <!-- Creator card (editable) -->
@@ -260,8 +260,8 @@
         <div class="cs-principle-feature">
           <div class="cs-principle-feature-text">
             <span class="cs-principle-feature-num">03</span>
-            <h3>Ad-optimized ranking</h3>
-            <p>Rank creator cards using six ad-performance signals, surfacing content most likely to convert as partnership ads.</p>
+            <h3>A dynamic &ldquo;why this creator&rdquo; line</h3>
+            <p>The supporting line shows why the model ranked this creator. Each reason maps to a signal, making an opaque ranking legible.</p>
           </div>
           <div class="cs-principle-feature-visual cs-principle-feature-visual--bg cs-principle-feature-visual--bg-04">
             <div class="cs-signals-grid">
@@ -274,6 +274,78 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 5b. Craft deep-dive: Creator Card -->
+    <section class="cs-section cs-section--alt" id="creator-card">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Craft</span>
+          <h2 class="cs-section-title">Rebuilding the Creator Card, Signal by Signal</h2>
+        </div>
+        <div class="cs-body">
+          <p>The creator card is the atomic unit of discovery, scanned dozens of times per session. While the original design emphasized the creator&rsquo;s bio, brands were really evaluating content. That forced them to open countless profiles just to judge brand fit. I reimagined the card around a single job-to-be-done: <strong>help brands instantly determine whether a creator&rsquo;s content is right for their brand.</strong></p>
+        </div>
+
+        <!-- Three architectures explored -->
+        <div class="cc-architectures">
+          <div class="cc-arch">
+            <div class="cc-arch-media">
+              <img src="img/Creator card explorations/Stay true to reels aspect ratio.png" alt="Stay true to Reels aspect ratio — explored card design" loading="lazy">
+            </div>
+            <span class="cc-arch-verdict cc-arch-verdict--cut">Cut</span>
+            <h3>Native Reels aspect ratio</h3>
+            <p class="cc-arch-reason">Too tall to scan in a grid; Save/Not interested actions buried under an ellipsis.</p>
+          </div>
+          <div class="cc-arch cc-arch--chosen">
+            <div class="cc-arch-media">
+              <img src="img/Creator card explorations/initial proposal.png" alt="Surface top content — the chosen card design" loading="lazy">
+            </div>
+            <span class="cc-arch-verdict">&#x2713; Approved</span>
+            <h3>Surface top content</h3>
+            <p class="cc-arch-reason">One scannable content unit &mdash; ad metrics and feedback loop built in.</p>
+          </div>
+          <div class="cc-arch">
+            <div class="cc-arch-media">
+              <img src="img/Creator card explorations/gallery_02.png" alt="Expand on the creator — explored card design" loading="lazy">
+            </div>
+            <span class="cc-arch-verdict cc-arch-verdict--cut">Cut</span>
+            <h3>Expand on the content</h3>
+            <p class="cc-arch-reason">Extra posts cluttered the card and buried the standout content.</p>
+          </div>
+        </div>
+        <h3 class="cc-arch-summary">I weighed each option against ads-focus, scannability, feasibility, and scalability.</h3>
+
+        <figure class="cc-figure">
+          <img src="img/Creator card explorations/anatomy_creator_card_v2.png" alt="Anatomy of the redesigned creator card, labelling each element" loading="lazy">
+        </figure>
+
+        <!-- Craft decisions -->
+        <div class="cc-decisions">
+          <div class="cc-decision">
+            <span class="cc-decision-num">01</span>
+            <div class="cc-decision-body">
+              <h3>Lead with the work</h3>
+              <p>The card opens with the creator&rsquo;s top-performing post &mdash; the thing a brand is actually buying &mdash; not a follower count. In partnership ads, the content <em>is</em> the product.</p>
+            </div>
+          </div>
+          <div class="cc-decision">
+            <span class="cc-decision-num">02</span>
+            <div class="cc-decision-body">
+              <h3>Reach meets trust</h3>
+              <p>&ldquo;40K followers &middot; 32K accounts engaged&rdquo; &mdash; followers are reach, accounts engaged are trust. Size <em>and</em> quality, in one line.</p>
+            </div>
+          </div>
+          <div class="cc-decision">
+            <span class="cc-decision-num">03</span>
+            <div class="cc-decision-body">
+              <h3>Actions as a training signal</h3>
+              <p>Not Interested / Message / Save &mdash; the moves brands make while scanning. Not Interested comes first: it clears poor fits fast <em>and</em> trains the model to show fewer like them.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -291,6 +363,7 @@
           <video src="img/creator_marketplace_recommendations_prototype_Jun22.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Prototype walkthrough of the redesigned Discover experience with AI-powered creator recommendations"></video>
         </div>
         <p class="cs-image-caption">&ldquo;Not Interested&rdquo; &rarr; Explicit negative feedback signal &rarr; More personalized recommendations</p>
+        <p class="cs-confidential-note">Visuals recreated to respect Meta confidentiality.</p>
       </div>
     </section>
 
@@ -302,21 +375,21 @@
           <h2 class="cs-section-title">Laying the Foundation for an <span class="cs-keep-upper">ML</span>-Driven creator marketplace Centered on Partnership Ads</h2>
         </div>
         <div class="cs-body">
-          <p>The feature launched in February 2024 and immediately drove measurable results — improving match quality, increasing engagement, and unlocking new advertiser partnerships across global markets.</p>
+          <p>The feature launched in February 2024 — lifting engagement between brands and creators, growing Partnership Ads revenue, and enabling thousands of new partnerships across global markets.</p>
         </div>
 
         <div class="cs-impact-grid">
           <div class="cs-impact-card">
-            <h3>+30% brand-creator matches</h3>
-            <p>ML-powered recommendations directly improved match quality and drove ad conversions, unlocking new revenue channels for creator marketplace.</p>
+            <h3>+158% brand&harr;creator engagement</h3>
+            <p>In a controlled A/B test, the content-first recommendation surface lifted engagement between brands and creators 158% over the existing experience.</p>
           </div>
           <div class="cs-impact-card">
-            <h3>Expanded to 8 new markets</h3>
-            <p>Rolled out beyond the U.S. to seven new countries and Chinese export brands, bringing creator-brand matching to advertisers worldwide.</p>
+            <h3>+415% ARR YoY Growth</h3>
+            <p>Annual Recurring Revenue grew 415% year over year as higher-converting brand-creator matches scaled across the marketplace.</p>
           </div>
           <div class="cs-impact-card">
-            <h3>3 major brands onboarded</h3>
-            <p>Onboarded TEMU, SHEIN, and Amazon — validating creator marketplace as a scalable channel for partnership ads, with +20% user satisfaction.</p>
+            <h3>4.6K brand&harr;creator Partnerships</h3>
+            <p>4,600 brand&harr;creator partnerships formed since launch &mdash; across new markets and advertisers like TEMU, SHEIN, and Amazon.</p>
             <div class="cs-brand-tags cs-hidden">
               <span class="cs-brand-tag"><img src="img/Temu-Logo.png" alt="TEMU" class="cs-brand-logo">TEMU</span>
               <span class="cs-brand-tag"><img src="img/Shein-Logo.jpg" alt="SHEIN" class="cs-brand-logo cs-brand-logo--bordered">SHEIN</span>
