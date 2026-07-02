@@ -1390,8 +1390,12 @@
 .cs-confidential-note {
   margin: var(--space-3xl) 0 0;
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.5);
+  color: #9ca3af;
   text-align: left;
+}
+
+.cs-section--dark .cs-confidential-note {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Craft deep-dive: creator card redesign --- */
@@ -2138,7 +2142,6 @@
   position: relative;
   z-index: 1;
   opacity: 1;
-  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 24px;
   padding: 40px;
   box-shadow:
@@ -2166,16 +2169,26 @@
 
 .mv-spectrum-list {
   margin: 0;
-  padding-left: 1.25em;
-  list-style: disc;
+  padding-left: 0;
+  list-style: none;
 }
 
 .mv-spectrum-list li {
+  position: relative;
+  padding-left: 1.6em;
   font-size: var(--text-sm);
   line-height: 1.7;
   color: #1a1a2e;
   opacity: 0.8;
   margin-bottom: 4px;
+}
+
+.mv-spectrum-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #7c3aed;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
