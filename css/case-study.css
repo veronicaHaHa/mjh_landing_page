@@ -1394,6 +1394,68 @@
   text-align: left;
 }
 
+/* Creator Portfolio — single portrait phone media, centered */
+.cp-phone {
+  max-width: 320px;
+  margin: var(--space-2xl) auto 0;
+}
+
+.cp-phone video,
+.cp-phone img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Creator Portfolio — landscape figure, capped */
+.cp-figure {
+  max-width: 920px;
+  margin: var(--space-2xl) auto 0;
+}
+
+.cp-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Creator Portfolio — paired media (auto-populate video + visibility banner) */
+.cp-media-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  align-items: start;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cp-media-pair figure {
+  margin: 0;
+}
+
+.cp-media-pair video,
+.cp-media-pair img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+}
+
+.cp-media-pair figcaption {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: #6b7280;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .cp-media-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cs-section--dark .cs-confidential-note {
   color: rgba(255, 255, 255, 0.5);
 }
