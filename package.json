@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "test": "node --test test/regression.test.js"
+  },
+  "dependencies": {
+    "@vercel/edge": "^1.1.4"
   }
 }

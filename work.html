@@ -27,12 +27,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Redirect if not unlocked — runs synchronously to prevent flash -->
-  <script>
-    if (sessionStorage.getItem('cs-unlocked') !== '1') {
-      window.location.replace('index.html');
-    }
-  </script>
+  <!-- Access is enforced server-side by Vercel Edge Middleware (see /middleware.js). -->
 </head>
 <body>
 

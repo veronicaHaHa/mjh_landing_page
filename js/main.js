@@ -6,6 +6,17 @@
 (function () {
   'use strict';
 
+  // --- Deter casual saving of case-study media (videos/images) ---
+  // Friction only — a determined viewer can still capture what they can see.
+  // Scoped to the protected pages so the public homepage is unaffected.
+  if (/case-study|work\.html/.test(location.pathname)) {
+    var blockMedia = function (e) {
+      if (e.target && e.target.matches && e.target.matches('img, video')) e.preventDefault();
+    };
+    document.addEventListener('contextmenu', blockMedia);
+    document.addEventListener('dragstart', blockMedia);
+  }
+
   // --- Scroll-triggered fade-in animations ---
   var observerOptions = {
     threshold: 0.1,
@@ -94,7 +105,8 @@
   }
 
   // --- Passcode modal for selected work ---
-  var PASSCODE_HASH = 'f24beb7de6d29ad33c807d73b2fefc452020c9294af5df445ef295e838bbfc0d';
+  // Passcode is verified server-side by the Vercel Edge Middleware (see /middleware.js);
+  // this modal just posts the entry to /__auth. No secret lives in the client anymore.
   var modal = document.getElementById('passcode-modal');
   var modalForm = document.getElementById('passcode-form');
   var modalInput = document.getElementById('passcode-input');
@@ -103,14 +115,6 @@
   var modalDesc = document.querySelector('.modal-desc');
   var modalClose = document.getElementById('modal-close');
   var pendingHref = null;
-
-  function hashPasscode(value) {
-    var encoder = new TextEncoder();
-    return crypto.subtle.digest('SHA-256', encoder.encode(value)).then(function (buffer) {
-      var hashArray = Array.from(new Uint8Array(buffer));
-      return hashArray.map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
-    });
-  }
 
   if (modal) {
     function showPasscodeModal(e, href) {
@@ -165,22 +169,35 @@
 
     modalForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      hashPasscode(modalInput.value).then(function (hash) {
-        if (hash === PASSCODE_HASH) {
+      var submitBtn = modalForm.querySelector('.modal-btn');
+      if (submitBtn) submitBtn.disabled = true;
+      modalError.style.display = 'none';
+      // Verify server-side: sets a signed, HttpOnly session cookie on success.
+      fetch('/__auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'passcode=' + encodeURIComponent(modalInput.value)
+      }).then(function (r) {
+        return r.json().catch(function () { return { ok: r.ok }; });
+      }).then(function (res) {
+        if (submitBtn) submitBtn.disabled = false;
+        if (res && res.ok) {
           modal.classList.remove('is-open');
           modal.setAttribute('aria-hidden', 'true');
-          if (pendingHref === 'work.html') {
+          // UX hint so repeat clicks this session skip the modal (real gate is the cookie).
+          try {
             sessionStorage.setItem('cs-unlocked', '1');
-            window.location.href = 'work.html';
-          } else {
             sessionStorage.setItem('resume-unlocked', '1');
-            window.location.href = pendingHref;
-          }
+          } catch (err) { /* ignore */ }
+          window.location.href = (pendingHref && pendingHref !== 'work.html') ? pendingHref : 'work.html';
         } else {
           modalError.style.display = 'block';
           modalInput.value = '';
           modalInput.focus();
         }
+      }).catch(function () {
+        if (submitBtn) submitBtn.disabled = false;
+        modalError.style.display = 'block';
       });
     });
 
