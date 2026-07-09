@@ -668,6 +668,50 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Abstract_bg_05 as an atmospheric section background — same 24px blur as the
+   principle panels, plus a dark scrim so white text stays readable. */
+.cs-section--bg05 {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-section--bg05::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  background-image: url("../img/Abstract_bg_06_landscape.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(32px);
+  z-index: 0;
+}
+
+.cs-section--bg05::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.90);
+  z-index: 0;
+}
+
+.cs-section--bg05 > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Context section reveals the background with its scroll-triggered dark state */
+.cs-section--context.cs-section--bg05::before,
+.cs-section--context.cs-section--bg05::after {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-out);
+}
+
+.cs-section--context.cs-section--bg05.is-dark::before,
+.cs-section--context.cs-section--bg05.is-dark::after {
+  opacity: 1;
+}
+
 .cs-container {
   max-width: var(--max-width);
 }
