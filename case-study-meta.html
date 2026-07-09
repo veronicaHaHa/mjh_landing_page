@@ -360,9 +360,13 @@
           <p>I designed the end-to-end discovery experience &mdash; the content-first surface, the signals it ranked on, and the <strong>&ldquo;Not Interested&rdquo; feedback loop</strong> &mdash; partnering with ML and Data Science, who built the model that powered it. That loop turned every dismissal into a training signal, continuously improving recommendations.</p>
         </div>
         <div class="cs-solution-image">
-          <video src="img/creator_marketplace_recommendations_prototype_Jul6_full.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Prototype walkthrough of the redesigned Discover experience with AI-powered creator recommendations"></video>
+          <video id="solution-proto-video" src="img/creator_marketplace_recommendations_prototype_Jul6_full.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Prototype walkthrough of the redesigned Discover experience with AI-powered creator recommendations"></video>
         </div>
-        <p class="cs-image-caption">&ldquo;Not Interested&rdquo; &rarr; Explicit negative feedback signal &rarr; More personalized recommendations</p>
+        <ol class="cs-proto-steps" aria-label="Prototype walkthrough steps">
+          <li><button type="button" class="cs-proto-step is-active" data-start="0">Recommendations</button></li>
+          <li><button type="button" class="cs-proto-step" data-start="17">Profile</button></li>
+          <li><button type="button" class="cs-proto-step" data-start="30">Feedback</button></li>
+        </ol>
         <p class="cs-confidential-note">Visuals recreated to respect Meta confidentiality.</p>
       </div>
     </section>
@@ -594,6 +598,47 @@
       }, { threshold: 0 });
       showTargets.forEach(function(el) { observer.observe(el); });
     }
+
+    // Prototype walkthrough — highlight the step matching the video's current time;
+    // click a step to jump to that beat (helps on a silent, looping clip).
+    var protoVideo = document.getElementById('solution-proto-video');
+    var protoStepEls = document.querySelectorAll('.cs-proto-step');
+    if (protoVideo && protoStepEls.length) {
+      var protoStarts = Array.prototype.map.call(protoStepEls, function(el) {
+        return parseFloat(el.getAttribute('data-start')) || 0;
+      });
+      var activeStep = -1;
+      var setActiveStep = function(t) {
+        var idx = 0;
+        for (var i = 0; i < protoStarts.length; i++) {
+          if (t >= protoStarts[i]) idx = i;
+        }
+        if (idx === activeStep) return;
+        activeStep = idx;
+        for (var j = 0; j < protoStepEls.length; j++) {
+          protoStepEls[j].classList.toggle('is-active', j === idx);
+        }
+      };
+      protoVideo.addEventListener('timeupdate', function() {
+        setActiveStep(protoVideo.currentTime);
+      });
+      Array.prototype.forEach.call(protoStepEls, function(el) {
+        el.addEventListener('click', function() {
+          var start = parseFloat(el.getAttribute('data-start')) || 0;
+          protoVideo.currentTime = start + 0.05;
+          setActiveStep(start); // instant highlight; timeupdate keeps it in sync after
+          var p = protoVideo.play();
+          if (p && p.catch) p.catch(function() {});
+        });
+      });
+    }
+
+    // Deter casual saving of case-study media (friction only; main.js isn't loaded here).
+    var blockMedia = function(e) {
+      if (e.target && e.target.matches && e.target.matches('img, video')) e.preventDefault();
+    };
+    document.addEventListener('contextmenu', blockMedia);
+    document.addEventListener('dragstart', blockMedia);
   </script>
   <script src="js/analytics.js" defer></script>
 

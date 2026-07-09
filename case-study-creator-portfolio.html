@@ -341,6 +341,13 @@
       }, { threshold: 0 });
       showTargets.forEach(function(el) { observer.observe(el); });
     }
+
+    // Deter casual saving of case-study media (friction only; main.js isn't loaded here).
+    var blockMedia = function(e) {
+      if (e.target && e.target.matches && e.target.matches('img, video')) e.preventDefault();
+    };
+    document.addEventListener('contextmenu', blockMedia);
+    document.addEventListener('dragstart', blockMedia);
   </script>
   <script src="js/analytics.js" defer></script>
 

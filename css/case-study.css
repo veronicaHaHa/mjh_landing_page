@@ -128,6 +128,69 @@
   display: block;
 }
 
+/* Prototype walkthrough tabs — segmented control synced with the Solution video */
+.cs-proto-steps {
+  list-style: none;
+  margin: 2rem auto 0;
+  padding: 6px;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+
+.cs-proto-steps li {
+  margin: 0;
+  display: flex;
+}
+
+.cs-proto-step {
+  display: block;
+  padding: 0.5rem 1.125rem;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cs-proto-step:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cs-proto-step:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.cs-proto-step.is-active {
+  background: #ffffff;
+  color: #1a1a2e;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 640px) {
+  .cs-proto-steps {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cs-proto-step {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
 /* Context section — grid image with overlapping portrait video */
 .cs-section--context {
   background: #ffffff;
