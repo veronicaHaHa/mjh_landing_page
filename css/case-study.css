@@ -652,6 +652,11 @@
   color: #ffffff;
 }
 
+/* Near-black background variant — used for "Meet Teens Where They Are" and Impact */
+.cs-section--black {
+  background: #0A0513;
+}
+
 .cs-section--dark .cs-section-label {
   color: #a78bfa;
 }
@@ -2090,7 +2095,7 @@
   backdrop-filter: blur(16px);
   border: 1.5px solid transparent;
   border-radius: 16px;
-  transform: rotateX(3.6deg) rotateY(-2.4deg);
+  transform: rotateX(-1.2deg) rotateY(-45deg);
   z-index: 2;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
@@ -2103,7 +2108,7 @@
   width: 280px;
   height: 280px;
   transform-style: preserve-3d;
-  transform: rotateX(12deg) rotateY(-8deg) translateZ(-30px);
+  transform: rotateX(-2.1deg) rotateY(-45deg) translateZ(-30px);
   transition: transform 0.15s ease-out;
   z-index: 1;
 }
@@ -2507,6 +2512,11 @@
 }
 
 /* Impact section (metaverse) — "Teens are on mobile" photo as full-bleed section background */
+/* Metaverse page: match footer to the near-black section background */
+.cs-page--metaverse .site-footer {
+  background-color: #0A0513;
+}
+
 .cs-page--metaverse #impact {
   background-image:
     linear-gradient(rgba(26, 26, 46, 0.78), rgba(26, 26, 46, 0.78)),
@@ -2519,7 +2529,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
-  margin-top: calc(var(--space-2xl) + 120px);
+  margin-top: calc(var(--space-2xl) + 180px);
 }
 
 @media (max-width: 600px) {

@@ -124,7 +124,7 @@
     </section>
 
     <!-- 3. Strategy & Role -->
-    <section class="cs-section cs-section--dark">
+    <section class="cs-section cs-section--dark cs-section--black">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Strategy</span>
@@ -506,7 +506,7 @@
     </section>
 
     <!-- 7. Impact -->
-    <section class="cs-section cs-section--dark" id="impact">
+    <section class="cs-section cs-section--dark cs-section--black" id="impact">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Impact</span>
@@ -860,14 +860,14 @@
       var frontLayer = scene.querySelector('.mv-phase-layer--front');
       var cube = document.getElementById('mv-phase-cube');
       var isDragging = false;
-      var startX, startY, currentRotateX = 12, currentRotateY = -8;
+      var startX, startY, currentRotateX = -2.1, currentRotateY = -45;
 
       scene.style.cursor = 'grab';
 
       function updateTransforms(rotX, rotY) {
         // Calculate how far from rest position (more drag = more separation)
-        var dxFromRest = Math.abs(rotY - (-8));
-        var dyFromRest = Math.abs(rotX - 12);
+        var dxFromRest = Math.abs(rotY - (-45));
+        var dyFromRest = Math.abs(rotX - (-2.1));
         var dragAmount = Math.min(1, (dxFromRest + dyFromRest) / 30);
         var spread = dragAmount * 60;
 
