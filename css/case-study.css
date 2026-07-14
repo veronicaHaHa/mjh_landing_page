@@ -839,14 +839,14 @@
 /* Photo background (used on the Challenge section) — brand marketers searching
    the creator marketplace. White text over a left-weighted dark scrim so the
    copy stays legible while the laptop and people remain visible on the right. */
-.cs-section--challenge {
+.cp-challenge {
   position: relative;
   overflow: hidden;
   padding: 5rem 0;
   min-height: 100vh;
 }
 
-.cs-section--challenge::before {
+.cp-challenge::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -857,7 +857,7 @@
   z-index: 0;
 }
 
-.cs-section--challenge::after {
+.cp-challenge::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -865,7 +865,7 @@
   z-index: 0;
 }
 
-.cs-section--challenge > * {
+.cp-challenge > * {
   position: relative;
   z-index: 1;
 }
@@ -873,7 +873,7 @@
 /* On mobile, drop the full-screen (100vh) stack panels back to a fixed height —
    avoids the iOS address-bar height jump and a full screen of scroll per panel. */
 @media (max-width: 700px) {
-  .cs-section--challenge,
+  .cp-challenge,
   .cs-section--sky {
     min-height: 560px;
   }
@@ -1611,7 +1611,8 @@
   aspect-ratio: 16 / 10;
 }
 
-.cs-principle-feature-visual > img {
+.cs-principle-feature-visual > img,
+.cs-principle-feature-visual > video {
   max-height: 85%;
   max-width: 55%;
   width: auto;
@@ -1638,6 +1639,7 @@
 }
 
 .cs-principle-feature-visual--bg > img,
+.cs-principle-feature-visual--bg > video,
 .cs-principle-feature-visual--bg .ai-search,
 .cs-principle-feature-visual--bg .creator-card,
 .cs-principle-feature-visual--bg .cs-signals-grid {
@@ -1671,6 +1673,50 @@
 
 .cs-principle-feature-visual--bg-04::before {
   background-image: url("../img/Abstract_bg_04.jpg");
+}
+
+/* Sky panel background (Creator Portfolio Approach) — softer blur + white veil */
+.cs-principle-feature-visual--sky::before {
+  background-image: url("../img/sky_bg.jpg");
+  filter: blur(10px);
+}
+
+.cs-principle-feature-visual--sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 0;
+}
+
+.cs-principle-feature-visual--sky > img,
+.cs-principle-feature-visual--sky > video {
+  box-shadow: none;
+}
+
+/* Approach 01 & 02 — zoom the phone, crop below the "Add section" button, and
+   anchor it to the bottom of the panel so only the top of the phone shows. */
+.cp-crop {
+  align-items: flex-end;
+  padding-bottom: 0;
+}
+
+.cp-crop > img,
+.cp-crop > video {
+  height: 96%;
+  max-height: none;
+  width: auto;
+  max-width: none;
+  aspect-ratio: 1125 / 1940;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 24px 24px 0 0;
+}
+
+/* Approach 03 — larger image */
+.cp-big > img {
+  max-width: 82%;
+  max-height: 92%;
 }
 
 .cs-confidential-note {
@@ -2253,7 +2299,8 @@
     order: 0;
   }
 
-  .cs-principle-feature-visual > img {
+  .cs-principle-feature-visual > img,
+  .cs-principle-feature-visual > video {
     max-width: 70%;
   }
 }
