@@ -41,7 +41,7 @@
     <section class="cs-hero cs-hero--full-image">
       <div class="cs-hero-bg"></div>
       <div class="cs-hero-cover">
-        <img src="img/creator portfolio-hero.png" alt="Instagram Creator Portfolio — creators showcase their work and brand partnerships" loading="eager">
+        <img src="img/creator-portfolio-hero.jpg" alt="Instagram Creator Portfolio — creators showcase their work and brand partnerships" loading="eager">
       </div>
       <div class="container cs-hero-content">
         <div class="cs-hero-meta cs-hero-meta--top">
@@ -63,7 +63,7 @@
           </div>
         </div>
         <h1 class="cs-hero-title">Creator Portfolio</h1>
-        <p class="cs-hero-subtitle">Creators had no on-platform way to show brands their value. I designed Creator Portfolio &mdash; an on-platform media kit where creators curate their best posts, insights, and past collaborations to pitch themselves to brands.</p>
+        <p class="cs-hero-subtitle">I joined after the vision sprint had established the opportunity to bring Creator Portfolio (a.k.a. media kits) to Instagram. I owned the product strategy for how this should work natively on the platform&mdash;from defining the creator experience and design principles to aligning stakeholders and driving execution.</p>
         <div class="cs-hero-results">
           <p class="cs-results-label">Key Results</p>
           <div class="cs-result-item">
@@ -82,30 +82,93 @@
       </div>
     </section>
 
+    <!-- Sticky stack: Challenge pins while the Hypothesis layer scrolls up and covers it -->
+    <div class="cp-stack">
     <!-- 2. Challenge -->
-    <section class="cs-section cs-section--alt">
+    <section class="cs-section cs-section--dark cs-section--challenge">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Challenge</span>
-          <h2 class="cs-section-title">Creators couldn't prove their value &mdash; and brands couldn't evaluate it.</h2>
+          <h2 class="cs-section-title">Small creators couldn't get heard &mdash; and brands couldn't find them.</h2>
         </div>
         <div class="cs-body">
-          <p>Instagram's creator marketplace connected brands with creators, but the two sides couldn't speak the same language. Creators pitched themselves through scattered screenshots and off-platform media kits, cobbling their value together across DMs, decks, and third-party tools &mdash; nothing lived where the work actually did.</p>
-          <p>On the other side, brands had no consistent, trustworthy view of a creator's best content, audience, and past partnerships &mdash; making it hard to judge fit at a glance.</p>
+          <p>To get noticed, creators &mdash; especially first-time earners &mdash; had to chase follower counts, then pitch brands with scattered off-platform media kits. Brands had the mirror problem: they wanted smaller, niche creators but couldn't find or evaluate them.</p>
         </div>
       </div>
     </section>
 
     <!-- 3. Hypothesis -->
-    <section class="cs-section cs-section--dark">
+    <section class="cs-section cs-section--dark cs-section--sky">
+      <div class="container cs-container">
+        <div class="cs-section-header cp-reveal">
+          <h2 class="cs-section-title">Media kits were already an industry standard.</h2>
+          <h2 class="cs-section-title">By bringing them natively to Instagram, less experienced creators could present themselves professionally without leaving the platform, giving brands more confidence to discover and evaluate them.</h2>
+        </div>
+      </div>
+    </section>
+    </div><!-- /.cp-stack -->
+
+    <!-- Strategy — the flywheel thesis (mapped at the project's start) -->
+    <section class="cs-section cs-section--dark cp-ecosystem" id="flywheel">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Hypothesis</span>
-          <h2 class="cs-section-title">A native, curated profile would help creators pitch &mdash; and brands evaluate.</h2>
+          <span class="cs-section-label">Strategy</span>
+          <h2 class="cs-section-title">One feature to start a two-sided flywheel.</h2>
         </div>
         <div class="cs-body">
-          <p>If creators could present their value natively on Instagram &mdash; one curated profile of their best work, insights, and past collaborations &mdash; they'd pitch themselves more effectively, and brands would get a consistent, trustworthy way to evaluate them. The bet was to meet both sides where the work already lived, rather than sending them off-platform.</p>
+          <p>I framed the portfolio as the first turn of a flywheel: creators share media kits, brands discover the smaller, niche creators they'd been missing, deals close &mdash; and every deal pulls creators back to invest again.</p>
         </div>
+        <div class="cp-flywheel" aria-label="Two-sided ecosystem flywheel: creators polish and share a media kit, brands discover and message them, deals close, and creators keep investing.">
+          <div class="cp-flywheel-scroll">
+            <svg viewBox="0 0 1000 560" role="img" xmlns="http://www.w3.org/2000/svg">
+              <!-- motion path (hidden) -->
+              <path id="cp-fw-track" d="M500,85 A330,185 0 1 1 500,455 A330,185 0 1 1 500,85" fill="none"/>
+              <!-- ring -->
+              <ellipse class="cp-fw-ring" cx="500" cy="270" rx="330" ry="185" fill="none"/>
+              <!-- direction arrows (clockwise) -->
+              <path class="cp-fw-arrow" d="M702,120 L688,114 L688,126 Z" transform="rotate(22.2 694 120)"/>
+              <path class="cp-fw-arrow" d="M822,327 L808,321 L808,333 Z" transform="rotate(120.1 814 327)"/>
+              <path class="cp-fw-arrow" d="M508,455 L494,449 L494,461 Z" transform="rotate(180 500 455)"/>
+              <path class="cp-fw-arrow" d="M194,327 L180,321 L180,333 Z" transform="rotate(240 186 327)"/>
+              <path class="cp-fw-arrow" d="M314,120 L300,114 L300,126 Z" transform="rotate(-22.2 306 120)"/>
+              <!-- center label -->
+              <text class="cp-fw-center-title" x="500" y="264" text-anchor="middle">A two-sided flywheel</text>
+              <text class="cp-fw-center-sub" x="500" y="289" text-anchor="middle">creators build &#183; brands find &#183; deals close</text>
+              <!-- nodes -->
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:0">
+                <rect x="412" y="53" width="176" height="64" rx="14"/>
+                <text x="500" y="90" text-anchor="middle">Polish &amp; customize</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:1">
+                <rect x="726" y="181" width="176" height="64" rx="14"/>
+                <text x="814" y="218" text-anchor="middle">Share &amp; promote</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--brand" style="--i:2">
+                <rect x="606" y="388" width="176" height="64" rx="14"/>
+                <text x="694" text-anchor="middle"><tspan x="694" y="414">Brands discover</tspan><tspan x="694" y="434">media kits</tspan></text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--brand" style="--i:3">
+                <rect x="218" y="388" width="176" height="64" rx="14"/>
+                <text x="306" text-anchor="middle"><tspan x="306" y="414">Brands message</tspan><tspan x="306" y="434">creators</tspan></text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:4">
+                <rect x="98" y="181" width="176" height="64" rx="14"/>
+                <text x="186" y="218" text-anchor="middle">Land a paid deal</text>
+              </g>
+              <!-- traveling dot -->
+              <circle class="cp-fw-dot" r="8">
+                <animateMotion dur="7s" repeatCount="indefinite">
+                  <mpath href="#cp-fw-track"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+          <div class="cp-fw-legend">
+            <span class="cp-fw-key cp-fw-key--creator">Creator action</span>
+            <span class="cp-fw-key cp-fw-key--brand">Brand action</span>
+          </div>
+        </div>
+        <p class="cs-image-caption">The flywheel I mapped at the outset &mdash; how a single media-kit feature could compound into a healthier two-sided marketplace.</p>
       </div>
     </section>
 
@@ -117,16 +180,16 @@
           <h2 class="cs-section-title">Two levers for adoption: onboarding and discovery.</h2>
         </div>
         <div class="cs-body">
-          <p>For the portfolio to take off, two things had to be true &mdash; creators had to actually build one, and they had to find the feature in the first place. I focused the approach on onboarding and discoverability.</p>
+          <p>For the portfolio to take off, creators had to build one &mdash; and find it in the first place. I focused on two levers: onboarding and discoverability.</p>
         </div>
         <div class="cs-reflections">
           <div class="cs-reflection">
             <h3>Onboard with a creator, not bullet points</h3>
-            <p>Instead of Instagram's standard onboarding screen &mdash; a list of bullet points &mdash; I proposed a NUX video featuring a creator explaining the benefits of Creator Portfolio, showing the value rather than listing it.</p>
+            <p>Instead of a bullet-point screen, a NUX video of a real creator showing the value &mdash; not listing it.</p>
           </div>
           <div class="cs-reflection">
             <h3>Multiple entry points</h3>
-            <p>I explored multiple entry points into the feature to maximize discoverability, so creators could find and start their portfolio wherever they already were on Instagram.</p>
+            <p>Multiple entry points across Instagram, so creators could start a portfolio wherever they already were.</p>
           </div>
         </div>
         <div class="cp-phone">
@@ -149,11 +212,11 @@
         <div class="cs-reflections">
           <div class="cs-reflection">
             <h3>Never start from empty</h3>
-            <p>I proposed auto-populating each portfolio with the creator's popular content and key insights, so they could edit and polish quickly instead of staring at a blank template.</p>
+            <p>Auto-populate each portfolio with the creator's top content and insights &mdash; edit and polish, never start from a blank page.</p>
           </div>
           <div class="cs-reflection">
             <h3>Private by default</h3>
-            <p>A visibility banner &mdash; &ldquo;Your portfolio is only visible to you&rdquo; &mdash; reassured creators their work was private, empowering them to keep polishing until they were ready to share it with brands.</p>
+            <p>A &ldquo;only visible to you&rdquo; banner reassured creators their work stayed private until they were ready to share.</p>
           </div>
         </div>
         <div class="cp-media-pair">
@@ -177,7 +240,7 @@
           <h2 class="cs-section-title">An on-platform media kit, built into Instagram.</h2>
         </div>
         <div class="cs-body">
-          <p>I designed Creator Portfolio &mdash; a space where creators curate their best posts, performance insights, and past brand collaborations into a single, shareable profile. It turned scattered self-promotion into one credible, native pitch a creator could send to any brand.</p>
+          <p>A single, shareable profile where creators curate their best posts, performance insights, and past collaborations &mdash; so their work, not their follower count, makes the pitch.</p>
         </div>
         <div class="cp-figure">
           <img src="img/Instagram Creator Portfolio/Creator portfolio-user journey.png" alt="Creator Portfolio user journey — from building to sharing a portfolio" loading="lazy">
@@ -192,20 +255,20 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Impact</span>
-          <h2 class="cs-section-title">Massive creator adoption &mdash; 13&times; the launch goal.</h2>
+          <h2 class="cs-section-title">13&times; the adoption goal &mdash; hit in two hours.</h2>
         </div>
         <div class="cs-body">
-          <p>Creator Portfolio launched in November 2022 and hit its adoption goal within the first two hours &mdash; then kept climbing, driving a step-change in how creators activated on the marketplace.</p>
+          <p>Launched November 2022, it hit its adoption goal within two hours &mdash; then kept climbing, a step-change in how creators activated on the marketplace.</p>
         </div>
 
         <div class="cs-impact-grid">
           <div class="cs-impact-card">
             <h3>13&times; adoption goal</h3>
-            <p>59.6K portfolios published by the end of H2 &rsquo;22 &mdash; 13&times; the 5,000 goal, which we hit within the first two hours of launch.</p>
+            <p>59.6K portfolios by end of H2 &rsquo;22 &mdash; 13&times; the 5,000 goal, hit within two hours.</p>
           </div>
           <div class="cs-impact-card">
             <h3>60% creator activation</h3>
-            <p>Creator activation reached 60%, up from a ~25% prior benchmark, with 126K creators activated.</p>
+            <p>Activation hit 60% &mdash; up from a ~25% benchmark &mdash; with 126K creators activated.</p>
           </div>
           <div class="cs-impact-card">
             <h3>216K creators onboarded</h3>
@@ -226,20 +289,20 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Reflections</span>
-          <h2 class="cs-section-title">What I Learned</h2>
+          <h2 class="cs-section-title">Adoption was easy &mdash; discovery was the real work.</h2>
         </div>
         <div class="cs-reflections">
           <div class="cs-reflection">
             <h3>Adoption was never the bottleneck</h3>
-            <p>Creators embraced the portfolio instantly &mdash; 13&times; the goal, hit within two hours. The real gap was on the brand side: brands weren't discovering these portfolios inside their workflows.</p>
+            <p>Creators of every size embraced it instantly &mdash; 13&times; the goal in two hours. The real gap was brand-side: they weren't discovering portfolios in their workflows.</p>
           </div>
           <div class="cs-reflection">
-            <h3>Discovery completes the ecosystem</h3>
-            <p>The team invested in <a class="cs-inline-link" href="case-study-meta.html">ML-powered discovery</a> to surface creator content where brands work &mdash; driving 20&ndash;72% more portfolio and profile views and closing the loop.</p>
+            <h3>Discovery was the next bet</h3>
+            <p>The team then invested in <a class="cs-inline-link" href="case-study-meta.html">ML-powered discovery</a> to surface creators where brands work &mdash; driving 20&ndash;72% more portfolio and profile views.</p>
           </div>
           <div class="cs-reflection">
             <h3>The portfolio endures</h3>
-            <p>Creator Portfolio remains a core part of the creator marketplace ecosystem &mdash; a product now growing 600% year over year.</p>
+            <p>Creator Portfolio is still core to the marketplace &mdash; now growing 600% year over year.</p>
           </div>
         </div>
       </div>
@@ -353,6 +416,33 @@
           }
         });
       }, { threshold: 0.3 }).observe(results);
+    }
+
+    // Fade-in reveal on scroll (e.g. the Hypothesis heading)
+    var reveals = document.querySelectorAll('.cp-reveal');
+    if (reveals.length) {
+      var revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      reveals.forEach(function (el) { revealObserver.observe(el); });
+    }
+
+    // Ecosystem flywheel — reveal nodes/ring on scroll into view
+    var flywheel = document.querySelector('.cp-flywheel');
+    if (flywheel) {
+      new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 }).observe(flywheel);
     }
 
     // Back to top button

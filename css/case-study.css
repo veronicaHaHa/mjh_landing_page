@@ -64,7 +64,8 @@
   width: 100%;
 }
 
-.cs-hero-cover img {
+.cs-hero-cover img,
+.cs-hero-cover video {
   width: 100%;
   display: block;
   max-height: 680px;
@@ -703,6 +704,144 @@
 .cs-section--bg05 > * {
   position: relative;
   z-index: 1;
+}
+
+/* Sticky stack — the Challenge section pins to the top of the viewport while
+   the Hypothesis section scrolls up and layers over it like a covering panel. */
+.cp-stack {
+  position: relative;
+}
+
+.cp-stack .cs-section--challenge {
+  position: sticky;
+  top: 0;
+}
+
+.cp-stack .cs-section--sky {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sky photo background (used on the Hypothesis section) — white text over a
+   bright sky, with a top-weighted dark-blue scrim so the copy stays legible. */
+.cs-section--sky {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Frosted glass — blur whatever layer sits beneath (the Challenge section)
+     so it shows through blurred as this panel scrolls over it. */
+  background: transparent;
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.cs-section--sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/sky_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.cs-section--sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.34) 55%, rgba(255, 255, 255, 0.22) 100%);
+  z-index: 0;
+}
+
+.cs-section--sky > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hypothesis panel — center-aligned heading (no label, no body copy). */
+.cs-section--sky .cs-section-header {
+  text-align: center;
+}
+
+/* Scroll reveal — fade + rise, triggered by IntersectionObserver on scroll-in. */
+.cp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.cp-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.cs-section--sky .cs-section-title {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+}
+
+/* Gap between the two stacked heading blocks */
+.cs-section--sky .cs-section-title + .cs-section-title {
+  margin-top: 2rem;
+}
+
+/* Photo background (used on the Challenge section) — brand marketers searching
+   the creator marketplace. White text over a left-weighted dark scrim so the
+   copy stays legible while the laptop and people remain visible on the right. */
+.cs-section--challenge {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  min-height: 100vh;
+}
+
+.cs-section--challenge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/challenge-bg.jpg");
+  background-position: center 35%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.cs-section--challenge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(12, 10, 20, 0.82) 0%, rgba(12, 10, 20, 0.55) 38%, rgba(12, 10, 20, 0.28) 100%);
+  z-index: 0;
+}
+
+.cs-section--challenge > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* On mobile, drop the full-screen (100vh) stack panels back to a fixed height —
+   avoids the iOS address-bar height jump and a full screen of scroll per panel. */
+@media (max-width: 700px) {
+  .cs-section--challenge,
+  .cs-section--sky {
+    min-height: 560px;
+  }
 }
 
 /* Context section reveals the background with its scroll-triggered dark state */
@@ -1566,6 +1705,163 @@
   .cp-media-pair {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Long-term Vision: two-sided ecosystem flywheel --- */
+.cp-flywheel {
+  max-width: 760px;
+  margin: var(--space-2xl) auto 1rem;
+}
+
+.cp-flywheel-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cp-flywheel svg {
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Nodes */
+.cp-fw-node rect {
+  stroke-width: 1.5;
+}
+
+.cp-fw-node text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  fill: #ffffff;
+}
+
+.cp-fw-node--creator rect {
+  fill: rgba(255, 61, 154, 0.12);
+  stroke: #ff3d9a;
+}
+
+.cp-fw-node--brand rect {
+  fill: rgba(167, 139, 250, 0.14);
+  stroke: #a78bfa;
+}
+
+/* Ring + direction arrows */
+.cp-fw-ring {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 7;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.35));
+  animation: cpFwPulse 3.6s ease-in-out infinite;
+}
+
+.cp-fw-arrow {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+/* Center label */
+.cp-fw-center-title {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 600;
+  fill: #ffffff;
+}
+
+.cp-fw-center-sub {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  fill: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+}
+
+/* Traveling dot */
+.cp-fw-dot {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 8px rgba(255, 61, 154, 0.9));
+}
+
+@keyframes cpFwPulse {
+  0%, 100% { stroke-opacity: 0.5; }
+  50% { stroke-opacity: 1; }
+}
+
+/* Scroll-reveal states */
+.cp-fw-node {
+  opacity: 0;
+  transform: scale(0.9);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cp-flywheel.is-visible .cp-fw-node {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: calc(var(--i) * 0.09s);
+}
+
+.cp-fw-ring {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+}
+
+.cp-flywheel.is-visible .cp-fw-ring {
+  opacity: 1;
+}
+
+.cp-fw-arrow,
+.cp-fw-center-title,
+.cp-fw-center-sub,
+.cp-fw-dot {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cp-flywheel.is-visible .cp-fw-arrow { opacity: 1; transition-delay: 0.5s; }
+.cp-flywheel.is-visible .cp-fw-center-title { opacity: 1; transition-delay: 0.35s; }
+.cp-flywheel.is-visible .cp-fw-center-sub { opacity: 1; transition-delay: 0.45s; }
+.cp-flywheel.is-visible .cp-fw-dot { opacity: 1; transition-delay: 0.6s; }
+
+/* Legend */
+.cp-fw-legend {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cp-fw-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cp-fw-key::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.cp-fw-key--creator::before { background: #ff3d9a; }
+.cp-fw-key--brand::before { background: #a78bfa; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-fw-node,
+  .cp-fw-ring,
+  .cp-fw-arrow,
+  .cp-fw-center-title,
+  .cp-fw-center-sub {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .cp-fw-dot { display: none; }
 }
 
 .cs-section--dark .cs-confidential-note {
