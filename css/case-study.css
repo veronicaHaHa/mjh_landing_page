@@ -706,6 +706,26 @@
   z-index: 1;
 }
 
+/* Dark background for the Strategy, Solution, and footer on the Creator
+   Portfolio page (overrides the shared dark-section navy). */
+.cp-blue-bg {
+  background: #1e1e1e;
+}
+
+.cs-page--creator-portfolio .site-footer {
+  background: #1e1e1e;
+}
+
+/* Blue-themed section labels — deep blue on light sections, light sky-blue on
+   the dark/gradient sections, so they stay legible on both. */
+.cs-page--creator-portfolio .cs-section-label {
+  color: #0c5c8e;
+}
+
+.cs-page--creator-portfolio .cs-section--dark .cs-section-label {
+  color: #8ecae6;
+}
+
 /* Sticky stack — the Challenge section pins to the top of the viewport while
    the Hypothesis section scrolls up and layers over it like a covering panel. */
 .cp-stack {
@@ -732,11 +752,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Frosted glass — blur whatever layer sits beneath (the Challenge section)
-     so it shows through blurred as this panel scrolls over it. */
-  background: transparent;
-  -webkit-backdrop-filter: blur(22px);
-  backdrop-filter: blur(22px);
+  /* Subtle frosted glass — a mostly-opaque white tint over a light
+     backdrop-blur, so the layer beneath shows through only faintly. */
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
 }
 
 .cs-section--sky::before {
@@ -747,7 +767,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.5;
+  opacity: 0;
   z-index: 0;
 }
 
@@ -755,7 +775,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.34) 55%, rgba(255, 255, 255, 0.22) 100%);
+  background: transparent;
   z-index: 0;
 }
 
@@ -799,6 +819,21 @@
 /* Gap between the two stacked heading blocks */
 .cs-section--sky .cs-section-title + .cs-section-title {
   margin-top: 2rem;
+}
+
+/* Keep the inline link legible on the light frosted panel (override the
+   white link colour that cs-section--dark would otherwise apply). */
+.cs-section--sky .cs-section-title .cs-inline-link {
+  color: inherit;
+}
+
+/* Instagram gradient text (clipped to the glyphs), left-to-right sweep. */
+.ig-gradient-text {
+  background: linear-gradient(to right, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Photo background (used on the Challenge section) — brand marketers searching
@@ -1709,8 +1744,8 @@
 
 /* --- Long-term Vision: two-sided ecosystem flywheel --- */
 .cp-flywheel {
-  max-width: 760px;
-  margin: var(--space-2xl) auto 1rem;
+  max-width: 840px;
+  margin: var(--space-lg) auto 1.75rem;
 }
 
 .cp-flywheel-scroll {
@@ -1739,22 +1774,26 @@
 }
 
 .cp-fw-node--creator rect {
-  fill: rgba(255, 61, 154, 0.12);
-  stroke: #ff3d9a;
+  fill: #1e1e1e;
+  stroke: none;
+  rx: 32px;
+  filter: url(#cp-fw-creator-glow);
 }
 
 .cp-fw-node--brand rect {
-  fill: rgba(167, 139, 250, 0.14);
-  stroke: #a78bfa;
+  fill: #1e1e1e;
+  stroke: none;
+  rx: 32px;
+  filter: url(#cp-fw-brand-glow);
 }
 
 /* Ring + direction arrows */
 .cp-fw-ring {
-  stroke: rgba(255, 255, 255, 0.22);
+  stroke: #ffffff;
+  stroke-opacity: 0.25;
   stroke-width: 1.5;
-  stroke-dasharray: 5 7;
-  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.35));
-  animation: cpFwPulse 3.6s ease-in-out infinite;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
 }
 
 .cp-fw-arrow {
@@ -1764,14 +1803,14 @@
 /* Center label */
 .cp-fw-center-title {
   font-family: var(--font-body);
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 600;
   fill: #ffffff;
 }
 
 .cp-fw-center-sub {
   font-family: var(--font-body);
-  font-size: 12.5px;
+  font-size: 14px;
   fill: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.02em;
 }
@@ -1779,7 +1818,7 @@
 /* Traveling dot */
 .cp-fw-dot {
   fill: #ffffff;
-  filter: drop-shadow(0 0 8px rgba(255, 61, 154, 0.9));
+  filter: drop-shadow(0 0 8px rgba(169, 222, 249, 0.9));
 }
 
 @keyframes cpFwPulse {
@@ -1790,25 +1829,35 @@
 /* Scroll-reveal states */
 .cp-fw-node {
   opacity: 0;
-  transform: scale(0.9);
   transform-box: fill-box;
   transform-origin: center;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
+/* Pop 15% larger as the dot reaches each node — the animation starts on
+   scroll-in (in sync with the dot), staggered by --i around the 7s loop. */
 .cp-flywheel.is-visible .cp-fw-node {
   opacity: 1;
-  transform: scale(1);
   transition-delay: calc(var(--i) * 0.09s);
+  animation: cpFwNodePop 7s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.4s - 3.5s);
 }
 
-.cp-fw-ring {
-  opacity: 0;
-  transition: opacity 0.6s ease 0.1s;
+@keyframes cpFwNodePop {
+  0% { filter: brightness(0.75); }
+  46.5% { filter: brightness(0.75); animation-timing-function: ease-out; }      /* fast flash on */
+  47.6% { filter: brightness(1.75); animation-timing-function: ease-in-out; }   /* slow, smooth fade */
+  63% { filter: brightness(0.75); }
+  100% { filter: brightness(0.75); }
 }
 
+/* Draw the ring on scroll-in, in sync with the dot's first trip. */
 .cp-flywheel.is-visible .cp-fw-ring {
-  opacity: 1;
+  animation: cpFwRingDraw 7s linear forwards;
+}
+
+@keyframes cpFwRingDraw {
+  to { stroke-dashoffset: 0; }
 }
 
 .cp-fw-arrow,
@@ -1847,13 +1896,12 @@
   border-radius: 3px;
 }
 
-.cp-fw-key--creator::before { background: #ff3d9a; }
-.cp-fw-key--brand::before { background: #a78bfa; }
+.cp-fw-key--creator::before { background: #fd046e; }
+.cp-fw-key--brand::before { background: #4fdbf7; }
 
 @media (prefers-reduced-motion: reduce) {
   .cp-fw-node,
   .cp-fw-ring,
-  .cp-fw-arrow,
   .cp-fw-center-title,
   .cp-fw-center-sub {
     opacity: 1 !important;
@@ -1861,6 +1909,7 @@
     transition: none !important;
     animation: none !important;
   }
+  .cp-fw-ring { stroke-dashoffset: 0 !important; }
   .cp-fw-dot { display: none; }
 }
 

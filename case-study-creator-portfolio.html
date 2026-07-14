@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/case-study.css">
 </head>
-<body class="case-study-page">
+<body class="case-study-page cs-page--creator-portfolio">
 
   <!-- Navigation -->
   <nav class="site-nav case-study-nav" role="navigation" aria-label="Main navigation">
@@ -101,66 +101,82 @@
     <section class="cs-section cs-section--dark cs-section--sky">
       <div class="container cs-container">
         <div class="cs-section-header cp-reveal">
-          <h2 class="cs-section-title">Media kits were already an industry standard.</h2>
-          <h2 class="cs-section-title">By bringing them natively to Instagram, less experienced creators could present themselves professionally without leaving the platform, giving brands more confidence to discover and evaluate them.</h2>
+          <h2 class="cs-section-title"><a class="cs-inline-link" href="https://later.com/social-media-glossary/media-kit/" target="_blank" rel="noopener noreferrer">Media kits</a> were already an industry standard.</h2>
+          <h2 class="cs-section-title">By bringing them natively to Instagram, <span class="ig-gradient-text">less experienced creators could present themselves professionally</span> without leaving the platform, giving brands more confidence to discover and evaluate them.</h2>
         </div>
       </div>
     </section>
     </div><!-- /.cp-stack -->
 
     <!-- Strategy — the flywheel thesis (mapped at the project's start) -->
-    <section class="cs-section cs-section--dark cp-ecosystem" id="flywheel">
+    <section class="cs-section cs-section--dark cp-ecosystem cp-blue-bg" id="flywheel">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Strategy</span>
-          <h2 class="cs-section-title">One feature to start a two-sided flywheel.</h2>
+          <h2 class="cs-section-title">Make participation effortless</h2>
         </div>
         <div class="cs-body">
-          <p>I framed the portfolio as the first turn of a flywheel: creators share media kits, brands discover the smaller, niche creators they'd been missing, deals close &mdash; and every deal pulls creators back to invest again.</p>
+          <p>Rather than asking creators to invest significant time building a professional media kit, I focused on making portfolio creation almost effortless. Lowering the upfront investment encouraged more creators to participate, giving brands more creators to discover and creating the foundation for a healthy two-sided marketplace.</p>
         </div>
-        <div class="cp-flywheel" aria-label="Two-sided ecosystem flywheel: creators polish and share a media kit, brands discover and message them, deals close, and creators keep investing.">
+        <div class="cp-flywheel" aria-label="Two-sided ecosystem flywheel: creators polish and share a portfolio, brands discover and message them, deals close, and creators keep investing.">
           <div class="cp-flywheel-scroll">
-            <svg viewBox="0 0 1000 560" role="img" xmlns="http://www.w3.org/2000/svg">
-              <!-- motion path (hidden) -->
-              <path id="cp-fw-track" d="M500,85 A330,185 0 1 1 500,455 A330,185 0 1 1 500,85" fill="none"/>
-              <!-- ring -->
-              <ellipse class="cp-fw-ring" cx="500" cy="270" rx="330" ry="185" fill="none"/>
-              <!-- direction arrows (clockwise) -->
-              <path class="cp-fw-arrow" d="M702,120 L688,114 L688,126 Z" transform="rotate(22.2 694 120)"/>
-              <path class="cp-fw-arrow" d="M822,327 L808,321 L808,333 Z" transform="rotate(120.1 814 327)"/>
-              <path class="cp-fw-arrow" d="M508,455 L494,449 L494,461 Z" transform="rotate(180 500 455)"/>
-              <path class="cp-fw-arrow" d="M194,327 L180,321 L180,333 Z" transform="rotate(240 186 327)"/>
-              <path class="cp-fw-arrow" d="M314,120 L300,114 L300,126 Z" transform="rotate(-22.2 306 120)"/>
+            <svg viewBox="0 -14 1000 540" role="img" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Pink inner glow for the creator nodes (from Figma). -->
+                <filter id="cp-fw-creator-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+                  <feFlood flood-color="#fd046e" result="c"/>
+                  <feComposite in="c" in2="SourceAlpha" operator="out" result="inv"/>
+                  <feGaussianBlur in="inv" stdDeviation="16" result="g"/>
+                  <feComposite in="g" in2="SourceAlpha" operator="in" result="ig"/>
+                  <feMerge>
+                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode in="ig"/>
+                  </feMerge>
+                </filter>
+                <!-- Blue inner glow for the brand nodes (from Figma). -->
+                <filter id="cp-fw-brand-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+                  <feFlood flood-color="#4fdbf7" result="c"/>
+                  <feComposite in="c" in2="SourceAlpha" operator="out" result="inv"/>
+                  <feGaussianBlur in="inv" stdDeviation="16" result="g"/>
+                  <feComposite in="g" in2="SourceAlpha" operator="in" result="ig"/>
+                  <feMerge>
+                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode in="ig"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- ring — also the dot's motion track; drawn on scroll-in -->
+              <path id="cp-fw-track" class="cp-fw-ring" d="M500,40 A330,230 0 1 1 500,500 A330,230 0 1 1 500,40" pathLength="1" fill="none"/>
               <!-- center label -->
               <text class="cp-fw-center-title" x="500" y="264" text-anchor="middle">A two-sided flywheel</text>
               <text class="cp-fw-center-sub" x="500" y="289" text-anchor="middle">creators build &#183; brands find &#183; deals close</text>
-              <!-- nodes -->
-              <g class="cp-fw-node cp-fw-node--creator" style="--i:0">
-                <rect x="412" y="53" width="176" height="64" rx="14"/>
-                <text x="500" y="90" text-anchor="middle">Polish &amp; customize</text>
-              </g>
-              <g class="cp-fw-node cp-fw-node--creator" style="--i:1">
-                <rect x="726" y="181" width="176" height="64" rx="14"/>
-                <text x="814" y="218" text-anchor="middle">Share &amp; promote</text>
-              </g>
-              <g class="cp-fw-node cp-fw-node--brand" style="--i:2">
-                <rect x="606" y="388" width="176" height="64" rx="14"/>
-                <text x="694" text-anchor="middle"><tspan x="694" y="414">Brands discover</tspan><tspan x="694" y="434">media kits</tspan></text>
-              </g>
-              <g class="cp-fw-node cp-fw-node--brand" style="--i:3">
-                <rect x="218" y="388" width="176" height="64" rx="14"/>
-                <text x="306" text-anchor="middle"><tspan x="306" y="414">Brands message</tspan><tspan x="306" y="434">creators</tspan></text>
-              </g>
-              <g class="cp-fw-node cp-fw-node--creator" style="--i:4">
-                <rect x="98" y="181" width="176" height="64" rx="14"/>
-                <text x="186" y="218" text-anchor="middle">Land a paid deal</text>
-              </g>
-              <!-- traveling dot -->
-              <circle class="cp-fw-dot" r="8">
-                <animateMotion dur="7s" repeatCount="indefinite">
+              <!-- traveling dot (behind the nodes) -->
+              <circle class="cp-fw-dot" r="5">
+                <animateMotion id="cp-fw-dot-motion" dur="7s" repeatCount="indefinite" begin="indefinite">
                   <mpath href="#cp-fw-track"/>
                 </animateMotion>
               </circle>
+              <!-- nodes -->
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:0">
+                <rect x="412" y="8" width="176" height="64" rx="14"/>
+                <text x="500" y="45" text-anchor="middle">Create &amp; polish</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:1">
+                <rect x="726" y="167" width="176" height="64" rx="14"/>
+                <text x="814" y="204" text-anchor="middle">Share &amp; promote</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--brand" style="--i:2">
+                <rect x="606" y="424" width="176" height="64" rx="14"/>
+                <text x="694" y="461" text-anchor="middle">Discover portfolios</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--brand" style="--i:3">
+                <rect x="218" y="424" width="176" height="64" rx="14"/>
+                <text x="306" y="461" text-anchor="middle">Message creators</text>
+              </g>
+              <g class="cp-fw-node cp-fw-node--creator" style="--i:4">
+                <rect x="98" y="167" width="176" height="64" rx="14"/>
+                <text x="186" y="204" text-anchor="middle">Land a paid deal</text>
+              </g>
             </svg>
           </div>
           <div class="cp-fw-legend">
@@ -168,7 +184,7 @@
             <span class="cp-fw-key cp-fw-key--brand">Brand action</span>
           </div>
         </div>
-        <p class="cs-image-caption">The flywheel I mapped at the outset &mdash; how a single media-kit feature could compound into a healthier two-sided marketplace.</p>
+        <p class="cs-image-caption">The flywheel I mapped at the outset &mdash; how a single portfolio feature could compound into a healthier two-sided marketplace.</p>
       </div>
     </section>
 
@@ -233,7 +249,7 @@
     </section>
 
     <!-- 6. Solution -->
-    <section class="cs-section cs-section--dark">
+    <section class="cs-section cs-section--dark cp-blue-bg">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Solution</span>
@@ -439,6 +455,12 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            // Start the dot's motion now, so it, the ring draw, and the node
+            // pops all begin in sync as the section scrolls into view.
+            var motion = document.getElementById('cp-fw-dot-motion');
+            if (motion && motion.beginElement) {
+              try { motion.beginElement(); } catch (e) { /* ignore */ }
+            }
             observer.unobserve(entry.target);
           }
         });
