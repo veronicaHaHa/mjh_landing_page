@@ -709,11 +709,11 @@
 /* Dark background for the Strategy, Solution, and footer on the Creator
    Portfolio page (overrides the shared dark-section navy). */
 .cp-blue-bg {
-  background: #1e1e1e;
+  background: #141414;
 }
 
 .cs-page--creator-portfolio .site-footer {
-  background: #1e1e1e;
+  background: #141414;
 }
 
 /* Blue-themed section labels — deep blue on light sections, light sky-blue on
@@ -754,7 +754,7 @@
   justify-content: center;
   /* Subtle frosted glass — a mostly-opaque white tint over a light
      backdrop-blur, so the layer beneath shows through only faintly. */
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
@@ -829,7 +829,7 @@
 
 /* Instagram gradient text (clipped to the glyphs), left-to-right sweep. */
 .ig-gradient-text {
-  background: linear-gradient(to right, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  background: linear-gradient(to right, #ff7a00 0%, #ff0d6d 50%, #b026ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1685,7 +1685,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.7);
   z-index: 0;
 }
 
@@ -1711,6 +1711,7 @@
   object-fit: cover;
   object-position: top center;
   border-radius: 24px 24px 0 0;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.22);
 }
 
 /* Approach 03 — larger image */
@@ -1739,10 +1740,73 @@
   border-radius: 24px;
 }
 
+/* Creator Portfolio — Craft as a stacked list: text, then image below */
+.cp-craft-list {
+  max-width: 100%;
+  margin: var(--space-3xl) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+}
+
+.cp-craft-text {
+  max-width: 660px;
+}
+
+.cp-craft-text h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: var(--space-xs);
+}
+
+/* Each craft point gets its own title color from the Instagram gradient */
+.cp-craft-item:nth-child(1) .cp-craft-text h3 {
+  color: #ff7a00;
+}
+.cp-craft-item:nth-child(2) .cp-craft-text h3 {
+  color: #ff0d6d;
+}
+.cp-craft-item:nth-child(3) .cp-craft-text h3 {
+  color: #b026ff;
+}
+
+.cp-craft-text p {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.cp-craft-figure {
+  margin: var(--space-xl) 0 0;
+}
+
+.cp-craft-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Opaque composition — framed as a card */
+.cp-craft-figure--card {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+/* Transparent floating mockups — no frame */
+.cp-craft-figure--phone {
+  max-width: 300px;
+}
+
+.cp-craft-figure--mid {
+  max-width: 720px;
+}
+
 /* Creator Portfolio — landscape figure, capped */
 .cp-figure {
   max-width: 920px;
-  margin: var(--space-2xl) auto 0;
+  margin: var(--space-3xl) auto 0;
 }
 
 .cp-figure img {
@@ -1820,14 +1884,14 @@
 }
 
 .cp-fw-node--creator rect {
-  fill: #1e1e1e;
+  fill: #141414;
   stroke: none;
   rx: 32px;
   filter: url(#cp-fw-creator-glow);
 }
 
 .cp-fw-node--brand rect {
-  fill: #1e1e1e;
+  fill: #141414;
   stroke: none;
   rx: 32px;
   filter: url(#cp-fw-brand-glow);
@@ -1943,7 +2007,7 @@
 }
 
 .cp-fw-key--creator::before { background: #fd046e; }
-.cp-fw-key--brand::before { background: #4fdbf7; }
+.cp-fw-key--brand::before { background: #b026ff; }
 
 @media (prefers-reduced-motion: reduce) {
   .cp-fw-node,

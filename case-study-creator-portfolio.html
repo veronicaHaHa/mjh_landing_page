@@ -135,7 +135,7 @@
                 </filter>
                 <!-- Blue inner glow for the brand nodes (from Figma). -->
                 <filter id="cp-fw-brand-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
-                  <feFlood flood-color="#4fdbf7" result="c"/>
+                  <feFlood flood-color="#b026ff" result="c"/>
                   <feComposite in="c" in2="SourceAlpha" operator="out" result="inv"/>
                   <feGaussianBlur in="inv" stdDeviation="16" result="g"/>
                   <feComposite in="g" in2="SourceAlpha" operator="in" result="ig"/>
@@ -241,25 +241,40 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Craft</span>
-          <h2 class="cs-section-title">Two levers for adoption: onboarding and discovery.</h2>
+          <h2 class="cs-section-title">Reuse familiar patterns; invent only where it pays off.</h2>
         </div>
         <div class="cs-body">
-          <p>For the portfolio to take off, creators had to build one &mdash; and find it in the first place. I focused on two levers: onboarding and discoverability.</p>
+          <p>For less-experienced creators, every extra decision is friction. So I pre-filled the parts that intimidate people and built the rest on patterns creators already knew &mdash; reserving a brand-new pattern for the one place the familiar one fell flat.</p>
         </div>
-        <div class="cs-reflections">
-          <div class="cs-reflection">
-            <h3>Onboard with a creator, not bullet points</h3>
-            <p>Instead of a bullet-point screen, a NUX video of a real creator showing the value &mdash; not listing it.</p>
+
+        <div class="cp-craft-list">
+          <div class="cp-craft-item">
+            <div class="cp-craft-text">              <h3>The template fills itself in</h3>
+              <p>Each portfolio opens pre-populated with the creator&rsquo;s best content and audience data &mdash; top posts and Highlights, selected reels and stories, reach and engagement insights, past brand partnerships, even audience demographics &mdash; pulled straight from their account. Instead of a blank page, a less-experienced creator starts from a credible draft they only need to edit.</p>
+            </div>
+            <figure class="cp-craft-figure cp-craft-figure--card">
+              <img src="img/Instagram Creator Portfolio/Auto populated content.jpg" alt="Auto-populated portfolio sections: highlights, selected content, insights, brand partnerships and audience demographics" loading="lazy">
+            </figure>
           </div>
-          <div class="cs-reflection">
-            <h3>Multiple entry points</h3>
-            <p>Multiple entry points across Instagram, so creators could start a portfolio wherever they already were.</p>
+
+          <div class="cp-craft-item">
+            <div class="cp-craft-text">              <h3>Built on Guides, not a new builder</h3>
+              <p>I reused Instagram&rsquo;s existing <a class="cs-inline-link" href="https://about.instagram.com/blog/announcements/supporting-well-being-with-instagram-guides" target="_blank" rel="noopener noreferrer">Guides</a> pattern &mdash; curate a post, add a short description, arrange the sequence &mdash; so the portfolio builder felt native from day one and shipped without asking creators to learn anything new.</p>
+            </div>
+            <figure class="cp-craft-figure cp-craft-figure--card">
+              <img src="img/Instagram Creator Portfolio/Instagram Guides.jpg" alt="Instagram Guides and Creator Portfolio side by side, showing the shared builder pattern" loading="lazy">
+            </figure>
+          </div>
+
+          <div class="cp-craft-item">
+            <div class="cp-craft-text">              <h3>A new onboarding format, earned</h3>
+              <p>The intro was the exception. A bullet-point explainer felt flat, so I replaced it with a short video of a real creator walking through how they built their portfolio. It tested more engaging &mdash; and the Subscriptions team later adopted the same format for their own launches.</p>
+            </div>
+            <figure class="cp-craft-figure cp-craft-figure--mid">
+              <img src="img/Instagram Creator Portfolio/Creator Portfolio NUX.png" alt="Creator-led onboarding video replacing a bullet-point screen" loading="lazy">
+            </figure>
           </div>
         </div>
-        <div class="cp-phone">
-          <video src="img/Instagram Creator Portfolio/How to create creator portfolio.mp4" autoplay muted loop playsinline aria-label="Creator Portfolio onboarding NUX video featuring a creator"></video>
-        </div>
-        <p class="cs-image-caption">The onboarding NUX &mdash; a creator explaining the value of Creator Portfolio, in place of a bullet-point screen.</p>
       </div>
     </section>
 
