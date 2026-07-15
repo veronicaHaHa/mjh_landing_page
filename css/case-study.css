@@ -1803,6 +1803,186 @@
   max-width: 720px;
 }
 
+/* Craft 03 — before/after: bullet-point NUX screen vs the creator-led
+   onboarding video, with a chevron between. Phones bleed off the bottom of
+   the card, and the video carries the in-app overlays (Figma 1823:71031). */
+.cp-nux {
+  /* Geometry mirrors the Instagram Guides card (image 2): phones are 29.78%
+     of the card, centred, with the same ~8.35% top padding, so both cards
+     render identically at every width. */
+  margin: var(--space-xl) 0 0;
+  padding: 8.35% 0 0;
+  background: #f5f5f5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cp-nux-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3.5%;
+}
+
+.cp-nux-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Not a query container, so use viewport-capped values (not cqw, which
+     would fall back to the viewport here and break the label gap). */
+  gap: clamp(16px, 1.9vw, 24px);
+  flex: 0 0 27%;
+  min-width: 0;
+}
+
+.cp-nux-label {
+  font-family: var(--font-body);
+  font-size: clamp(9px, 1.14vw, 14px);
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.cp-nux-phone {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  /* Shorter than a full 375:812 screen, so the bottom is cut by the card. */
+  aspect-ratio: 375 / 745;
+  overflow: hidden;
+  /* Own property — cqw would query the viewport here, so use a capped clamp. */
+  border-radius: clamp(21px, 2.6vw, 33px) clamp(21px, 2.6vw, 33px) 0 0;
+  background: #ffffff;
+  box-shadow: 0 6px 34px rgba(0, 0, 0, 0.16);
+}
+
+.cp-nux-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlays baked on top of the onboarding video */
+.cp-nux-ov {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #fff;
+  pointer-events: none;
+}
+
+.cp-nux-ov--top {
+  top: 0;
+  padding: 4cqw 4.3cqw 9cqw;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+}
+
+.cp-nux-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2cqw;
+}
+
+.cp-nux-time {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 3.6cqw;
+}
+
+.cp-nux-status-icons {
+  width: 12.2cqw;
+  height: auto;
+}
+
+.cp-nux-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  margin-top: 5.5cqw;
+  padding: 0 2cqw;
+}
+
+.cp-nux-back {
+  width: 6.4cqw;
+  height: 6.4cqw;
+  flex: 0 0 auto;
+}
+
+.cp-nux-nav-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 5.4cqw;
+  line-height: 1.2;
+}
+
+.cp-nux-info {
+  width: 6.4cqw;
+  height: 6.4cqw;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.cp-nux-ov--bottom {
+  bottom: 0;
+  padding: 22cqw 8.5cqw 6cqw;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 52%, rgba(0, 0, 0, 0));
+}
+
+.cp-nux-hero-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 5.4cqw;
+  line-height: 1.25;
+  margin: 0 0 1.8cqw;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.cp-nux-hero-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 3.3cqw;
+  line-height: 1.4;
+  margin: 0 0 3.4cqw;
+}
+
+.cp-nux-cta {
+  display: block;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 3.5cqw;
+  padding: 3.4cqw;
+  border-radius: 6cqw;
+  box-shadow: 0 1cqw 3cqw rgba(0, 0, 0, 0.15);
+}
+
+.cp-nux-chevron {
+  flex: 0 0 auto;
+  align-self: center;
+  width: clamp(18px, 2.4vw, 34px);
+  height: auto;
+  color: #8a8a8a;
+  /* nudge down so it centers on the phones, not the label above them */
+  margin-top: 1vw;
+}
+
+@media (max-width: 640px) {
+  .cp-nux-row {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+  .cp-nux-chevron {
+    margin-top: 0;
+    transform: rotate(90deg);
+  }
+}
+
 /* Creator Portfolio — landscape figure, capped */
 .cp-figure {
   max-width: 920px;
