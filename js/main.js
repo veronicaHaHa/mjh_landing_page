@@ -107,7 +107,7 @@
   // --- Passcode modal for selected work ---
   // Production: verified by Vercel Edge Middleware via POST /__auth (sets HttpOnly cookie).
   // Local static servers have no middleware — fall back to the same SHA-256 check.
-  var PASSCODE_SHA256 = 'f24beb7de6d29ad33c807d73b2fefc452020c9294af5df445ef295e838bbfc0d';
+  var PASSCODE_SHA256 = 'ea255de0fab43aabe699393ddff58187a4f09650c80e7cdb1c941b0e8cbcb104';
   var modal = document.getElementById('passcode-modal');
   var modalForm = document.getElementById('passcode-form');
   var modalInput = document.getElementById('passcode-input');
