@@ -716,15 +716,8 @@
   background: #141414;
 }
 
-/* Blue-themed section labels — deep blue on light sections, light sky-blue on
-   the dark/gradient sections, so they stay legible on both. */
-.cs-page--creator-portfolio .cs-section-label {
-  color: #0c5c8e;
-}
-
-.cs-page--creator-portfolio .cs-section--dark .cs-section-label {
-  color: #8ecae6;
-}
+/* Section labels use the shared accent (#7c3aed on light, #a78bfa on dark) so
+   they stay consistent with the other case studies. */
 
 /* Sticky stack — the Challenge section pins to the top of the viewport while
    the Hypothesis section scrolls up and layers over it like a covering panel. */
@@ -1993,6 +1986,165 @@
   width: 100%;
   display: block;
   border-radius: 24px;
+}
+
+/* MVP experience — end-to-end user journey: overlapping screens grouped into
+   Discover / Create / Share phases over a pink timeline. */
+.cp-journey {
+  --phone-w: clamp(78px, 9vw, 124px);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-items: end;
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin: var(--space-2xl) auto 0;
+}
+
+/* the journey timeline, aligned to the phase dots */
+.cp-journey::before {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: calc(var(--phone-w) * 2.165 + var(--space-lg) + 5px);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 13, 109, 0.12), rgba(255, 13, 109, 0.6) 50%, rgba(255, 13, 109, 0.12));
+}
+
+.cp-journey-shots {
+  grid-row: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cp-journey-shots img {
+  width: var(--phone-w);
+  border-radius: 11px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
+  display: block;
+}
+
+.cp-journey-shots img + img {
+  margin-left: -13%;
+}
+
+/* Create phase has 4 screens — overlap them less so each stays readable */
+.cp-journey-shots--spread img + img {
+  margin-left: -5%;
+}
+
+.cp-journey-marker {
+  grid-row: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-lg);
+}
+
+.cp-journey-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff0d6d;
+  box-shadow: 0 0 0 4px rgba(255, 13, 109, 0.16);
+}
+
+.cp-journey-label {
+  margin-top: var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .cp-journey {
+    justify-content: start;
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+  }
+}
+
+/* Impact — adoption curve behind the launch-campaign video, overlapping
+   (graph from Figma 1830:71821). */
+.cp-impact-viz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  max-width: 940px;
+  margin: var(--space-3xl) auto 0;
+}
+
+.cp-impact-graph {
+  flex: 0 0 50%;
+  /* matches the updated Figma graph (599 x 466) */
+  aspect-ratio: 599 / 466;
+}
+
+.cp-impact-graph-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* The adoption curve draws itself when the section scrolls into view */
+.cp-impact-curve {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.cp-impact-graph.is-visible .cp-impact-curve {
+  animation: cpDrawCurve 1.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cpDrawCurve {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-impact-curve {
+    stroke-dashoffset: 0;
+  }
+}
+
+.cp-impact-graph-svg .cp-graph-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  fill: #8a8a8a;
+}
+
+.cp-impact-video {
+  flex: 0 0 34%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+}
+
+.cp-impact-video video {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 620px) {
+  .cp-impact-viz {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+  .cp-impact-graph {
+    flex-basis: auto;
+    width: 90%;
+  }
+  .cp-impact-video {
+    flex-basis: auto;
+    width: 56%;
+  }
 }
 
 /* Creator Portfolio — paired media (auto-populate video + visibility banner) */
