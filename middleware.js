@@ -120,13 +120,29 @@ function readCookie(request, name) {
   return null;
 }
 
-function setCookieHeader(value) {
-  return COOKIE_NAME + '=' + value + '; Path=/; Max-Age=' + MAX_AGE_SEC + '; HttpOnly; Secure; SameSite=Lax';
+function setCookieHeader(value, request) {
+  // Secure cookies are ignored on http:// (local `vercel dev`), so only
+  // flag Secure when the request itself is HTTPS.
+  var secure = '';
+  try {
+    if (new URL(request.url).protocol === 'https:') secure = '; Secure';
+  } catch (e) { /* keep non-secure */ }
+  return COOKIE_NAME + '=' + value +
+    '; Path=/' +
+    '; Max-Age=' + MAX_AGE_SEC +
+    '; HttpOnly' +
+    secure +
+    '; SameSite=Lax';
 }
 
-function json(obj, status, extraHeaders) {
-  const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
-  if (extraHeaders) Object.assign(headers, extraHeaders);
+function json(obj, status, cookieValue, request) {
+  var headers = new Headers({
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-store',
+  });
+  if (cookieValue && request) {
+    headers.append('Set-Cookie', setCookieHeader(cookieValue, request));
+  }
   return new Response(JSON.stringify(obj), { status: status, headers: headers });
 }
 
@@ -142,7 +158,7 @@ export default async function middleware(request) {
 
     let passcode = '';
     try {
-      const ct = request.headers.get('content-type') || '';
+      const ct = (request.headers.get('content-type') || '').toLowerCase();
       if (ct.indexOf('application/json') === 0) {
         const body = await request.json();
         passcode = String((body && body.passcode) || '');
@@ -154,11 +170,12 @@ export default async function middleware(request) {
       return json({ ok: false, error: 'bad_request' }, 400);
     }
 
+    passcode = passcode.trim();
     const hash = await sha256Hex(passcode);
     if (!safeEqual(hash, PASSCODE_SHA256)) return json({ ok: false }, 401);
 
     const token = await makeToken(secret);
-    return json({ ok: true }, 200, { 'Set-Cookie': setCookieHeader(token) });
+    return json({ ok: true }, 200, token, request);
   }
 
   // --- Public assets pass straight through ---
@@ -214,7 +231,7 @@ function loginPage() {
     '</div><script>' +
     "var f=document.getElementById('f'),p=document.getElementById('p'),b=document.getElementById('b'),e=document.getElementById('e');" +
     "f.addEventListener('submit',function(ev){ev.preventDefault();b.disabled=true;e.style.display='none';" +
-    "fetch('/__auth',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'passcode='+encodeURIComponent(p.value)})" +
+    "fetch('/__auth',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'passcode='+encodeURIComponent((p.value||'').trim())})" +
     ".then(function(r){return r.json().catch(function(){return{ok:r.ok}});})" +
     ".then(function(res){b.disabled=false;if(res&&res.ok){location.reload();}else{e.style.display='block';p.value='';p.focus();}})" +
     ".catch(function(){b.disabled=false;e.style.display='block';});});" +

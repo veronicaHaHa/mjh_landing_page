@@ -491,6 +491,67 @@
   margin-bottom: var(--space-2xl);
 }
 
+/* Hidden for now — remove to restore hero subtitles across case studies */
+.case-study-page .cs-hero-subtitle {
+  display: none;
+}
+
+/* With subtitle hidden, let leadership margin-top own the gap under the title */
+.case-study-page .cs-hero-title {
+  margin-bottom: 0;
+}
+
+.cs-hero-leadership {
+  max-width: 800px;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  text-align: left;
+}
+
+.cs-hero-leadership .cs-results-label,
+.cs-hero-results > .cs-results-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.cs-hero-leadership .cs-results-label {
+  margin-bottom: var(--space-sm);
+}
+
+.cs-hero-leadership-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.7;
+  color: #1a1a2e;
+}
+
+.cs-hero-leadership-list li {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.cs-hero-leadership-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  /* Slightly below the first-line center */
+  top: calc((1.7em - 0.75em) / 2 + 0.2em);
+  font-size: 0.75em;
+  line-height: 1;
+  color: #6b7280;
+  font-weight: 600;
+}
+
 .cs-hero-meta {
   display: flex;
   flex-wrap: wrap;
@@ -628,7 +689,6 @@
   text-transform: uppercase;
 }
 
-.cs-page--meta .cs-results-label,
 .cs-page--meta .cs-hero-label,
 .cs-page--meta .cs-meta-label,
 .cs-page--meta .cs-section-label,

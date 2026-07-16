@@ -105,8 +105,9 @@
   }
 
   // --- Passcode modal for selected work ---
-  // Passcode is verified server-side by the Vercel Edge Middleware (see /middleware.js);
-  // this modal just posts the entry to /__auth. No secret lives in the client anymore.
+  // Production: verified by Vercel Edge Middleware via POST /__auth (sets HttpOnly cookie).
+  // Local static servers have no middleware — fall back to the same SHA-256 check.
+  var PASSCODE_SHA256 = 'f24beb7de6d29ad33c807d73b2fefc452020c9294af5df445ef295e838bbfc0d';
   var modal = document.getElementById('passcode-modal');
   var modalForm = document.getElementById('passcode-form');
   var modalInput = document.getElementById('passcode-input');
@@ -117,19 +118,40 @@
   var pendingHref = null;
 
   if (modal) {
+    function isLocalHost() {
+      var h = location.hostname;
+      return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+    }
+
+    function hashPasscode(value) {
+      var encoder = new TextEncoder();
+      return crypto.subtle.digest('SHA-256', encoder.encode(value)).then(function (buffer) {
+        return Array.from(new Uint8Array(buffer))
+          .map(function (b) { return b.toString(16).padStart(2, '0'); })
+          .join('');
+      });
+    }
+
+    function unlockAndGo() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      try {
+        sessionStorage.setItem('cs-unlocked', '1');
+        sessionStorage.setItem('resume-unlocked', '1');
+      } catch (err) { /* ignore */ }
+      window.location.href = (pendingHref && pendingHref !== 'work.html') ? pendingHref : 'work.html';
+    }
+
+    function showPasscodeError(message) {
+      modalError.textContent = message || 'Incorrect passcode. Try again.';
+      modalError.style.display = 'block';
+      modalInput.value = '';
+      modalInput.focus();
+    }
+
     function showPasscodeModal(e, href) {
-      if (href === 'work.html') {
-        // Work gate — already unlocked, navigate directly
-        if (sessionStorage.getItem('cs-unlocked') === '1') {
-          window.location.href = 'work.html';
-          return;
-        }
-      } else if (href) {
-        // Resume gate — already unlocked, let default download proceed
-        if (sessionStorage.getItem('resume-unlocked') === '1') {
-          return;
-        }
-      }
+      // Always show the branded modal so /__auth can set the real cookie.
+      // (A stale sessionStorage flag alone is not enough on production.)
       e.preventDefault();
       pendingHref = href;
       if (modalTitle) modalTitle.textContent = href === 'work.html' ? 'Selected Work' : 'Download Resume';
@@ -137,6 +159,7 @@
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       modalError.style.display = 'none';
+      modalError.textContent = 'Incorrect passcode. Try again.';
       modalInput.value = '';
       setTimeout(function () { modalInput.focus(); }, 100);
     }
@@ -172,32 +195,48 @@
       var submitBtn = modalForm.querySelector('.modal-btn');
       if (submitBtn) submitBtn.disabled = true;
       modalError.style.display = 'none';
+      var passcode = (modalInput.value || '').trim();
+
       // Verify server-side: sets a signed, HttpOnly session cookie on success.
       fetch('/__auth', {
         method: 'POST',
+        credentials: 'same-origin',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'passcode=' + encodeURIComponent(modalInput.value)
+        body: 'passcode=' + encodeURIComponent(passcode)
       }).then(function (r) {
-        return r.json().catch(function () { return { ok: r.ok }; });
+        return r.json().then(function (body) {
+          return { status: r.status, body: body || {} };
+        }).catch(function () {
+          return { status: r.status, body: { ok: r.ok } };
+        });
       }).then(function (res) {
         if (submitBtn) submitBtn.disabled = false;
-        if (res && res.ok) {
-          modal.classList.remove('is-open');
-          modal.setAttribute('aria-hidden', 'true');
-          // UX hint so repeat clicks this session skip the modal (real gate is the cookie).
-          try {
-            sessionStorage.setItem('cs-unlocked', '1');
-            sessionStorage.setItem('resume-unlocked', '1');
-          } catch (err) { /* ignore */ }
-          window.location.href = (pendingHref && pendingHref !== 'work.html') ? pendingHref : 'work.html';
-        } else {
-          modalError.style.display = 'block';
-          modalInput.value = '';
-          modalInput.focus();
+        if (res.body && res.body.ok) {
+          unlockAndGo();
+          return;
         }
+        if (res.body && res.body.error === 'server_misconfigured') {
+          showPasscodeError('Server auth is not configured. Please try again later.');
+          return;
+        }
+        // Local static servers (python/http-server) have no middleware — fall back.
+        if (isLocalHost() && (res.status === 404 || res.status === 405 || res.status >= 500)) {
+          return hashPasscode(passcode).then(function (hash) {
+            if (hash === PASSCODE_SHA256) unlockAndGo();
+            else showPasscodeError();
+          });
+        }
+        showPasscodeError();
       }).catch(function () {
         if (submitBtn) submitBtn.disabled = false;
-        modalError.style.display = 'block';
+        if (isLocalHost()) {
+          hashPasscode(passcode).then(function (hash) {
+            if (hash === PASSCODE_SHA256) unlockAndGo();
+            else showPasscodeError();
+          }).catch(function () { showPasscodeError(); });
+          return;
+        }
+        showPasscodeError();
       });
     });
 
