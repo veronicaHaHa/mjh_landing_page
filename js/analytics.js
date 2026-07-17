@@ -1,7 +1,4 @@
-// GA4 custom event: track clicks on outbound links.
-// Sends an "outbound_click" event for any link to an external http(s) domain,
-// so destinations like Behance and Google Slides are tracked automatically —
-// including links added in the future.
+// GA4 custom events: outbound clicks, video clicks, and inbound referrals.
 (function () {
   // Friendly labels for known destinations (matched on bare domain).
   var NAMED = {
@@ -14,6 +11,25 @@
     'creators.instagram.com': 'Instagram Creators',
     'help.instagram.com': 'Instagram Help',
     'about.fb.com': 'Meta Newsroom'
+  };
+
+  // Friendly labels for inbound referrers (document.referrer host).
+  var REFERRERS = {
+    'foliobin.com': 'Foliobin',
+    'linkedin.com': 'LinkedIn',
+    'lnkd.in': 'LinkedIn',
+    'behance.net': 'Behance',
+    'dribbble.com': 'Dribbble',
+    'twitter.com': 'X',
+    'x.com': 'X',
+    't.co': 'X',
+    'instagram.com': 'Instagram',
+    'l.instagram.com': 'Instagram',
+    'facebook.com': 'Facebook',
+    'l.facebook.com': 'Facebook',
+    'm.facebook.com': 'Facebook',
+    'google.com': 'Google',
+    'bing.com': 'Bing'
   };
 
   // Prefer specific URLs when a domain hosts more than one kind of link.
@@ -80,4 +96,53 @@
       page_path: location.pathname
     });
   }, true);
+
+  // GA4 custom event: inbound referral (once per tab session).
+  // Complements GA4's automatic session source — useful in Realtime / Events.
+  function trackReferralVisit() {
+    if (typeof window.gtag !== 'function') return;
+
+    var params = new URLSearchParams(location.search);
+    var utmSource = (params.get('utm_source') || '').trim();
+    var utmMedium = (params.get('utm_medium') || '').trim();
+    var utmCampaign = (params.get('utm_campaign') || '').trim();
+
+    var referrerHost = '';
+    try {
+      if (document.referrer) referrerHost = bareDomain(new URL(document.referrer).hostname);
+    } catch (err) { /* ignore bad referrer */ }
+
+    // Same-site navigations are not referrals.
+    if (referrerHost && referrerHost === bareDomain(location.hostname)) return;
+
+    var source = '';
+    var medium = '';
+
+    if (utmSource) {
+      source = utmSource;
+      medium = utmMedium || 'referral';
+    } else if (referrerHost) {
+      source = REFERRERS[referrerHost] || referrerHost;
+      medium = 'referral';
+    } else {
+      return; // direct / no referrer
+    }
+
+    var dedupeKey = 'ga_referral_visit:' + source + ':' + medium + ':' + utmCampaign;
+    try {
+      if (sessionStorage.getItem(dedupeKey)) return;
+      sessionStorage.setItem(dedupeKey, '1');
+    } catch (err) { /* private mode — still fire once this load */ }
+
+    window.gtag('event', 'referral_visit', {
+      referral_source: source,
+      referral_medium: medium,
+      referral_campaign: utmCampaign || undefined,
+      referrer_host: referrerHost || undefined,
+      referrer_url: document.referrer ? document.referrer.slice(0, 200) : undefined,
+      page_path: location.pathname
+    });
+  }
+
+  trackReferralVisit();
 })();
