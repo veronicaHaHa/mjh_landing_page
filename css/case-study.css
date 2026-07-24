@@ -129,6 +129,170 @@
   display: block;
 }
 
+/* Laptop-framed prototype video — screen bounds measured from img/Laptop.png */
+.cs-solution-laptop {
+  position: relative;
+}
+
+.cs-solution-laptop .cs-laptop-frame {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3)) drop-shadow(0 34px 28px rgba(0, 0, 0, 0.22));
+}
+
+.cs-solution-laptop .cs-laptop-screen {
+  position: absolute;
+  left: 10.1%;
+  top: calc(1.9% + 15px);
+  width: 79.9%;
+  height: calc(90.4% - 20px);
+  border-radius: 8px;
+  background: #000;
+  -webkit-clip-path: inset(0 round 8px);
+  clip-path: inset(0 round 8px);
+}
+
+.cs-browser-chrome {
+  box-sizing: border-box;
+  width: 100%;
+  background: #202124;
+}
+
+.cs-browser-tabbar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 6px 10px 0;
+}
+
+.cs-browser-dots {
+  display: flex;
+  gap: 5px;
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.cs-browser-dots span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.cs-browser-dots span:nth-child(1) { background: #ff5f57; }
+.cs-browser-dots span:nth-child(2) { background: #febc2e; }
+.cs-browser-dots span:nth-child(3) { background: #28c840; }
+
+.cs-browser-tab {
+  --r: 8px;
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px 0 10px;
+  border-inline: var(--r) solid transparent;
+  border-radius: calc(2 * var(--r)) calc(2 * var(--r)) 0 0 / var(--r);
+  -webkit-mask:
+    radial-gradient(var(--r) at var(--r) 0, transparent 98%, black 101%)
+      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
+    conic-gradient(black 0 0) padding-box;
+  mask:
+    radial-gradient(var(--r) at var(--r) 0, transparent 98%, black 101%)
+      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
+    conic-gradient(black 0 0) padding-box;
+  background: #35363a;
+  color: #e8eaed;
+  font-size: 9px;
+  font-family: var(--font-sans, inherit);
+}
+
+.cs-solution-laptop .cs-browser-tab-icon {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+  background: none;
+  object-fit: contain;
+  display: block;
+  filter: invert(1);
+}
+
+.cs-browser-tab-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cs-browser-tab-close {
+  flex: 0 0 auto;
+  margin-left: auto;
+  opacity: 0.45;
+}
+
+.cs-browser-toolbar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  background: #35363a;
+}
+
+.cs-browser-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f1f3f4;
+}
+
+.cs-browser-nav .is-disabled {
+  opacity: 0.35;
+}
+
+.cs-browser-url {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #202124;
+  border-radius: 999px;
+  padding: 4px 12px;
+  color: #9aa0a6;
+  font-size: 9.5px;
+  font-family: var(--font-sans, inherit);
+}
+
+.cs-browser-url svg {
+  flex: 0 0 auto;
+  opacity: 0.7;
+}
+
+.cs-browser-url span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cs-solution-laptop .cs-laptop-video {
+  display: block;
+  width: 100%;
+  height: calc(100% - 68px);
+  border-radius: 0;
+  object-fit: contain;
+  object-position: top center;
+}
+
 /* Prototype walkthrough tabs — segmented control synced with the Solution video */
 .cs-proto-steps {
   list-style: none;
