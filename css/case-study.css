@@ -2661,148 +2661,17 @@
 }
 
 /* --- Craft deep-dive: creator card redesign --- */
-.cc-architectures {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-  margin-top: var(--space-2xl);
-}
 
-.cc-arch-summary {
-  margin-top: var(--space-3xl);
-  text-align: left;
-  font-family: var(--font-body);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  color: #1a1a2e;
-  line-height: 1.2;
+/* Creator card craft list reuses the Creator Portfolio stacked layout;
+   override the Instagram gradient titles with this case study's violet accent. */
+#creator-card .cp-craft-item:nth-child(1) .cp-craft-text h3 {
+  color: #4f46e5;
 }
-
-.cc-arch {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: var(--space-xl);
-  text-align: center;
-}
-
-.cc-arch-verdict {
-  display: inline-block;
-  margin-bottom: var(--space-sm);
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(124, 58, 237, 0.1);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+#creator-card .cp-craft-item:nth-child(2) .cp-craft-text h3 {
   color: #7c3aed;
 }
-
-.cc-arch-verdict--cut {
-  background: rgba(0, 0, 0, 0.05);
-  color: #9ca3af;
-}
-
-.cc-arch-reason {
-  margin-top: var(--space-xs);
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: #4b5563;
-}
-
-.cc-arch h3 {
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: #1a1a2e;
-  margin-bottom: var(--space-sm);
-}
-
-.cc-arch p {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: #4b5563;
-}
-
-.cc-arch-media {
-  height: 360px;
-  margin-bottom: var(--space-lg);
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cc-arch-media img {
-  max-width: 186px;
-  max-height: 100%;
-  display: block;
-}
-
-.cc-decisions {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2xl) var(--space-xl);
-  margin-top: var(--space-3xl);
-}
-
-.cc-decision {
-  text-align: center;
-}
-
-.cc-decision-num {
-  display: block;
-  margin-bottom: var(--space-sm);
-  font-family: var(--font-body);
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  line-height: 1;
-  color: rgba(124, 58, 237, 0.4);
-}
-
-.cc-decision h3 {
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: #1a1a2e;
-  margin-bottom: var(--space-xs);
-}
-
-.cc-decision p {
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: #4b5563;
-}
-
-.cc-figure {
-  margin: var(--space-4xl) auto 0;
-  max-width: 600px;
-  text-align: center;
-}
-
-.cc-figure img {
-  width: 100%;
-  display: block;
-  border-radius: 16px;
-}
-
-.cc-figure figcaption {
-  margin-top: var(--space-sm);
-}
-
-.cc-closing {
-  margin-top: var(--space-2xl);
-  color: #4b5563;
-}
-
-@media (max-width: 768px) {
-  .cc-architectures {
-    grid-template-columns: 1fr;
-  }
-  .cc-decisions {
-    grid-template-columns: 1fr;
-  }
+#creator-card .cp-craft-item:nth-child(3) .cp-craft-text h3 {
+  color: #a855f7;
 }
 
 /* Editable creator card (principle 01) */
@@ -2813,7 +2682,7 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
 }
 
 .creator-card-media {
@@ -2821,6 +2690,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  border-radius: 16px 16px 0 0;
 }
 
 .creator-card-media img,
@@ -2829,6 +2699,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 0;
 }
 
 .creator-card-reel {
@@ -2849,7 +2720,9 @@
   padding: 10px 0;
 }
 
-.creator-card-avatar {
+/* Extra ancestor scoping so this outweighs the generic `.cp-craft-figure img`
+   rule when the card is embedded in the craft section's action demo. */
+.creator-card-header .creator-card-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -2878,6 +2751,12 @@
   margin: 0 0 12px;
 }
 
+/* Principle 01's card only */
+.cs-principle-feature-visual--bg-03 .creator-card-stats {
+  font-size: 10px;
+  line-height: 14px;
+}
+
 .creator-card-divider {
   height: 1px;
   background: rgba(0, 0, 0, 0.15);
@@ -2901,6 +2780,191 @@
   height: 16px;
   object-fit: contain;
   display: block;
+  border-radius: 0;
+}
+
+/* Craft section — "Actions as a training signal" demo: one creator card
+   cycles through 6 examples. Hover "Not interested" -> tooltip fades in;
+   click -> toast, then the card fades out while the next slides in from
+   the right. */
+.cp-craft-figure-wrap {
+  position: relative;
+}
+
+.cp-craft-figure--action-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 32px;
+  min-height: 667px;
+  overflow: hidden;
+}
+
+.action-demo {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* The active card is always centered in the stage; the other 5 sit in a
+   dimmed queue trailing to its right. JS positions each card with its own
+   translateX based on distance from the active index, so advancing slides
+   the whole line left by one slot (the used card cycles to the back). */
+.action-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  height: 410px;
+}
+
+.action-card.creator-card {
+  overflow: visible;
+}
+
+.action-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.24;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 0.9, 0.32, 1);
+  pointer-events: none;
+}
+
+.action-card.is-current {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Dismissed card: opacity drops instantly (no fade) while it still slides
+   back into the queue. */
+.action-card.is-dismissing {
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.22, 0.9, 0.32, 1);
+}
+
+.action-not-interested {
+  position: relative;
+}
+
+.action-not-interested img {
+  transition: transform 0.2s ease;
+}
+
+/* Click "pop" — bigger than the hover scale, then eases back to normal
+   size right as the toast appears. */
+.action-not-interested.is-clicking img {
+  transform: scale(1.3);
+  transition: transform 0.15s ease;
+}
+
+.action-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 7px 11px;
+  border-radius: 8px;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.action-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-bottom-color: #ffffff;
+}
+
+.action-not-interested.is-hovering .action-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.action-toast {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 300px;
+  background: rgba(38, 38, 38, 0.95);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 5px 11px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.cp-craft-figure-wrap.is-toast-visible .action-toast {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-toast-text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.action-toast-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.action-toast-undo {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.action-toast-close {
+  display: inline-flex;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-card,
+  .action-tooltip,
+  .action-toast {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cp-craft-figure--action-demo {
+    padding: 24px;
+  }
+
+  .action-toast {
+    max-width: calc(100% - 16px);
+    right: 8px;
+    bottom: 8px;
+  }
 }
 
 .ai-search {
@@ -2911,6 +2975,24 @@
   max-width: 470px;
 }
 
+/* Craft section — the interactive demo sits in a wide, padded card instead
+   of the narrow principle panel, and grows to fit the widened result grid. */
+.cp-craft-figure--ai-search {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 40px;
+  min-height: 560px;
+}
+
+.ai-search.ai-search--live {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 52px;
+}
+
 .ai-search-label {
   display: flex;
   align-items: center;
@@ -2918,7 +3000,7 @@
 }
 
 .ai-search-label span {
-  font-family: var(--font-body);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: #1a1a2e;
@@ -2926,13 +3008,44 @@
 }
 
 .ai-search-bar {
+  position: relative;
   border-radius: 29px;
   padding: 1.5px;
   background: linear-gradient(127deg, #FF0169 18%, #D300C5 45%, #4400D3 88%, #2B9BFF 110%);
+  background-size: 220% 220%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Only the interactive craft-section demo gets the animated shimmer + glow loop */
+.ai-search--live .ai-search-bar {
+  animation: aiSearchBorderShift 6s ease-in-out infinite;
+}
+
+/* Soft blurred glow looping behind the bar */
+.ai-search-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 36px;
+  background: linear-gradient(127deg, #FF0169 18%, #D300C5 45%, #4400D3 88%, #2B9BFF 110%);
+  background-size: 220% 220%;
+  filter: blur(18px);
+  opacity: 0.4;
+  z-index: -1;
+  animation: aiSearchBorderShift 6s ease-in-out infinite, aiSearchGlowPulse 3.4s ease-in-out infinite;
+}
+
+@keyframes aiSearchBorderShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes aiSearchGlowPulse {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 0.6; }
+}
+
 .ai-search-bar-inner {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2950,6 +3063,11 @@
   height: 18px;
   overflow: hidden;
   min-width: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ai-search.is-typing .ai-search-roller {
+  opacity: 0;
 }
 
 .ai-search-roll {
@@ -2962,7 +3080,7 @@
   display: block;
   height: 18px;
   line-height: 18px;
-  font-family: var(--font-body);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
   font-size: var(--text-sm);
   color: #6a717a;
   letter-spacing: 0.02em;
@@ -2979,9 +3097,244 @@
   98%, 100% { transform: translateY(-72px); }
 }
 
+/* Craft demo — roller and typed text share one box (stacked, not side by
+   side) so the typed query starts flush left instead of after the roller's
+   own flex space. */
+.ai-search-input-area {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  height: 18px;
+}
+
+.ai-search-input-area .ai-search-roller,
+.ai-search-input-area .ai-search-typed {
+  position: absolute;
+  inset: 0;
+  flex: none;
+}
+
+/* Typed query — swapped in for the rolling placeholder while "is-typing" */
+.ai-search-typed {
+  display: none;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  height: 18px;
+  overflow: hidden;
+}
+
+.ai-search.is-typing .ai-search-typed {
+  display: flex;
+}
+
+.ai-search-typed-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
+  font-size: var(--text-sm);
+  color: #1a1a2e;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.ai-search-cursor {
+  display: inline-block;
+  width: 1.5px;
+  height: 14px;
+  margin-left: 2px;
+  background: #2b9bff;
+  animation: aiSearchCursorBlink 0.9s step-end infinite;
+}
+
+@keyframes aiSearchCursorBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Results — collapsed by default, "drop" open once the query lands */
+.ai-search-results {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 0.9, 0.32, 1), opacity 0.35s ease;
+}
+
+.ai-search.is-results .ai-search-results {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.ai-search-results-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ai-search-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.ai-search-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.ai-search.is-results .ai-search-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ai-search-card:nth-child(1) { transition-delay: 0.05s; }
+.ai-search-card:nth-child(2) { transition-delay: 0.15s; }
+.ai-search-card:nth-child(3) { transition-delay: 0.25s; }
+.ai-search-card:nth-child(4) { transition-delay: 0.35s; }
+
+.ai-search-card-media {
+  position: relative;
+  aspect-ratio: 152 / 208;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+.ai-search-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.ai-search-card-reel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.ai-search-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Extra ancestor scoping so this outweighs the generic `.cp-craft-figure img`
+   rule when the demo is embedded in the craft section. */
+.ai-search-card-meta .ai-search-card-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ai-search-card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ai-search-card-handle {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-search-card-sub {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
+  font-size: 8.5px;
+  color: #737373;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-search-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.45s, transform 0.4s ease 0.45s;
+}
+
+.ai-search.is-results .ai-search-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ai-search-pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+}
+
+.ai-search-page-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.ai-search-page-arrow--prev {
+  opacity: 0.35;
+}
+
+.ai-search-page-count {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #737373;
+}
+
+.ai-search-see-results {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #4150f7;
+  color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .ai-search-roll {
+  .ai-search-roll,
+  .ai-search-bar,
+  .ai-search-glow,
+  .ai-search-cursor {
     animation: none;
+  }
+
+  .ai-search-card,
+  .ai-search-footer,
+  .ai-search-results,
+  .ai-search-roller {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-search-cards {
+    gap: 6px;
+  }
+
+  .ai-search-card-sub {
+    display: none;
   }
 }
 
