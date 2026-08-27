@@ -5557,3 +5557,9 @@
   max-width: 34ch;
 }
 
+
+/* With the intro paragraph folded into the callouts, the callout grid now
+   follows the section header directly and needs its own top spacing. */
+#problem .cs-callouts {
+  margin-top: var(--space-2xl);
+}
