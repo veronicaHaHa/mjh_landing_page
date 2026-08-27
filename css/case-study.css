@@ -5341,3 +5341,89 @@
     font-size: 0.6rem;
   }
 }
+
+/* --- Hero: title-first variant (title/lede up top, hero image below) --- */
+.cs-hero--title-first {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* The image is no longer the backdrop, so restore the hero's own background. */
+.cs-hero--title-first .cs-hero-bg {
+  display: block;
+}
+
+.cs-page--meta .cs-hero--title-first .cs-hero-content {
+  padding-top: 9rem;
+  padding-bottom: var(--space-3xl);
+}
+
+/* Title + subtitle on the left, the owned/bet/cut triad on the right. */
+.cs-hero--title-first .cs-hero-lede {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--space-3xl);
+  align-items: end;
+}
+
+.cs-hero--title-first .cs-hero-lede-main {
+  max-width: 100%;
+}
+
+.cs-hero--title-first .cs-hero-title {
+  max-width: 15ch;
+  margin-bottom: var(--space-lg);
+}
+
+.cs-hero--title-first .cs-hero-subtitle {
+  max-width: 42ch;
+  margin-bottom: 0;
+}
+
+/* Inside the lede the triad stacks vertically instead of running 3-across. */
+.cs-hero--title-first .cs-hero-bets {
+  max-width: none;
+  margin: 0;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* Hero image sits at the foot of the section and bleeds off the bottom edge. */
+.cs-hero-cover--below {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0;
+}
+
+.cs-hero-cover--below img,
+.cs-hero-cover--below video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px 16px 0 0;
+}
+
+@media (max-width: 980px) {
+  .cs-hero--title-first .cs-hero-lede {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .cs-hero--title-first .cs-hero-title,
+  .cs-hero--title-first .cs-hero-subtitle {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .cs-page--meta .cs-hero--title-first .cs-hero-content {
+    padding-top: 7rem;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .cs-hero-cover--below img,
+  .cs-hero-cover--below video {
+    border-radius: 12px 12px 0 0;
+  }
+}
