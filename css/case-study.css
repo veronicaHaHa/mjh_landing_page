@@ -5351,19 +5351,20 @@
 /* The image is no longer the backdrop, so restore the hero's own background. */
 .cs-hero--title-first .cs-hero-bg {
   display: block;
+  background: #f7f7f8;
 }
 
 .cs-page--meta .cs-hero--title-first .cs-hero-content {
-  padding-top: 9rem;
+  padding-top: 6rem;
   padding-bottom: var(--space-3xl);
 }
 
 /* Title + subtitle on the left, the owned/bet/cut triad on the right. */
 .cs-hero--title-first .cs-hero-lede {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: var(--space-3xl);
-  align-items: end;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: start;
 }
 
 .cs-hero--title-first .cs-hero-lede-main {
@@ -5371,8 +5372,9 @@
 }
 
 .cs-hero--title-first .cs-hero-title {
-  max-width: 15ch;
+  max-width: none;
   margin-bottom: var(--space-lg);
+  text-wrap: balance;
 }
 
 .cs-hero--title-first .cs-hero-subtitle {
@@ -5395,19 +5397,30 @@
   padding-bottom: 0;
 }
 
+/* Full-bleed, and cropped to a band so the creator cards — which sit in the
+   middle 21%-79% of the source — land above the fold instead of below it.
+   Showing the image top-down put a stripe of empty gradient at the fold. */
 .cs-hero-cover--below img,
 .cs-hero-cover--below video {
   width: 100%;
-  height: auto;
   display: block;
-  border-radius: 16px 16px 0 0;
+  aspect-ratio: 16 / 7.5;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (max-width: 860px) {
+  .cs-hero-cover--below img,
+  .cs-hero-cover--below video {
+    aspect-ratio: 4 / 3;
+    object-position: center center;
+  }
 }
 
 @media (max-width: 980px) {
   .cs-hero--title-first .cs-hero-lede {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
-    align-items: start;
   }
 
   .cs-hero--title-first .cs-hero-title,
@@ -5418,12 +5431,129 @@
 
 @media (max-width: 767px) {
   .cs-page--meta .cs-hero--title-first .cs-hero-content {
-    padding-top: 7rem;
+    padding-top: 5rem;
     padding-bottom: var(--space-2xl);
   }
 
-  .cs-hero-cover--below img,
-  .cs-hero-cover--below video {
-    border-radius: 12px 12px 0 0;
+}
+
+.cs-hero--title-first .cs-hero-meta--top {
+  margin-bottom: var(--space-3xl);
+}
+
+
+/* No rule above the first bet — the divider only separates the items. */
+.cs-hero--title-first .cs-hero-bet:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* This page's hero is light from the top, so the nav link can't be white.
+   Matches the past-hero treatment from the start. */
+.cs-page--meta .case-study-nav .nav-name {
+  color: #4b5563;
+}
+
+.cs-page--meta .case-study-nav .nav-name:hover {
+  color: #1a1a2e;
+}
+
+/* --- Hero entrance: line-by-line mask reveal on first paint --- */
+
+/* Hide the hero until the title has been split into lines, so there's no
+   flash of unsplit text. Set by an inline head script and removed by JS —
+   if scripting is off, or reduced motion is on, the class never lands and
+   the hero renders normally. */
+.has-hero-reveal .cs-hero--title-first .cs-hero-content,
+.has-hero-reveal .cs-hero--title-first .cs-hero-cover {
+  visibility: hidden;
+}
+
+/* One mask per rendered line; the line slides up out of it. */
+.cs-hero--title-first .c-mask {
+  display: block;
+  overflow: hidden;
+  /* Room for descenders without changing the title's layout height. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.cs-hero--title-first .c-mask__line {
+  display: block;
+  text-align: start;
+  position: relative;
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 110%);
+  will-change: transform;
+}
+
+.cs-hero--title-first.is-revealed .c-mask__line {
+  transform: translate(0px, 0%);
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Supporting hero elements rise and fade in behind the title. */
+.cs-hero--title-first .cs-hero-rise {
+  opacity: 0;
+  transform: translate(0px, 1.25rem);
+  will-change: opacity, transform;
+}
+
+.cs-hero--title-first.is-revealed .cs-hero-rise {
+  opacity: 1;
+  transform: translate(0px, 0);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Re-splitting after a resize must not replay the animation. */
+.cs-hero--title-first.is-resplitting .c-mask__line,
+.cs-hero--title-first.is-resplitting .cs-hero-rise {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-hero--title-first .c-mask__line,
+  .cs-hero--title-first .cs-hero-rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
+
+/* --- Metrics band (Creator Marketplace) --- */
+/* Bigger figures, and equal columns so the longer labels wrap instead of
+   stretching the row past the container. Scoped to this page's band so the
+   other case studies keep their existing sizing. */
+#metrics .cs-hero-results {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--space-2xl);
+  /* Drop the inherited top margin so the section's own 5rem padding is the
+     only space above the figures — matched by the gap below the titles. */
+  margin-top: 0;
+}
+
+#metrics .cs-result-number {
+  /* Kept below the 64px hero title so the h1 stays the largest thing on the page. */
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+@media (max-width: 767px) {
+  #metrics .cs-hero-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Supporting line under each figure, and a rule separating the band from
+   the credit note beneath it. */
+#metrics .cs-result-desc {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: #6b7280;
+  max-width: 34ch;
+}
+

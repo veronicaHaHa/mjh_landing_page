@@ -24,7 +24,20 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/case-study.css?v=55">
+  <link rel="stylesheet" href="css/case-study.css?v=73">
+  <script>
+    // Hide the hero until its title is split into lines (see the reveal script
+    // at the end of body). Skipped entirely for reduced-motion users, and a
+    // failsafe clears it if the reveal script never runs.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      document.documentElement.classList.add('has-hero-reveal');
+      setTimeout(function () {
+        document.documentElement.classList.remove('has-hero-reveal');
+      }, 2500);
+    })();
+  </script>
 </head>
 <body class="case-study-page cs-page--meta">
 
@@ -48,10 +61,6 @@
             <span class="cs-meta-value">Strategy &middot; UX &middot; Prototyping</span>
           </div>
           <div class="cs-meta-item">
-            <span class="cs-meta-label">Company</span>
-            <span class="cs-meta-value">Instagram</span>
-          </div>
-          <div class="cs-meta-item">
             <span class="cs-meta-label">Duration</span>
             <span class="cs-meta-value">Aug 2023 &mdash; Jan 2024</span>
           </div>
@@ -68,7 +77,7 @@
           <div class="cs-hero-bets">
             <div class="cs-hero-bet">
               <span class="cs-hero-bet-label">What I owned</span>
-              <p class="cs-hero-bet-text">The brand-side recommendation surface end to end &mdash; hierarchy, the creator card, the query model, and the feedback controls that trained ranking.</p>
+              <p class="cs-hero-bet-text">The brand-side recommendation surface end to end: hierarchy, the creator card, the query model, and the feedback controls that trained ranking.</p>
             </div>
             <div class="cs-hero-bet">
               <span class="cs-hero-bet-label">What I bet on</span>
@@ -76,12 +85,12 @@
             </div>
             <div class="cs-hero-bet">
               <span class="cs-hero-bet-label">What I cut</span>
-              <p class="cs-hero-bet-text">Free-text <span class="cs-keep-upper">AI</span> search &mdash; approved by leadership, then sequenced out of phase 1 by me.</p>
+              <p class="cs-hero-bet-text">Free-text <span class="cs-keep-upper">AI</span> search: approved by leadership, then sequenced out of phase 1 by me.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="container cs-hero-cover cs-hero-cover--below">
+      <div class="cs-hero-cover cs-hero-cover--below">
         <img src="img/instagram-cm-hero.png?v=2" alt="Instagram creator marketplace &mdash; AI-powered creator recommendations" loading="eager">
       </div>
     </section>
@@ -93,17 +102,19 @@
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="201">0</span>%</span>
             <span class="cs-result-label">Messages Sent to Creators</span>
+            <span class="cs-result-desc">Brand-to-creator outreach on the new surface vs. the directory it replaced.</span>
           </div>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="4">0</span>&times;</span>
             <span class="cs-result-label">Partnerships Formed</span>
+            <span class="cs-result-desc">Completed brand&ndash;creator partnerships against the prior surface&rsquo;s baseline.</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number">~<span class="cs-result-count" data-count-to="5">0</span>&times;</span>
+            <span class="cs-result-number"><span class="cs-result-count" data-count-to="5">0</span>&times;</span>
             <span class="cs-result-label">Growth Rate vs. Other Surfaces</span>
+            <span class="cs-result-desc">Adoption curve compared with the marketplace&rsquo;s other discovery entry points.</span>
           </div>
         </div>
-        <p class="cs-confidential-note">Alpha results, small partner cohort. The ranking model and creator eligibility were built by ML and Data Science partners; I owned the surface that exposed the model and the controls that fed it &mdash; read these as the outcome of that pairing, not of design alone.</p>
       </div>
     </section>
 
@@ -863,7 +874,7 @@
 
         <div class="cs-impact-grid">
           <div class="cs-impact-card">
-            <h3>+201% Messages Sent</h3>
+            <h3>+201% Messages Sent to Creators</h3>
             <p>In a controlled A/B test, the content-first surface drove a 201% increase in brands messaging creators over the existing experience.</p>
           </div>
           <div class="cs-impact-card">
@@ -876,12 +887,11 @@
             </div>
           </div>
           <div class="cs-impact-card">
-            <h3>~5&times; Growth Rate</h3>
-            <p>Adoption on the new surface grew roughly five times faster than the marketplace&rsquo;s other discovery entry points.</p>
+            <h3>5&times; Growth Rate vs. Other Surfaces</h3>
+            <p>Adoption on the new surface grew five times faster than the marketplace&rsquo;s other discovery entry points.</p>
           </div>
         </div>
 
-        <p class="cs-confidential-note">Alpha cohort, small n. Ranking and eligibility were partner-owned; I owned the surface and the controls that fed it. Treat these as the result of that pairing.</p>
 
         <blockquote class="cs-quote">
           <div class="cs-quote-brands">
@@ -986,20 +996,20 @@
     var yearEl = document.querySelector('.footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Show the nav's blurred background once scrolled past the hero IMAGE
-    // (transparent/white over the image, solid background everywhere after).
-    var hero = document.querySelector('.cs-hero');
-    var heroCover = document.querySelector('.cs-hero-cover');
-    var navTrigger = heroCover || hero;
+    // Show the nav's blurred background as soon as the page scrolls. The hero
+    // image now sits at the foot of the hero rather than behind the nav, so
+    // there's nothing for the nav to sit transparently over.
     var nav = document.querySelector('.case-study-nav');
-    if (navTrigger && nav) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY >= navTrigger.offsetHeight - 1) {
+    if (nav) {
+      var onNavScroll = function() {
+        if (window.scrollY > 8) {
           nav.classList.add('nav-past-hero');
         } else {
           nav.classList.remove('nav-past-hero');
         }
-      });
+      };
+      window.addEventListener('scroll', onNavScroll, { passive: true });
+      onNavScroll();
     }
 
     // Animate metrics on scroll
@@ -1356,6 +1366,123 @@
     };
     document.addEventListener('contextmenu', blockMedia);
     document.addEventListener('dragstart', blockMedia);
+  </script>
+  <script>
+    // Hero entrance — split the title into rendered lines, each masked so it
+    // slides up into place, with the surrounding hero content rising behind it.
+    (function () {
+      var root = document.documentElement;
+      var heroEl = document.querySelector('.cs-hero--title-first');
+      var titleEl = heroEl && heroEl.querySelector('.cs-hero-title');
+
+      function show() { root.classList.remove('has-hero-reveal'); }
+
+      if (!heroEl || !titleEl || !root.classList.contains('has-hero-reveal')) {
+        show();
+        return;
+      }
+
+      var LINE_STEP = 0.09;
+      var rawText = titleEl.textContent.replace(/\s+/g, ' ').trim();
+
+      // Lay the words out inline, read back which ones share a top offset, then
+      // rebuild the title as one mask per line.
+      function splitTitle() {
+        titleEl.textContent = '';
+        var spans = [];
+        var words = rawText.split(' ');
+        words.forEach(function (word, i) {
+          var span = document.createElement('span');
+          span.textContent = word;
+          titleEl.appendChild(span);
+          spans.push(span);
+          if (i < words.length - 1) titleEl.appendChild(document.createTextNode(' '));
+        });
+
+        var lines = [];
+        var lastTop = null;
+        spans.forEach(function (span) {
+          var top = span.offsetTop;
+          if (lastTop === null || Math.abs(top - lastTop) > 2) {
+            lines.push([]);
+            lastTop = top;
+          }
+          lines[lines.length - 1].push(span.textContent);
+        });
+
+        titleEl.textContent = '';
+        lines.forEach(function (lineWords, i) {
+          var mask = document.createElement('span');
+          mask.className = 'c-mask';
+          var line = document.createElement('span');
+          line.className = 'c-mask__line';
+          line.textContent = lineWords.join(' ');
+          line.style.setProperty('--reveal-delay', (0.15 + i * LINE_STEP).toFixed(2) + 's');
+          mask.appendChild(line);
+          titleEl.appendChild(mask);
+        });
+
+        return lines.length;
+      }
+
+      function rise(el, delay) {
+        if (!el) return;
+        el.classList.add('cs-hero-rise');
+        el.style.setProperty('--reveal-delay', delay.toFixed(2) + 's');
+      }
+
+      function build() {
+        var after = 0.15 + splitTitle() * LINE_STEP;
+
+        var metaItems = heroEl.querySelectorAll('.cs-hero-meta--top .cs-meta-item');
+        Array.prototype.forEach.call(metaItems, function (item, i) {
+          rise(item, 0.05 + i * 0.05);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-subtitle'), after + 0.04);
+
+        var bets = heroEl.querySelectorAll('.cs-hero-bet');
+        Array.prototype.forEach.call(bets, function (bet, i) {
+          rise(bet, after + 0.12 + i * 0.07);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-cover'), after + 0.1);
+      }
+
+      var started = false;
+      function play() {
+        if (started) return;
+        started = true;
+        build();
+        show();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { heroEl.classList.add('is-revealed'); });
+        });
+      }
+
+      // Wait for webfonts so the measured line breaks match what renders.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(play);
+        setTimeout(play, 800);
+      } else {
+        play();
+      }
+
+      // Width changes re-wrap the title, so rebuild the masks — without replaying.
+      var lastWidth = window.innerWidth;
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        if (!started || window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          heroEl.classList.add('is-resplitting');
+          splitTitle();
+          void heroEl.offsetWidth;
+          heroEl.classList.remove('is-resplitting');
+        }, 150);
+      });
+    })();
   </script>
   <script src="js/analytics.js?v=3" defer></script>
 
