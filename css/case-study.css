@@ -5563,3 +5563,72 @@
 #problem .cs-callouts {
   margin-top: var(--space-2xl);
 }
+
+
+/* --- Problem: callouts carry their own visual --- */
+/* The two images have opposite aspect ratios (a wide workflow diagram and a
+   portrait card), so both sit in a fixed-height letterbox frame to keep the
+   two columns reading as a matched pair. */
+/* Dark-section body text sits at 70% white, so bold alone barely registers.
+   Bring emphasis up to full white the way the metaverse page does. */
+.cs-section--dark .cs-body strong {
+  color: #ffffff;
+}
+
+/* Sits closer to the callouts above it than the other .cs-confidential-note
+   instances; keeps the shared fine-print size. */
+#problem .cs-confidential-note {
+  margin-top: var(--space-xl);
+}
+
+/* No accent rule here: the paired visuals already separate the two columns,
+   so the left border just competed with them. */
+.cs-callouts--figures .cs-callout {
+  display: flex;
+  flex-direction: column;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* margin-top: auto pins both figures to the bottom of their column so they
+   line up even when the two paragraphs run to different lengths. */
+/* .cs-callout h3 sets an accent color that outranks .ig-gradient-text, so clear
+   it here and let the utility's gradient show through the glyphs. */
+.cs-callouts--figures .cs-callout h3.ig-gradient-text {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  /* Shrink-wrap the heading: as a full-width block the short label would only
+     sample the orange start of the sweep instead of the whole gradient. */
+  display: inline-block;
+  width: fit-content;
+}
+
+.cs-callouts--figures .cs-callout p {
+  margin-bottom: var(--space-lg);
+}
+
+.cs-callout-figure {
+  margin: auto 0 0;
+  background: #f7f7f8;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+}
+
+.cs-callout-figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .cs-callout-figure {
+    height: 240px;
+    padding: var(--space-md);
+  }
+}

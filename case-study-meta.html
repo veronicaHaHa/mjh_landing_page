@@ -24,7 +24,7 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/case-study.css?v=78">
+  <link rel="stylesheet" href="css/case-study.css?v=81">
   <script>
     // Hide the hero until its title is split into lines (see the reveal script
     // at the end of body). Skipped entirely for reduced-motion users, and a
@@ -143,46 +143,20 @@
           <span class="cs-section-label">Problem</span>
           <h2 class="cs-section-title">Brands were evaluating creators on the wrong unit.</h2>
         </div>
-        <div class="cs-callouts">
+        <div class="cs-callouts cs-callouts--figures">
           <div class="cs-callout">
-            <h3>Cost to brands</h3>
-            <p>Brands judged on content while the surface ranked on reach. <strong>77% of searches returned no matches</strong>, and agencies spent up to <strong>1.5 months</strong> sourcing by hand.</p>
-          </div>
-          <div class="cs-callout">
-            <h3>Cost to creators</h3>
-            <p>Reach was what got you seen. Creators whose content converted but whose following was mid-sized rarely surfaced.</p>
-          </div>
-        </div>
-        <div class="cs-problems">
-          <div class="cs-problem">
-            <div class="cs-problem-content">
-              <span class="cs-problem-icon">1</span>
-              <h3>Creator content buried in the layout</h3>
-              <p>The card was built around follower count, location, and category, with no way to preview the content: the thing that actually predicts whether an ad performs.</p>
-            </div>
-            <div class="cs-problem-image">
-              <img src="img/Old_Creator Card.png" alt="Old creator card design showing limited creator discovery experience" loading="lazy">
-            </div>
-          </div>
-          <div class="cs-problem">
-            <div class="cs-problem-content">
-              <span class="cs-problem-icon">2</span>
-              <h3>Manual creator sourcing</h3>
-              <p>Sourcing was manual and often outsourced to third-party agencies, the biggest drag on running partnership ads efficiently.</p>
-            </div>
-            <div class="cs-problem-image">
+            <h3 class="ig-gradient-text">Cost to brands</h3>
+            <p>Brands judged on content while the surface ranked on follower count. 77% of searches returned no matches, and they spent up to 1.5 months sourcing through third-party platforms.</p>
+            <figure class="cs-callout-figure">
               <img src="img/manual-creator-sourcing.png" alt="Manual creator sourcing workflow with no structured process" loading="lazy">
-            </div>
+            </figure>
           </div>
-          <div class="cs-problem">
-            <div class="cs-problem-content">
-              <span class="cs-problem-icon">3</span>
-              <h3>Lack of visibility on brand partnerships</h3>
-              <p>A creator&rsquo;s track record with branded content is a strong signal of how an ad will perform. Discovery didn&rsquo;t surface it at all.</p>
-            </div>
-            <div class="cs-problem-image">
-              <img src="img/Brand partnerships.png" alt="Partnership ads eligibility requirements" loading="lazy">
-            </div>
+          <div class="cs-callout">
+            <h3 class="ig-gradient-text">Cost to creators</h3>
+            <p>Follower count was what got you seen. Creators whose content was authentic and aligned with a brand&rsquo;s values, but whose following was mid-sized, rarely surfaced.</p>
+            <figure class="cs-callout-figure">
+              <img src="img/Old_Creator Card.png" alt="Old creator card built around follower count, with no way to preview a creator&rsquo;s content" loading="lazy">
+            </figure>
           </div>
         </div>
         <p class="cs-confidential-note">Follower count wasn&rsquo;t the villain. It still matters, and it carried through into the redesign. The problem was its rank in the hierarchy.</p>
@@ -194,14 +168,11 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">The Bet</span>
-          <h2 class="cs-section-title">Meta already knew which creator content converts. Rank on that.</h2>
+          <h2 class="cs-section-title">Meta could infer which content would carry an ad. <span class="cs-keep-upper">T</span>hat had never been modeled.</h2>
         </div>
         <div class="cs-body">
-          <p>Partnership ads had been running long enough to produce real performance signal on creator content. That signal existed inside the system but never reached the surface where brands were choosing: recommendation quality was an exposure problem before it was a modeling problem. I saw an opening: use that signal to fuel the marketplace&rsquo;s pivot to partnership ads, Instagram&rsquo;s fastest-growing format.</p>
-        </div>
-        <div class="cs-callout">
-          <h3>Who I had to convince</h3>
-          <p><span class="cs-keep-upper">ML</span>, that a design surface could produce clean enough training signal to be worth wiring up. Product, that a content-led card wouldn&rsquo;t read as a feed. Both needed to see the failure cases before the happy path.</p>
+          <p>Partnership ads had performance data, but <strong>only on content that was already an ad</strong>. Whether a creator&rsquo;s organic post would carry one was still undefined, and nothing in the system predicted it.</p>
+          <p>My bet was that the proven signal was rich enough to <strong>infer the unproven</strong>, and that the marketplace was the place it would pay off, fueling the surface&rsquo;s pivot to partnership ads, Instagram&rsquo;s fastest-growing format.</p>
         </div>
         <div class="cs-solution-image cs-workflow-visual">
           <img src="img/new_workflow.png" alt="New workflow for matching brands with creators" loading="lazy">
