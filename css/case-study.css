@@ -2791,14 +2791,16 @@
   position: relative;
 }
 
+/* Sized to the tallest card in the loop (410px) plus padding, so the panel
+   holds steady as cards swap without carrying 190px of dead space. */
 .cp-craft-figure--action-demo {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f5f5f5;
   border-radius: 20px;
-  padding: 32px;
-  min-height: 667px;
+  padding: 3rem 32px;
+  min-height: 506px;
   overflow: hidden;
 }
 
@@ -2977,20 +2979,22 @@
 
 /* Craft section — the interactive demo sits in a wide, padded card instead
    of the narrow principle panel, and grows to fit the widened result grid. */
+/* The results expand and retract as the demo loops, so the floor has to match
+   the tallest state (measured 476px) or the panel resizes mid-animation and
+   shunts the rest of the page. 480 leaves a few px of headroom. */
 .cp-craft-figure--ai-search {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   background: #f5f5f5;
   border-radius: 20px;
-  padding: 40px;
-  min-height: 560px;
+  padding: 3rem 40px;
+  min-height: 472px;
 }
 
 .ai-search.ai-search--live {
   width: 100%;
   max-width: 640px;
-  margin-top: 52px;
 }
 
 .ai-search-label {
@@ -5630,5 +5634,395 @@
   .cs-callout-figure {
     height: 240px;
     padding: var(--space-md);
+  }
+}
+
+
+
+/* --- Decisions: visual first, text beneath --- */
+/* D1-D4 were four separate <section>s with four different layouts. They now
+   share one section, one background, and one shape: the visual leads at full
+   width, and a compact caption row underneath states the decision. */
+#decisions .cs-decision {
+  margin-top: var(--space-3xl);
+}
+
+#decisions .cs-decision-visual {
+  min-width: 0;
+}
+
+#decisions .cs-decision-visual > figure,
+#decisions .cs-decision-visual .cp-craft-figure {
+  margin: 0;
+}
+
+/* Decision 1 — the two candidates arrive at equal weight, then the list is
+   visibly deselected: it fades out entirely while the grid lifts forward.
+   Static base state (no JS, reduced motion) keeps the list dimmed but present,
+   so the comparison still reads without any motion. */
+#decisions .cp-decision-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+#decisions .cp-compare-pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+#decisions .cp-compare-media {
+  position: relative;
+  border-radius: 10px;
+  will-change: opacity, transform;
+}
+
+/* box-shadow can't take a gradient, so the winning panel's glow is a blurred
+   gradient layer sitting behind the image, offset down like a drop shadow. */
+#decisions .cp-compare-pane--grid .cp-compare-media::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  z-index: -1;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #FF5C00 0%, #FF0169 30%, #D300C5 70%);
+  filter: blur(38px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#decisions .cp-compare-pane img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#decisions .cp-compare-pane--list .cp-compare-media {
+  opacity: 0.5;
+}
+
+#decisions .cp-compare-chip {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+#decisions .cp-compare-chip--shipped {
+  color: #1a1a2e;
+}
+
+/* The rejected label sits back from the shipped one rather than matching it. */
+#decisions .cp-compare-chip--rejected {
+  opacity: 0.7;
+}
+
+/* Armed by JS before the observer fires, so the pre-animation state never
+   shows when scripting is unavailable. */
+#decisions .cp-decision-compare.is-armed .cp-compare-media,
+#decisions .cp-decision-compare.is-armed .cp-compare-chip {
+  opacity: 0;
+}
+
+#decisions .cp-decision-compare.is-armed.is-visible .cp-compare-pane--grid .cp-compare-media {
+  animation: cpGridWins 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+#decisions .cp-decision-compare.is-armed.is-visible .cp-compare-pane--list .cp-compare-media {
+  animation: cpRejected 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+#decisions .cp-decision-compare.is-armed.is-visible .cp-compare-pane--grid .cp-compare-media::after {
+  animation: cpGlowIn 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+#decisions .cp-decision-compare.is-armed.is-visible .cp-compare-chip {
+  animation: cpCompareChipIn 0.5s ease 1.45s forwards;
+}
+
+#decisions .cp-decision-compare.is-armed.is-visible .cp-compare-chip--rejected {
+  animation: cpCompareChipInDim 0.5s ease 1.45s forwards;
+}
+
+@keyframes cpGridWins {
+  0%   { opacity: 0; transform: translateY(14px); box-shadow: 0 0 0 rgba(26, 26, 46, 0); }
+  22%  { opacity: 1; transform: none; }
+  55%  { opacity: 1; transform: none; box-shadow: 0 0 0 rgba(26, 26, 46, 0); }
+  100% { opacity: 1; transform: scale(1.02); box-shadow: 0 18px 40px rgba(26, 26, 46, 0.16); }
+}
+
+/* Shared by both decisions: the rejected option arrives at equal weight, holds,
+   then settles back to 0.5 — dimmed but still legible as evidence. */
+@keyframes cpRejected {
+  0%   { opacity: 0; transform: translateY(14px); }
+  22%  { opacity: 1; transform: none; }
+  55%  { opacity: 1; transform: none; }
+  100% { opacity: 0.5; transform: scale(0.97); }
+}
+
+@keyframes cpCompareChipIn {
+  to { opacity: 1; }
+}
+
+@keyframes cpCompareChipInDim {
+  to { opacity: 0.7; }
+}
+
+/* Held back until the deselection beat, so the glow lands with the lift. The
+   soft variant is for the narrow variant cards, where less of the gradient is
+   covered by the card itself and 0.55 reads as a coloured blob. */
+@keyframes cpGlowIn {
+  0%, 55% { opacity: 0; }
+  100%    { opacity: 0.32; }
+}
+
+@keyframes cpGlowInSoft {
+  0%, 55% { opacity: 0; }
+  100%    { opacity: 0.4; }
+}
+
+
+/* Decision 2 runs the same sequence on the variant row: all four arrive at
+   equal weight, hold, then the three that lost recede while V4 lifts forward. */
+#decisions .cp-variant-grid.is-armed img,
+#decisions .cp-variant-grid.is-armed figcaption {
+  opacity: 0;
+}
+
+#decisions .cp-variant-grid.is-armed.is-visible img {
+  animation: cpRejected 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+#decisions .cp-variant-grid.is-armed.is-visible .cp-variant--shipped img {
+  animation: cpGridWins 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Same gradient glow as Decision 1. It hangs off the figure rather than the
+   image, since pseudo-elements don't render on replaced elements, and
+   `isolation` keeps the z-index:-1 layer from dropping behind the section
+   background instead of sitting behind the card. */
+#decisions .cp-variant-shot {
+  position: relative;
+  isolation: isolate;
+}
+
+
+/* Y offset 0 — the glow sits directly behind the card, so the blur spreads
+   evenly on every side rather than pooling underneath it. */
+#decisions .cp-variant--shipped .cp-variant-shot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  z-index: -1;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #FF5C00 0%, #FF0169 30%, #D300C5 70%);
+  filter: blur(34px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#decisions .cp-variant-grid.is-armed.is-visible .cp-variant--shipped .cp-variant-shot::after {
+  animation: cpGlowInSoft 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+#decisions .cp-variant-grid.is-armed.is-visible figcaption {
+  animation: cpCompareChipInDim 0.5s ease 1.45s forwards;
+}
+
+#decisions .cp-variant-grid.is-armed.is-visible .cp-variant--shipped figcaption {
+  animation: cpCompareChipIn 0.5s ease 1.45s forwards;
+}
+
+@media (max-width: 700px) {
+  #decisions .cp-decision-compare {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #decisions .cp-decision-compare.is-armed .cp-compare-media,
+  #decisions .cp-decision-compare.is-armed .cp-compare-chip {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  #decisions .cp-decision-compare.is-armed .cp-compare-pane--list .cp-compare-media {
+    opacity: 0.5;
+  }
+
+  #decisions .cp-decision-compare.is-armed .cp-compare-chip--rejected {
+    opacity: 0.7;
+  }
+
+  /* The glow is the resolved state, not motion — keep it, drop the animation. */
+  #decisions .cp-decision-compare.is-armed .cp-compare-pane--grid .cp-compare-media::after {
+    opacity: 0.32;
+    animation: none !important;
+  }
+
+  #decisions .cp-variant-grid.is-armed img,
+  #decisions .cp-variant-grid.is-armed figcaption {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  /* Without motion the glow is the only thing marking the shipped variant, so
+     it stays on. */
+  #decisions .cp-variant-grid.is-armed .cp-variant--shipped .cp-variant-shot::after {
+    opacity: 0.4;
+    animation: none !important;
+  }
+}
+
+/* Label, title, then description stacked, with the visual below the whole text
+   block, so the page reads in the same order as the Figma section. */
+#decisions .cs-decision-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+#decisions .cs-decision-text h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* Numbered badge, same component The Hard Part uses for its three states. */
+#decisions .cs-decision-text h3 .cs-problem-icon {
+  margin-bottom: var(--space-sm);
+}
+
+#decisions .cs-decision-body p {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: #4b5563;
+  margin: 0 0 var(--space-md);
+  max-width: 68ch;
+}
+
+#decisions .cs-decision-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* The secondary line carries the rejected alternative. */
+#decisions .cs-decision-alt {
+  padding-top: var(--space-md);
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280 !important;
+}
+
+/* What was given up, shipped instead, and what would have changed the call.
+   Three across in the wide body column. */
+#decisions .cs-decision-notes {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid #e5e7eb;
+}
+
+#decisions .cs-decision-notes dt {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+#decisions .cs-decision-notes dd {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+/* Four across now that the visual spans the container. */
+/* `start` rather than the default `stretch`: each figure hugs its own content,
+   so the shortest card (V4) doesn't inherit the tallest card's row height and
+   trail a block of empty space beneath it. Cards stay top aligned. */
+/* Cards sit small and spread, centred in the container. max-width is sized so
+   the wider gap spreads them apart rather than shrinking them further. */
+#decisions .cp-variant-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-3xl);
+  max-width: 1020px;
+  margin-inline: auto;
+}
+
+#decisions .cp-variant {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+#decisions .cp-variant img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #ececf0;
+  /* Scale from the top edge, so highlighting the shipped card grows it downward
+     and every card keeps the same top line. */
+  transform-origin: top center;
+}
+
+
+#decisions .cp-variant figcaption {
+  font-size: var(--text-xs);
+  color: #1a1a2e;
+}
+
+/* The verdict drops to its own line under the variant name. */
+#decisions .cp-variant figcaption em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  color: #4b5563;
+}
+
+#decisions .cp-variant--shipped figcaption em {
+  color: var(--color-accent);
+}
+
+/* Matches the letter-spaced badge treatment of Decision 1's SHIPPED / REJECTED
+   chips. The variant name and verdict stay sentence case — they are phrases,
+   not status words, and uppercase costs more legibility than it buys here. */
+#decisions .cp-variant figcaption .cp-variant-tag {
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  #decisions .cs-decision-notes {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  #decisions .cp-variant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

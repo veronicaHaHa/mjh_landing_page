@@ -341,436 +341,390 @@
           <span class="cs-section-label">Decisions</span>
           <h2 class="cs-section-title">Four decisions, and the versions <span class="cs-keep-upper">I</span> killed to get to them.</h2>
         </div>
-        <div class="cs-body">
-          <p>Each one had a defensible alternative. What follows is the rubric I judged against, what each rejected variant got wrong specifically, and what shipped.</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- 8a. D1 — Hierarchy -->
-    <section class="cs-section">
-      <div class="container cs-container">
-        <div class="cp-craft-text">
-          <span class="cp-decision-tag">D1</span>
-          <h3>Why content-first, when the industry ranked on reach</h3>
-          <p>Follower count is a proxy brands reach for because it&rsquo;s legible, not because it predicts a campaign outcome. Content is the thing they&rsquo;re actually assessing, so I made the content the primary object and let the ad-performance signal explain the ranking underneath it.</p>
-        </div>
-        <div class="cp-decision-compare">
-          <div class="cs-callout">
-            <h3>The alternative I rejected: list view, ranked by stats</h3>
-            <p>Denser, sortable, familiar from ad tools. I pushed back and stayed with a grid: a list is hard to skim when the payload is imagery, and it pushes content into a thumbnail, straight back to the old surface&rsquo;s failure. Rows optimize for comparing numbers. Brands weren&rsquo;t comparing numbers.</p>
+        <div class="cs-decision">
+          <div class="cs-decision-text">
+            <h3><span class="cs-problem-icon">1</span> Grid vs. List</h3>
+            <div class="cs-decision-body">
+              <p>Product initially pushed for a list view. I <strong>steered the direction toward a grid of cards</strong>, because cards could lead with the work itself while rows naturally prioritized stats. Brands weren&rsquo;t comparing numbers. They were evaluating creative fit.</p>
+            </div>
           </div>
-          <figure class="cp-craft-figure cp-craft-figure--card cp-decision-figure">
-            <img src="img/Creator card explorations/Grid vs List.png" alt="Grid layout compared against the rejected list view" loading="lazy">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8b. D2 — Card density -->
-    <section class="cs-section cs-section--alt">
-      <div class="container cs-container">
-        <div class="cp-craft-text">
-          <span class="cp-decision-tag">D2</span>
-          <h3>Designing the card for a two-second scan</h3>
-          <p>The card is the whole product in one tile. A brand should be able to form a yes/maybe/no in about two seconds, and a grid of them should stay scannable. I established four evaluation principles and judged four variants against them.</p>
-        </div>
-
-        <div class="cp-rubric-grid">
-          <div class="cp-rubric-chip"><span class="cp-rubric-chip-tag">R1</span><p>Content readable before anything else</p></div>
-          <div class="cp-rubric-chip"><span class="cp-rubric-chip-tag">R2</span><p>Says why this creator was recommended</p></div>
-          <div class="cp-rubric-chip"><span class="cp-rubric-chip-tag">R3</span><p>Uniform height, so the grid holds</p></div>
-          <div class="cp-rubric-chip"><span class="cp-rubric-chip-tag">R4</span><p>One decision per tile, not a browse session</p></div>
-        </div>
-
-        <div class="cp-variant-grid">
-          <div class="cp-variant">
-            <div class="cs-problem-placeholder cp-variant-media"><span class="cs-problem-placeholder-label">V1</span></div>
-            <span class="cp-variant-tag">V1</span>
-            <h4>Simplest version</h4>
-            <span class="cp-variant-verdict">Failed R2</span>
-            <p>Content plus identity, no ad metrics. Clean, and useless: nothing told a brand how this creator would move an ad goal, so the card couldn&rsquo;t justify its own ranking.</p>
-          </div>
-          <div class="cp-variant">
-            <div class="cs-problem-placeholder cp-variant-media"><span class="cs-problem-placeholder-label">V2</span></div>
-            <span class="cp-variant-tag">V2</span>
-            <h4>Reels-native ratio</h4>
-            <span class="cp-variant-verdict">Failed R3</span>
-            <p>Brands care most about reels, so the card followed the reel&rsquo;s aspect ratio. It made the tile far too tall: fewer creators per screen, and a page that no longer scanned as a grid.</p>
-          </div>
-          <div class="cp-variant">
-            <div class="cs-problem-placeholder cp-variant-media"><span class="cs-problem-placeholder-label">V3</span></div>
-            <span class="cp-variant-tag">V3</span>
-            <h4>Multi-content thumbnails</h4>
-            <span class="cp-variant-verdict">Failed R1 &middot; R4</span>
-            <p>More evidence per creator, but at thumbnail size none of it was readable. The clutter cost more than the extra samples were worth, and it turned each tile into a browse task.</p>
-          </div>
-          <div class="cp-variant cp-variant--shipped">
-            <figure class="cp-variant-media">
-              <img src="img/Creator card explorations/Creator card_alts.png" alt="Shipped creator card design, leading with top-performing content" loading="lazy">
+          <div class="cs-decision-visual">
+            <figure class="cp-craft-figure cp-decision-compare">
+              <div class="cp-compare-pane cp-compare-pane--grid">
+                <span class="cp-compare-chip cp-compare-chip--shipped">Shipped</span>
+                <div class="cp-compare-media">
+                  <img src="img/Creator card explorations/grid-vs-list-grid.png" alt="Grid of creator cards, each leading with the creator&rsquo;s content" loading="lazy">
+                </div>
+              </div>
+              <div class="cp-compare-pane cp-compare-pane--list">
+                <span class="cp-compare-chip cp-compare-chip--rejected">Rejected</span>
+                <div class="cp-compare-media">
+                  <img src="img/Creator card explorations/grid-vs-list-list.png" alt="Stats-ranked list view, the rejected alternative" loading="lazy">
+                </div>
+              </div>
             </figure>
-            <span class="cp-variant-tag">V4</span>
-            <h4>Shipped</h4>
-            <span class="cp-variant-verdict cp-variant-verdict--shipped">Held all four</span>
-            <p>One hero piece of content, one consistent ratio across posts and reels, with automated cropping so faces and subjects survive the crop, plus a dynamic line explaining why this creator was recommended.</p>
           </div>
         </div>
 
-        <p class="cs-confidential-note">The density answer came out of V2 and V3 together: one uniform tile is worth more than either a truer crop or more samples, because the grid, not the card, is what a brand is actually reading.</p>
-      </div>
-    </section>
-
-    <!-- 8c. D3 — AI search cut -->
-    <section class="cs-section cs-section--dark">
-      <div class="container cs-container">
-        <div class="cp-craft-text">
-          <span class="cp-decision-tag">D3</span>
-          <h3>I proposed AI search. I also cut it from phase 1.</h3>
-          <p>A free-text box (describe the campaign, get creators) was the clearest expression of intent-driven discovery, and it had leadership buy-in. I sequenced it out anyway. An open text field promises the model understands anything you type. Before the ranking model had been trained on real marketplace behavior, it would have made a promise the results couldn&rsquo;t keep, and every weak answer would have read as the whole surface being wrong.</p>
-        </div>
-
-        <div class="cs-callouts cs-callouts--3col">
-          <div class="cs-callout">
-            <h3>What I gave up</h3>
-            <p>The most differentiated part of the pitch, and the demo that made the vision land in a room.</p>
-          </div>
-          <div class="cs-callout">
-            <h3>What I shipped instead</h3>
-            <p>Structured intent: bounded inputs the model could answer well, with search staged for when accuracy could be evidenced rather than asserted.</p>
-          </div>
-          <div class="cs-callout">
-            <h3>What would have changed my mind</h3>
-            <p>Offline retrieval quality good enough on real campaign briefs to hold up without a curated demo set.</p>
-          </div>
-        </div>
-
-        <figure class="cp-craft-figure cp-craft-figure--ai-search">
-          <div class="ai-search ai-search--live">
-            <div class="ai-search-bar">
-              <div class="ai-search-glow" aria-hidden="true"></div>
-              <div class="ai-search-bar-inner">
-                <svg class="ai-search-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#6a717a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <circle cx="6.8" cy="6.8" r="4.8"/>
-                  <line x1="10.5" y1="10.5" x2="15" y2="15"/>
-                </svg>
-                <div class="ai-search-input-area">
-                  <div class="ai-search-roller" aria-label="Example searches">
-                    <div class="ai-search-roll">
-                      <span>Creators who post about ethical clothing brands</span>
-                      <span>Fitness creators with high engagement in the US</span>
-                      <span>Beauty creators who've partnered with skincare brands</span>
-                      <span>Travel creators whose content drives conversions</span>
-                      <span>Creators who post about ethical clothing brands</span>
-                    </div>
-                  </div>
-                  <span class="ai-search-typed"><span class="ai-search-typed-text"></span><span class="ai-search-cursor" aria-hidden="true"></span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="ai-search-results" aria-hidden="true">
-              <div class="ai-search-results-inner">
-                <div class="ai-search-cards">
-                  <div class="ai-search-card">
-                    <div class="ai-search-card-media">
-                      <img src="img/creator-card/card-search-01.jpg" alt="" loading="lazy">
-                      <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                        <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                      </svg>
-                    </div>
-                    <div class="ai-search-card-meta">
-                      <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-01.jpg" alt="" loading="lazy">
-                      <div class="ai-search-card-text">
-                        <span class="ai-search-card-handle">meg.alysia</span>
-                        <span class="ai-search-card-sub">24 branded content</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ai-search-card">
-                    <div class="ai-search-card-media">
-                      <img src="img/creator-card/card-search-02.jpg" alt="" loading="lazy">
-                      <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                        <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                      </svg>
-                    </div>
-                    <div class="ai-search-card-meta">
-                      <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-02.jpg" alt="" loading="lazy">
-                      <div class="ai-search-card-text">
-                        <span class="ai-search-card-handle">kick.chronicles</span>
-                        <span class="ai-search-card-sub">17 branded content</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ai-search-card">
-                    <div class="ai-search-card-media">
-                      <img src="img/creator-card/card-search-03.jpg" alt="" loading="lazy">
-                      <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                        <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                      </svg>
-                    </div>
-                    <div class="ai-search-card-meta">
-                      <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-03.jpg" alt="" loading="lazy">
-                      <div class="ai-search-card-text">
-                        <span class="ai-search-card-handle">trackclub.dre</span>
-                        <span class="ai-search-card-sub">12 branded content</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ai-search-card">
-                    <div class="ai-search-card-media">
-                      <img src="img/creator-card/card-search-04.jpg" alt="" loading="lazy">
-                      <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                        <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                      </svg>
-                    </div>
-                    <div class="ai-search-card-meta">
-                      <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-04.jpg" alt="" loading="lazy">
-                      <div class="ai-search-card-text">
-                        <span class="ai-search-card-handle">fieldset.co</span>
-                        <span class="ai-search-card-sub">8 branded content</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ai-search-footer">
-                  <div class="ai-search-pagination">
-                    <span class="ai-search-page-arrow ai-search-page-arrow--prev">
-                      <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5L5 8l5 4.5"/></svg>
-                    </span>
-                    <span class="ai-search-page-count">1/3</span>
-                    <span class="ai-search-page-arrow ai-search-page-arrow--next">
-                      <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5L11 8l-5 4.5"/></svg>
-                    </span>
-                  </div>
-                  <span class="ai-search-see-results">See results</span>
-                </div>
-              </div>
+        <div class="cs-decision">
+          <div class="cs-decision-text">
+            <h3><span class="cs-problem-icon">2</span> Creator card</h3>
+            <div class="cs-decision-body">
+              <p>A brand should reach a yes-or-no decision in about two seconds, and the grid should hold together as it scales. I evaluated four variants against four criteria: <strong>content reads first, the card explains why, height stays uniform, and each tile supports one decision.</strong></p>
             </div>
           </div>
-        </figure>
-      </div>
-    </section>
-
-    <!-- 8d. D4 — Feedback loop -->
-    <section class="cs-section cs-section--alt">
-      <div class="container cs-container">
-        <div class="cp-craft-text">
-          <span class="cp-decision-tag">D4</span>
-          <h3>Closing the loop with actions brands already take</h3>
-          <p>A recommendation surface with no feedback path decays. Rather than add a rating widget nobody would use, I turned the actions brands take anyway into training signal, weighted by how much intent each one actually reveals.</p>
-        </div>
-
-        <div class="cs-callouts cs-callouts--3col">
-          <div class="cs-callout">
-            <h3>Strongest signal: message the creator</h3>
-            <p>Reaching out is a real commitment, so it counts for the most: it pulls similar creators forward in future recommendations.</p>
-          </div>
-          <div class="cs-callout">
-            <h3>Positive: save &middot; show more</h3>
-            <p>Shortlisting a creator says the match was right even if the campaign isn&rsquo;t ready. It feeds ranking without asking for extra work.</p>
-          </div>
-          <div class="cs-callout">
-            <h3>Negative: not interested &middot; show less</h3>
-            <p>The only control whose whole job is correction. It gives a brand somewhere to put a bad match instead of losing trust in the surface.</p>
-          </div>
-        </div>
-
-        <div class="cp-craft-figure-wrap">
-          <figure class="cp-craft-figure cp-craft-figure--action-demo">
-            <div class="action-demo">
-              <div class="action-stage">
-
-                <div class="action-card creator-card is-current" data-index="0">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-01.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-01.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">angie_fashion</span>
-                    </div>
-                    <p class="creator-card-desc">This creator has partnered with 3 brands similar to yours.</p>
-                    <p class="creator-card-stats">9K followers &bull; 8K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
+          <div class="cs-decision-visual">
+            <div class="cp-variant-grid">
+              <figure class="cp-variant">
+                <figcaption><span class="cp-variant-tag">V1</span> Simplest <em>Unclear hierarchy</em></figcaption>
+                <div class="cp-variant-shot">
+                  <img src="img/Creator card explorations/initial proposal.png" alt="Simplest card variant with content, identity and follower stats" loading="lazy">
                 </div>
-
-                <div class="action-card creator-card" data-index="1">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-02.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-02.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">meg.alysia</span>
-                    </div>
-                    <p class="creator-card-desc">This creator has posted about your brand before.</p>
-                    <p class="creator-card-stats">6K followers &bull; 5K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
+              </figure>
+              <figure class="cp-variant">
+                <figcaption><span class="cp-variant-tag">V2</span> Reels ratio <em>Too tall</em></figcaption>
+                <div class="cp-variant-shot">
+                  <img src="img/Creator card explorations/Stay true to reels aspect ratio.png" alt="Card variant following the reel aspect ratio, making the tile taller" loading="lazy">
                 </div>
-
-                <div class="action-card creator-card" data-index="2">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-03.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-03.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">kick.chronicles</span>
-                    </div>
-                    <p class="creator-card-desc">This creator&rsquo;s engagement rate is higher than similar creators.</p>
-                    <p class="creator-card-stats">5K followers &bull; 4K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
+              </figure>
+              <figure class="cp-variant">
+                <figcaption><span class="cp-variant-tag">V3</span> Gallery <em>Too dense</em></figcaption>
+                <div class="cp-variant-shot">
+                  <img src="img/Creator card explorations/gallery_01.png" alt="Card variant with a hero post plus three content thumbnails" loading="lazy">
                 </div>
-
-                <div class="action-card creator-card" data-index="3">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-04.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-04.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">trackclub.dre</span>
-                    </div>
-                    <p class="creator-card-desc">This creator has partnered with 5 brands similar to yours.</p>
-                    <p class="creator-card-stats">4K followers &bull; 3K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
+              </figure>
+              <figure class="cp-variant cp-variant--shipped">
+                <figcaption><span class="cp-variant-tag">V4</span> Shipped <em>Balanced all four</em></figcaption>
+                <div class="cp-variant-shot">
+                  <img src="img/Creator card explorations/Creator Card V2.png" alt="Shipped creator card, leading with one hero piece of content" loading="lazy">
                 </div>
-
-                <div class="action-card creator-card" data-index="4">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-05.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-05.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">fieldset.co</span>
-                    </div>
-                    <p class="creator-card-desc">This creator has produced content for your brand.</p>
-                    <p class="creator-card-stats">3K followers &bull; 2K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="action-card creator-card" data-index="5">
-                  <div class="creator-card-media">
-                    <img src="img/creator-card/card-action-06.jpg" alt="" loading="lazy">
-                    <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
-                      <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
-                    </svg>
-                  </div>
-                  <div class="creator-card-body">
-                    <div class="creator-card-header">
-                      <img class="creator-card-avatar" src="img/creator-card/avatar-action-06.jpg" alt="" loading="lazy">
-                      <span class="creator-card-handle">courtside.us</span>
-                    </div>
-                    <p class="creator-card-desc">This creator&rsquo;s audience closely matches your target market.</p>
-                    <p class="creator-card-stats">5K followers &bull; 3K accounts engaged</p>
-                    <div class="creator-card-divider"></div>
-                    <div class="creator-card-actions">
-                      <span class="creator-card-action action-not-interested" aria-hidden="true">
-                        <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
-                        <span class="action-tooltip">Not interested</span>
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
-                      </span>
-                      <span class="creator-card-action" aria-hidden="true">
-                        <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+              </figure>
             </div>
-          </figure>
+          </div>
+        </div>
 
-          <div class="action-toast" aria-hidden="true">
-            <p class="action-toast-text">We&rsquo;ll show fewer creators like this.</p>
-            <div class="action-toast-actions">
-              <span class="action-toast-undo">Undo</span>
-              <span class="action-toast-close">
-                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
-              </span>
+        <div class="cs-decision">
+          <div class="cs-decision-text">
+            <h3><span class="cs-problem-icon">3</span> AI search</h3>
+            <div class="cs-decision-body">
+              <p>A free-text AI search was the most direct path to intent-driven discovery, and leadership was ready to back it. <strong>I chose not to ship it.</strong> Given the implementation complexity and limited behavioral data available at launch, weak results could have undermined confidence in the entire recommendation experience. I sequenced it for Phase 2, when real usage data could make the model meaningfully better.</p>
+            </div>
+          </div>
+          <div class="cs-decision-visual">
+            <figure class="cp-craft-figure cp-craft-figure--ai-search">
+              <div class="ai-search ai-search--live">
+                <div class="ai-search-bar">
+                  <div class="ai-search-glow" aria-hidden="true"></div>
+                  <div class="ai-search-bar-inner">
+                    <svg class="ai-search-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#6a717a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                      <circle cx="6.8" cy="6.8" r="4.8"/>
+                      <line x1="10.5" y1="10.5" x2="15" y2="15"/>
+                    </svg>
+                    <div class="ai-search-input-area">
+                      <div class="ai-search-roller" aria-label="Example searches">
+                        <div class="ai-search-roll">
+                          <span>Creators who post about ethical clothing brands</span>
+                          <span>Fitness creators with high engagement in the US</span>
+                          <span>Beauty creators who've partnered with skincare brands</span>
+                          <span>Travel creators whose content drives conversions</span>
+                          <span>Creators who post about ethical clothing brands</span>
+                        </div>
+                      </div>
+                      <span class="ai-search-typed"><span class="ai-search-typed-text"></span><span class="ai-search-cursor" aria-hidden="true"></span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ai-search-results" aria-hidden="true">
+                  <div class="ai-search-results-inner">
+                    <div class="ai-search-cards">
+                      <div class="ai-search-card">
+                        <div class="ai-search-card-media">
+                          <img src="img/creator-card/card-search-01.jpg" alt="" loading="lazy">
+                          <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                            <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                          </svg>
+                        </div>
+                        <div class="ai-search-card-meta">
+                          <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-01.jpg" alt="" loading="lazy">
+                          <div class="ai-search-card-text">
+                            <span class="ai-search-card-handle">meg.alysia</span>
+                            <span class="ai-search-card-sub">24 branded content</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-search-card">
+                        <div class="ai-search-card-media">
+                          <img src="img/creator-card/card-search-02.jpg" alt="" loading="lazy">
+                          <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                            <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                          </svg>
+                        </div>
+                        <div class="ai-search-card-meta">
+                          <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-02.jpg" alt="" loading="lazy">
+                          <div class="ai-search-card-text">
+                            <span class="ai-search-card-handle">kick.chronicles</span>
+                            <span class="ai-search-card-sub">17 branded content</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-search-card">
+                        <div class="ai-search-card-media">
+                          <img src="img/creator-card/card-search-03.jpg" alt="" loading="lazy">
+                          <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                            <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                          </svg>
+                        </div>
+                        <div class="ai-search-card-meta">
+                          <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-03.jpg" alt="" loading="lazy">
+                          <div class="ai-search-card-text">
+                            <span class="ai-search-card-handle">trackclub.dre</span>
+                            <span class="ai-search-card-sub">12 branded content</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-search-card">
+                        <div class="ai-search-card-media">
+                          <img src="img/creator-card/card-search-04.jpg" alt="" loading="lazy">
+                          <svg class="ai-search-card-reel" viewBox="0 0 24 24" width="14" height="14" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                            <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                          </svg>
+                        </div>
+                        <div class="ai-search-card-meta">
+                          <img class="ai-search-card-avatar" src="img/creator-card/avatar-search-04.jpg" alt="" loading="lazy">
+                          <div class="ai-search-card-text">
+                            <span class="ai-search-card-handle">fieldset.co</span>
+                            <span class="ai-search-card-sub">8 branded content</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ai-search-footer">
+                      <div class="ai-search-pagination">
+                        <span class="ai-search-page-arrow ai-search-page-arrow--prev">
+                          <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5L5 8l5 4.5"/></svg>
+                        </span>
+                        <span class="ai-search-page-count">1/3</span>
+                        <span class="ai-search-page-arrow ai-search-page-arrow--next">
+                          <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5L11 8l-5 4.5"/></svg>
+                        </span>
+                      </div>
+                      <span class="ai-search-see-results">See results</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="cs-decision">
+          <div class="cs-decision-text">
+            <h3><span class="cs-problem-icon">4</span> Feedback Loop</h3>
+            <div class="cs-decision-body">
+              <p>Rather than add a rating widget brands wouldn&rsquo;t use, I turned the actions they already take into training signals weighted by intent. Messaging a creator signals the strongest intent; Save and Show More inform feed ranking; <strong>Not Interested provides the clearest corrective signal.</strong></p>
+            </div>
+          </div>
+          <div class="cs-decision-visual">
+            <div class="cp-craft-figure-wrap">
+              <figure class="cp-craft-figure cp-craft-figure--action-demo">
+                <div class="action-demo">
+                  <div class="action-stage">
+
+                    <div class="action-card creator-card is-current" data-index="0">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-01.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-01.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">angie_fashion</span>
+                        </div>
+                        <p class="creator-card-desc">This creator has partnered with 3 brands similar to yours.</p>
+                        <p class="creator-card-stats">9K followers &bull; 8K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-card creator-card" data-index="1">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-02.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-02.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">meg.alysia</span>
+                        </div>
+                        <p class="creator-card-desc">This creator has posted about your brand before.</p>
+                        <p class="creator-card-stats">6K followers &bull; 5K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-card creator-card" data-index="2">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-03.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-03.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">kick.chronicles</span>
+                        </div>
+                        <p class="creator-card-desc">This creator&rsquo;s engagement rate is higher than similar creators.</p>
+                        <p class="creator-card-stats">5K followers &bull; 4K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-card creator-card" data-index="3">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-04.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-04.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">trackclub.dre</span>
+                        </div>
+                        <p class="creator-card-desc">This creator has partnered with 5 brands similar to yours.</p>
+                        <p class="creator-card-stats">4K followers &bull; 3K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-card creator-card" data-index="4">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-05.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-05.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">fieldset.co</span>
+                        </div>
+                        <p class="creator-card-desc">This creator has produced content for your brand.</p>
+                        <p class="creator-card-stats">3K followers &bull; 2K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-card creator-card" data-index="5">
+                      <div class="creator-card-media">
+                        <img src="img/creator-card/card-action-06.jpg" alt="" loading="lazy">
+                        <svg class="creator-card-reel" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+                          <path d="M 22.942 7.464 c -0.062 -1.36 -0.306 -2.143 -0.511 -2.671 a 5.366 5.366 0 0 0 -1.272 -1.952 a 5.364 5.364 0 0 0 -1.951 -1.27 c -0.53 -0.207 -1.312 -0.45 -2.673 -0.513 c -1.2 -0.054 -1.557 -0.066 -4.535 -0.066 s -3.336 0.012 -4.536 0.066 c -1.36 0.062 -2.143 0.306 -2.672 0.511 c -0.769 0.3 -1.371 0.692 -1.951 1.272 s -0.973 1.182 -1.27 1.951 c -0.207 0.53 -0.45 1.312 -0.513 2.673 C 1.004 8.665 0.992 9.022 0.992 12 s 0.012 3.336 0.066 4.536 c 0.062 1.36 0.306 2.143 0.511 2.671 c 0.298 0.77 0.69 1.373 1.272 1.952 c 0.58 0.581 1.182 0.974 1.951 1.27 c 0.53 0.207 1.311 0.45 2.673 0.513 c 1.199 0.054 1.557 0.066 4.535 0.066 s 3.336 -0.012 4.536 -0.066 c 1.36 -0.062 2.143 -0.306 2.671 -0.511 a 5.368 5.368 0 0 0 1.953 -1.273 c 0.58 -0.58 0.972 -1.181 1.27 -1.95 c 0.206 -0.53 0.45 -1.312 0.512 -2.673 c 0.054 -1.2 0.066 -1.557 0.066 -4.535 s -0.012 -3.336 -0.066 -4.536 Z m -7.085 6.055 l -5.25 3 c -1.167 0.667 -2.619 -0.175 -2.619 -1.519 V 9 c 0 -1.344 1.452 -2.186 2.619 -1.52 l 5.25 3 c 1.175 0.672 1.175 2.368 0 3.04 Z"/>
+                        </svg>
+                      </div>
+                      <div class="creator-card-body">
+                        <div class="creator-card-header">
+                          <img class="creator-card-avatar" src="img/creator-card/avatar-action-06.jpg" alt="" loading="lazy">
+                          <span class="creator-card-handle">courtside.us</span>
+                        </div>
+                        <p class="creator-card-desc">This creator&rsquo;s audience closely matches your target market.</p>
+                        <p class="creator-card-stats">5K followers &bull; 3K accounts engaged</p>
+                        <div class="creator-card-divider"></div>
+                        <div class="creator-card-actions">
+                          <span class="creator-card-action action-not-interested" aria-hidden="true">
+                            <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                            <span class="action-tooltip">Not interested</span>
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                          </span>
+                          <span class="creator-card-action" aria-hidden="true">
+                            <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </figure>
+
+              <div class="action-toast" aria-hidden="true">
+                <p class="action-toast-text">We&rsquo;ll show fewer creators like this.</p>
+                <div class="action-toast-actions">
+                  <span class="action-toast-undo">Undo</span>
+                  <span class="action-toast-close">
+                    <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1039,6 +993,26 @@
       problemsBlocks.forEach(function(el) { problemsObserver.observe(el); });
     }
 
+    // Decision 1 — both candidates arrive together, then the list is deselected
+    // and fades out while the grid lifts forward. Armed only when JS runs, so the
+    // static fallback stays a readable side-by-side comparison.
+    // Decision 2 runs the same sequence across its four card variants.
+    var decisionAnims = document.querySelectorAll('.cp-decision-compare, #decisions .cp-variant-grid');
+    if (decisionAnims.length) {
+      var decisionObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      Array.prototype.forEach.call(decisionAnims, function(el) {
+        el.classList.add('is-armed');
+        decisionObserver.observe(el);
+      });
+    }
+
     // Scrub the workflow connector lines with scroll position — draw sequentially going down, retract going up
     var workflowLine = document.getElementById('workflow-line-path');
     var workflowLine2 = document.getElementById('workflow-line-path-2');
@@ -1179,7 +1153,9 @@
         }
       };
 
-      var aiRunCycle = function() {
+      // leadIn: pause before typing starts. Defaults to the long beat used when
+      // the loop repeats; entry passes a shorter one, having already held the poster.
+      var aiRunCycle = function(leadIn) {
         aiClearCycle();
         aiSearch.classList.remove('is-typing', 'is-results');
         aiTypedText.textContent = '';
@@ -1199,21 +1175,30 @@
               }, 400));
             }
           }, 38);
-        }, 1800));
+        }, typeof leadIn === 'number' ? leadIn : 1800));
       };
 
-      if (aiReducedMotion) {
+      // The demo's last frame — query typed, results in — doubles as its poster,
+      // so the figure reads as a finished search before and after it plays
+      // rather than sitting as an empty search box.
+      var aiShowPoster = function() {
+        aiClearCycle();
         aiTypedText.textContent = aiQuery;
         aiSearch.classList.add('is-typing', 'is-results');
-      } else {
+      };
+
+      aiShowPoster();
+
+      if (!aiReducedMotion) {
         var aiObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-              aiRunCycle();
-            } else {
+              // Hold the finished frame for a beat so it registers as a result,
+              // then clear and replay from the empty box.
               aiClearCycle();
-              aiSearch.classList.remove('is-typing', 'is-results');
-              aiTypedText.textContent = '';
+              aiTimers.push(setTimeout(function() { aiRunCycle(600); }, 1100));
+            } else {
+              aiShowPoster();
             }
           });
         }, { threshold: 0.4 });
