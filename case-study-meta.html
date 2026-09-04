@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="cs-hero-cover cs-hero-cover--below">
-        <img src="img/instagram-cm-hero.png?v=2" alt="Instagram creator marketplace &mdash; AI-powered creator recommendations" loading="eager">
+        <img src="img/instagram-cm-hero.jpg" alt="Instagram creator marketplace &mdash; AI-powered creator recommendations" loading="eager">
       </div>
     </section>
 
@@ -101,17 +101,17 @@
         <div class="cs-hero-results">
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="201">0</span>%</span>
-            <span class="cs-result-label">Messages Sent to Creators</span>
+            <span class="cs-result-label">Messages sent</span>
             <span class="cs-result-desc">Brand-to-creator outreach on the new surface vs. the directory it replaced.</span>
           </div>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="4">0</span>&times;</span>
-            <span class="cs-result-label">Partnerships Formed</span>
+            <span class="cs-result-label">Partnerships formed</span>
             <span class="cs-result-desc">Completed brand&ndash;creator partnerships against the prior surface&rsquo;s baseline.</span>
           </div>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="5">0</span>&times;</span>
-            <span class="cs-result-label">Growth Rate vs. Other Surfaces</span>
+            <span class="cs-result-label">Growth rate</span>
             <span class="cs-result-desc">Adoption curve compared with the marketplace&rsquo;s other discovery entry points.</span>
           </div>
         </div>
@@ -177,14 +177,16 @@
           <img src="img/new_workflow.png" alt="New workflow for matching brands with creators" loading="lazy">
           <svg class="cs-workflow-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <defs>
-              <linearGradient id="workflowLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <!-- userSpaceOnUse: the connector is perfectly horizontal, so an
+                   objectBoundingBox gradient would have zero height and not render. -->
+              <linearGradient id="workflowLineGradient" gradientUnits="userSpaceOnUse" x1="14.05" y1="51.9" x2="87.71" y2="51.9">
                 <stop offset="0%" stop-color="#D300C5"/>
                 <stop offset="50%" stop-color="#FF0169"/>
                 <stop offset="100%" stop-color="#FF5C00"/>
               </linearGradient>
             </defs>
-            <line id="workflow-line-path" x1="13.8" y1="51.9" x2="45.7" y2="51.6" stroke="url(#workflowLineGradient)" stroke-width="0.4" stroke-linecap="round"/>
-            <line id="workflow-line-path-2" x1="53.8" y1="51.6" x2="85.6" y2="51.9" stroke="url(#workflowLineGradient)" stroke-width="0.4" stroke-linecap="round"/>
+            <line id="workflow-line-path" x1="14.05" y1="51.9" x2="46.85" y2="51.9" stroke="url(#workflowLineGradient)" stroke-width="0.4" stroke-linecap="round"/>
+            <line id="workflow-line-path-2" x1="54.98" y1="51.9" x2="87.71" y2="51.9" stroke="url(#workflowLineGradient)" stroke-width="0.4" stroke-linecap="round"/>
           </svg>
         </div>
       </div>
@@ -281,8 +283,34 @@
             <h3>Trained by use</h3>
             <p>Every brand action is a training signal. The surface gets more accurate by being used, not by being re-specced.</p>
           </div>
-          <div class="cs-principle-feature-visual">
-            <span class="cs-problem-placeholder-label">[ feedback controls ]</span>
+          <div class="cs-principle-feature-visual cs-principle-feature-visual--bg cs-principle-feature-visual--bg-04">
+            <div class="signal-loop" aria-hidden="true">
+              <div class="signal-loop-top">
+                <div class="signal-loop-readout">
+                  <div class="signal-loop-roll">
+                    <span><strong>Not interested</strong> &middot; fewer like this</span>
+                    <span><strong>Message</strong> &middot; strongest intent</span>
+                    <span><strong>Save</strong> &middot; informs ranking</span>
+                    <span><strong>Not interested</strong> &middot; fewer like this</span>
+                  </div>
+                </div>
+                <div class="signal-loop-actions">
+                  <span class="signal-loop-action">
+                    <img src="img/Icon_creator_card_remove.png" alt="" loading="lazy">
+                  </span>
+                  <span class="signal-loop-action">
+                    <img src="img/Icon_creator_card_message.png" alt="" loading="lazy">
+                  </span>
+                  <span class="signal-loop-action">
+                    <img src="img/Icon_creator_card_save.png" alt="" loading="lazy">
+                  </span>
+                </div>
+              </div>
+              <div class="signal-loop-meter">
+                <span class="signal-loop-meter-label ig-gradient-text">Match quality</span>
+                <span class="signal-loop-meter-track"><span class="signal-loop-meter-fill"></span></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -293,7 +321,7 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">See It Working</span>
-          <h2 class="cs-section-title">Closing the Personalization Loop</h2>
+          <h2 class="cs-section-title">Closing the personalization loop.</h2>
         </div>
         <div class="cs-body">
           <p>I designed the end-to-end discovery experience: the content-first surface, the signals it ranked on, and the <strong>&ldquo;Not Interested&rdquo; feedback loop</strong>. I partnered with ML and Data Science, who built the model that powered it. That loop turned every dismissal into a training signal, continuously improving recommendations.</p>
@@ -339,7 +367,7 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Decisions</span>
-          <h2 class="cs-section-title">Four decisions, and the versions <span class="cs-keep-upper">I</span> killed to get to them.</h2>
+          <h2 class="cs-section-title">Four decisions, and what <span class="cs-keep-upper">I</span> cut to get to them.</h2>
         </div>
 
         <div class="cs-decision">
@@ -376,26 +404,32 @@
           </div>
           <div class="cs-decision-visual">
             <div class="cp-variant-grid">
+              <figure class="cp-variant cp-variant--original">
+                <figcaption><span class="cp-variant-tag">Original</span> &middot; Profile-first <em>No content preview</em></figcaption>
+                <div class="cp-variant-shot">
+                  <img src="img/Creator card explorations/original_creator_card.png" alt="The original creator card, led by profile identity and follower counts with content shown only as small thumbnails" loading="lazy">
+                </div>
+              </figure>
               <figure class="cp-variant">
-                <figcaption><span class="cp-variant-tag">V1</span> Simplest <em>Unclear hierarchy</em></figcaption>
+                <figcaption><span class="cp-variant-tag">V1</span> &middot; Simplest <em>Hard to scale</em></figcaption>
                 <div class="cp-variant-shot">
                   <img src="img/Creator card explorations/initial proposal.png" alt="Simplest card variant with content, identity and follower stats" loading="lazy">
                 </div>
               </figure>
               <figure class="cp-variant">
-                <figcaption><span class="cp-variant-tag">V2</span> Reels ratio <em>Too tall</em></figcaption>
+                <figcaption><span class="cp-variant-tag">V2</span> &middot; Reels ratio <em>Too tall</em></figcaption>
                 <div class="cp-variant-shot">
                   <img src="img/Creator card explorations/Stay true to reels aspect ratio.png" alt="Card variant following the reel aspect ratio, making the tile taller" loading="lazy">
                 </div>
               </figure>
               <figure class="cp-variant">
-                <figcaption><span class="cp-variant-tag">V3</span> Gallery <em>Too dense</em></figcaption>
+                <figcaption><span class="cp-variant-tag">V3</span> &middot; Gallery <em>Too dense</em></figcaption>
                 <div class="cp-variant-shot">
                   <img src="img/Creator card explorations/gallery_01.png" alt="Card variant with a hero post plus three content thumbnails" loading="lazy">
                 </div>
               </figure>
               <figure class="cp-variant cp-variant--shipped">
-                <figcaption><span class="cp-variant-tag">V4</span> Shipped <em>Balanced all four</em></figcaption>
+                <figcaption><span class="cp-variant-tag">V4</span> &middot; Shipped <em>Balanced all four</em></figcaption>
                 <div class="cp-variant-shot">
                   <img src="img/Creator card explorations/Creator Card V2.png" alt="Shipped creator card, leading with one hero piece of content" loading="lazy">
                 </div>
@@ -732,50 +766,85 @@
     </section>
 
     <!-- 9. Hard Part -->
-    <section class="cs-section cs-section--alt" id="hard-part">
+    <section class="cs-section cs-section--cream" id="hard-part">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">The Hard Part</span>
-          <h2 class="cs-section-title">Designing for a model that is sometimes wrong</h2>
+          <h2 class="cs-section-title">Designing for a model that is sometimes wrong.</h2>
         </div>
         <div class="cs-body">
-          <p>The happy path was the easy half. A ranked surface has to stay credible on the days the ranking is off, which meant designing three states before the default one.</p>
+          <p>The happy path was the easy half. A ranked surface has to stay credible when the model is wrong, which meant designing for three failure states before the default one.</p>
         </div>
-        <div class="cs-problems">
+        <div class="cs-problems cs-problems--stack">
           <div class="cs-problem">
+            <div class="cs-problem-image">
+              <figure class="hp-fig">
+                <div class="hp-fig-stage">
+                  <div class="hp-grid hp-grid--6" aria-hidden="true">
+              <span class="hp-dot hp-dot--match"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+              <span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot hp-dot--match"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+              <span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+              <span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+              <span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+              <span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span><span class="hp-dot"></span>
+                  </div>
+                </div>
+                <figcaption class="hp-fig-note"><strong>2 match</strong> <span>/ 36 eligible</span></figcaption>
+              </figure>
+            </div>
             <div class="cs-problem-content">
-              <span class="cs-problem-icon">1</span>
               <h3>Thin signal</h3>
               <p>A niche brief with few strong matches. The surface says so and narrows the set rather than padding it out to fill a grid.</p>
             </div>
-            <div class="cs-problem-image">
-              <div class="cs-problem-placeholder">
-                <span class="cs-problem-placeholder-label">[ low-confidence state ]</span>
-              </div>
-            </div>
           </div>
           <div class="cs-problem">
+            <div class="cs-problem-image">
+              <figure class="hp-fig">
+                <div class="hp-fig-stage hp-fig-stage--split">
+                  <div class="hp-grid hp-grid--4" aria-hidden="true">
+                    <span class="hp-dot hp-dot--match"></span>
+                    <span class="hp-dot hp-dot--dismissed">
+                      <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7"/></svg>
+                    </span>
+                    <span class="hp-dot hp-dot--match"></span>
+                    <span class="hp-dot hp-dot--match"></span>
+                  </div>
+                  <div class="hp-divider"><span>One tap</span></div>
+                  <div class="hp-grid hp-grid--4" aria-hidden="true">
+                    <span class="hp-dot hp-dot--match"></span>
+                    <span class="hp-dot hp-dot--match"></span>
+                    <span class="hp-dot hp-dot--match"></span>
+                    <span class="hp-dot hp-dot--match hp-dot--fresh"></span>
+                  </div>
+                </div>
+                <figcaption class="hp-fig-note"><span>Set stays full &middot;</span> <strong>no penalty</strong></figcaption>
+              </figure>
+            </div>
             <div class="cs-problem-content">
-              <span class="cs-problem-icon">2</span>
               <h3>A wrong recommendation</h3>
               <p>Dismissal has to be one action, visibly change the next set, and never feel like it cost the brand anything to correct.</p>
             </div>
-            <div class="cs-problem-image">
-              <div class="cs-problem-placeholder">
-                <span class="cs-problem-placeholder-label">[ bad-match recovery ]</span>
-              </div>
-            </div>
           </div>
           <div class="cs-problem">
+            <div class="cs-problem-image">
+              <figure class="hp-fig">
+                <div class="hp-fig-stage hp-fig-stage--fold">
+                  <div class="hp-grid hp-grid--rank" aria-hidden="true">
+                    <span class="hp-dot hp-dot--match"></span><span class="hp-dot hp-dot--match"></span><span class="hp-dot hp-dot--match"></span><span class="hp-dot hp-dot--match"></span><span class="hp-dot hp-dot--match"></span><span class="hp-dot hp-dot--match"></span>
+                  </div>
+                  <div class="hp-divider hp-divider--fold"><span>Fold</span></div>
+                  <div class="hp-grid hp-grid--rank hp-grid--buried" aria-hidden="true">
+                    <span class="hp-dot hp-dot--tier1"></span><span class="hp-dot hp-dot--tier1"></span><span class="hp-dot hp-dot--eligible"></span><span class="hp-dot hp-dot--tier1"></span><span class="hp-dot hp-dot--tier1"></span><span class="hp-dot hp-dot--tier1"></span>
+                    <span class="hp-dot hp-dot--tier2"></span><span class="hp-dot hp-dot--tier2"></span><span class="hp-dot hp-dot--tier2"></span><span class="hp-dot hp-dot--tier2"></span><span class="hp-dot hp-dot--tier2"></span><span class="hp-dot hp-dot--tier2"></span>
+                    <span class="hp-dot hp-dot--tier3"></span><span class="hp-dot hp-dot--tier3"></span><span class="hp-dot hp-dot--tier3"></span><span class="hp-dot hp-dot--tier3"></span><span class="hp-dot hp-dot--tier3"></span><span class="hp-dot hp-dot--tier3"></span>
+                  </div>
+                </div>
+                <figcaption class="hp-fig-note"><strong class="hp-fig-note-accent">Eligible</strong><span>, never seen</span></figcaption>
+              </figure>
+            </div>
             <div class="cs-problem-content">
-              <span class="cs-problem-icon">3</span>
               <h3>The creator who never surfaces</h3>
               <p>Ranking on ad performance means some eligible creators sit below the fold indefinitely. Worth naming: it&rsquo;s the cost of the bet, not a bug in it.</p>
-            </div>
-            <div class="cs-problem-image">
-              <div class="cs-problem-placeholder">
-                <span class="cs-problem-placeholder-label">[ creator side ]</span>
-              </div>
             </div>
           </div>
         </div>
@@ -783,24 +852,23 @@
     </section>
 
     <!-- 10. Results -->
-    <section class="cs-section cs-section--dark cs-section--bg05" id="impact">
+    <section class="cs-section cs-section--dark" id="impact">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Results</span>
-          <h2 class="cs-section-title">What Shipped, What Moved, and What <span class="cs-keep-upper">I</span> Can Claim</h2>
-        </div>
-        <div class="cs-body">
-          <p>The feature launched in phases and delivered strong results: more messaging between brands and creators, a multiple of new partnerships, and adoption outpacing the marketplace&rsquo;s other discovery surfaces.</p>
+          <h2 class="cs-section-title">What shipped, what moved, and what <span class="cs-keep-upper">I</span> can claim.</h2>
         </div>
 
-        <div class="cs-impact-grid">
+        <div class="cs-impact-grid cs-impact-grid--stat">
           <div class="cs-impact-card">
-            <h3>+201% Messages Sent to Creators</h3>
-            <p>In a controlled A/B test, the content-first surface drove a 201% increase in brands messaging creators over the existing experience.</p>
+            <span class="cs-stat-value">+201%</span>
+            <h3>Messages sent</h3>
+            <p>Brand-to-creator outreach against the surface this replaced, the action closest to an actual partnership.</p>
           </div>
           <div class="cs-impact-card">
-            <h3>4&times; Partnerships Formed</h3>
-            <p>Brand&harr;creator partnerships formed since launch grew 4&times; against the prior surface&rsquo;s baseline, across new markets and advertisers like TEMU, SHEIN, and Amazon.</p>
+            <span class="cs-stat-value">4&times;</span>
+            <h3>Partnerships formed</h3>
+            <p>Completed partnerships versus the prior discovery surface&rsquo;s baseline.</p>
             <div class="cs-brand-tags cs-hidden">
               <span class="cs-brand-tag"><img src="img/Temu-Logo.png" alt="TEMU" class="cs-brand-logo">TEMU</span>
               <span class="cs-brand-tag"><img src="img/Shein-Logo.jpg" alt="SHEIN" class="cs-brand-logo cs-brand-logo--bordered">SHEIN</span>
@@ -808,20 +876,17 @@
             </div>
           </div>
           <div class="cs-impact-card">
-            <h3>5&times; Growth Rate vs. Other Surfaces</h3>
-            <p>Adoption on the new surface grew five times faster than the marketplace&rsquo;s other discovery entry points.</p>
+            <span class="cs-stat-value">5&times;</span>
+            <h3>Growth rate</h3>
+            <p>Adoption growing roughly five times faster than the marketplace&rsquo;s other surfaces.</p>
           </div>
         </div>
 
+        <p class="cs-impact-caveat">Alpha cohort, small n. Ranking and eligibility were partner-owned; <span class="cs-keep-upper">I</span> owned the surface and the controls that fed it. Treat these as the result of that pairing.</p>
 
-        <blockquote class="cs-quote">
-          <div class="cs-quote-brands">
-            <img src="img/Temu-Logo.png" alt="TEMU" class="cs-quote-brand-logo">
-            <img src="img/Shein-Logo.jpg" alt="SHEIN" class="cs-quote-brand-logo">
-            <img src="img/Amazone-Logo.png" alt="Amazon" class="cs-quote-brand-logo">
-          </div>
-          <p>&ldquo;In Alpha testing with 10 brands, the new recommendations surface was rated extremely intuitive with zero functionality issues. <strong>100% of partners</strong> said the ability to narrow down and inform creator recommendations would increase the value they experience with the product.&rdquo;</p>
-          <cite>Alpha Test Results</cite>
+        <blockquote class="cs-quote cs-quote--card">
+          <p>&ldquo;The new recommendations surface was rated extremely intuitive, with zero functionality issues. 100% of partners said the ability to narrow down and inform creator recommendations would increase the value they experience with the product.&rdquo;</p>
+          <cite>Alpha testing &middot; n=10 brand partners</cite>
         </blockquote>
       </div>
     </section>
@@ -831,12 +896,12 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">What <span class="cs-keep-upper">I</span> Got Wrong</span>
-          <h2 class="cs-section-title">A Creator Can Meet Every Criterion and Still Make Content That Doesn&rsquo;t Resonate</h2>
+          <h2 class="cs-section-title">A creator can meet every criterion and still make content that doesn&rsquo;t resonate.</h2>
         </div>
         <div class="cs-body">
-          <p>Partnership ads eligibility was the input I trusted most, and it&rsquo;s a floor, not a prediction. Brands rejected creators who passed every check because the work simply wasn&rsquo;t for them. Balancing eligibility against taste is the part I&rsquo;d design first if I started again, and the part that decided whether the surface felt smart or generic.</p>
+          <p>Partnership ads eligibility was the input I trusted most, and it is a floor, not a prediction. Brands rejected creators who passed every check because the work simply wasn&rsquo;t for them. Balancing eligibility against taste is the part I would design first if I started again, and the part that decided whether the surface felt smart or generic.</p>
         </div>
-        <div class="cs-callouts">
+        <div class="cs-callouts cs-callouts--plain">
           <div class="cs-callout">
             <h3>Also, in order</h3>
             <p>One piece of content isn&rsquo;t enough to decide on. I optimized for the two-second scan and under-served the second look.</p>
@@ -1256,6 +1321,10 @@
         actionPositionCards();
       };
 
+      // Time before the first hover. The interaction itself runs at full speed;
+      // this is just the wait before it starts, so it stays short.
+      var actionLeadIn = 500;
+
       var actionRunCycle = function() {
         actionClear();
         var current = actionCards[actionIndex];
@@ -1283,7 +1352,7 @@
               actionTimers.push(setTimeout(actionRunCycle, 3400));
             }, 180));
           }, 1000));
-        }, 1600));
+        }, actionLeadIn));
       };
 
       actionPositionCards();

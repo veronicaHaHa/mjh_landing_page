@@ -524,6 +524,34 @@ button {
   display: none;
 }
 
+.experience-achievements {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.experience-achievements li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+.experience-achievements li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-muted);
+}
+
 /* --- Work page --- */
 .work-page-section {
   padding-top: var(--space-5xl);
