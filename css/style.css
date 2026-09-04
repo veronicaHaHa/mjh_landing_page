@@ -1147,6 +1147,11 @@ button:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Lead case studies run the full width of the grid; the rest stay paired. */
+  .project-card--wide {
+    grid-column: 1 / -1;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
   }
