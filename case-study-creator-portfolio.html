@@ -24,7 +24,20 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/case-study.css?v=54">
+  <link rel="stylesheet" href="css/case-study.css?v=55">
+  <script>
+    // Hide the hero until its title is split into lines (see the reveal script
+    // at the end of body). Skipped entirely for reduced-motion users, and a
+    // failsafe clears it if the reveal script never runs.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      document.documentElement.classList.add('has-hero-reveal');
+      setTimeout(function () {
+        document.documentElement.classList.remove('has-hero-reveal');
+      }, 2500);
+    })();
+  </script>
 </head>
 <body class="case-study-page cs-page--creator-portfolio">
 
@@ -716,6 +729,123 @@
     };
     document.addEventListener('contextmenu', blockMedia);
     document.addEventListener('dragstart', blockMedia);
+  </script>
+  <script>
+    // Hero entrance — split the title into rendered lines, each masked so it
+    // slides up into place, with the surrounding hero content rising behind it.
+    (function () {
+      var root = document.documentElement;
+      var heroEl = document.querySelector('.cs-hero--title-first');
+      var titleEl = heroEl && heroEl.querySelector('.cs-hero-title');
+
+      function show() { root.classList.remove('has-hero-reveal'); }
+
+      if (!heroEl || !titleEl || !root.classList.contains('has-hero-reveal')) {
+        show();
+        return;
+      }
+
+      var LINE_STEP = 0.09;
+      var rawText = titleEl.textContent.replace(/\s+/g, ' ').trim();
+
+      // Lay the words out inline, read back which ones share a top offset, then
+      // rebuild the title as one mask per line.
+      function splitTitle() {
+        titleEl.textContent = '';
+        var spans = [];
+        var words = rawText.split(' ');
+        words.forEach(function (word, i) {
+          var span = document.createElement('span');
+          span.textContent = word;
+          titleEl.appendChild(span);
+          spans.push(span);
+          if (i < words.length - 1) titleEl.appendChild(document.createTextNode(' '));
+        });
+
+        var lines = [];
+        var lastTop = null;
+        spans.forEach(function (span) {
+          var top = span.offsetTop;
+          if (lastTop === null || Math.abs(top - lastTop) > 2) {
+            lines.push([]);
+            lastTop = top;
+          }
+          lines[lines.length - 1].push(span.textContent);
+        });
+
+        titleEl.textContent = '';
+        lines.forEach(function (lineWords, i) {
+          var mask = document.createElement('span');
+          mask.className = 'c-mask';
+          var line = document.createElement('span');
+          line.className = 'c-mask__line';
+          line.textContent = lineWords.join(' ');
+          line.style.setProperty('--reveal-delay', (0.15 + i * LINE_STEP).toFixed(2) + 's');
+          mask.appendChild(line);
+          titleEl.appendChild(mask);
+        });
+
+        return lines.length;
+      }
+
+      function rise(el, delay) {
+        if (!el) return;
+        el.classList.add('cs-hero-rise');
+        el.style.setProperty('--reveal-delay', delay.toFixed(2) + 's');
+      }
+
+      function build() {
+        var after = 0.15 + splitTitle() * LINE_STEP;
+
+        var metaItems = heroEl.querySelectorAll('.cs-hero-meta--top .cs-meta-item');
+        Array.prototype.forEach.call(metaItems, function (item, i) {
+          rise(item, 0.05 + i * 0.05);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-subtitle'), after + 0.04);
+
+        var bets = heroEl.querySelectorAll('.cs-hero-bet');
+        Array.prototype.forEach.call(bets, function (bet, i) {
+          rise(bet, after + 0.12 + i * 0.07);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-cover'), after + 0.1);
+      }
+
+      var started = false;
+      function play() {
+        if (started) return;
+        started = true;
+        build();
+        show();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { heroEl.classList.add('is-revealed'); });
+        });
+      }
+
+      // Wait for webfonts so the measured line breaks match what renders.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(play);
+        setTimeout(play, 800);
+      } else {
+        play();
+      }
+
+      // Width changes re-wrap the title, so rebuild the masks — without replaying.
+      var lastWidth = window.innerWidth;
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        if (!started || window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          heroEl.classList.add('is-resplitting');
+          splitTitle();
+          void heroEl.offsetWidth;
+          heroEl.classList.remove('is-resplitting');
+        }, 150);
+      });
+    })();
   </script>
   <script src="js/analytics.js?v=3" defer></script>
 
