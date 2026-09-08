@@ -72,7 +72,7 @@
         <div class="cs-hero-lede">
           <div class="cs-hero-lede-main">
             <h1 class="cs-hero-title">ML-Driven Creator Recommendations</h1>
-            <p class="cs-hero-subtitle">I turned a creator-first directory into a content-first, <span class="cs-keep-upper">ML</span>-ranked matching surface for <a class="cs-inline-link" href="https://help.instagram.com/292748974937716/?helpref=uf_share" target="_blank" rel="noopener noreferrer">partnership ads</a>, one of Instagram&rsquo;s highest-impact formats.</p>
+            <p class="cs-hero-subtitle">I shifted Creator Marketplace from a passive directory to a content-led matchmaking system, using ML to predict which creator content had the strongest potential as <a class="cs-inline-link" href="https://help.instagram.com/292748974937716/?helpref=uf_share" target="_blank" rel="noopener noreferrer">partnership ads</a>, one of Instagram&rsquo;s highest-impact formats.</p>
           </div>
           <div class="cs-hero-bets">
             <div class="cs-hero-bet">
@@ -358,7 +358,7 @@
           <li><button type="button" class="cs-proto-step" data-start="10.5" data-active="10.5-21.5">Profile</button></li>
           <li><button type="button" class="cs-proto-step" data-start="23.75" data-active="23.75-">Feedback</button></li>
         </ol>
-        <p class="cs-confidential-note">Visuals recreated to respect Meta confidentiality.</p>
+        <p class="cs-confidential-note">Leadership-aligned direction before AI search was sequenced to Phase 2.</p>
       </div>
     </section>
 
@@ -374,7 +374,11 @@
           <div class="cs-decision-text">
             <h3><span class="cs-problem-icon">1</span> Grid vs. List</h3>
             <div class="cs-decision-body">
-              <p>Product initially pushed for a list view. I <strong>steered the direction toward a grid of cards</strong>, because cards could lead with the work itself while rows naturally prioritized stats. Brands weren&rsquo;t comparing numbers. They were evaluating creative fit.</p>
+              <dl class="cs-decision-spec">
+                <div><dt>Decision</dt><dd>Grid</dd></div>
+                <div><dt>Why</dt><dd>Brands evaluate creative fit, not creator stats.</dd></div>
+                <div><dt>Context</dt><dd>Product pushed for a list view. I steered toward a grid of cards that leads with content.</dd></div>
+              </dl>
             </div>
           </div>
           <div class="cs-decision-visual">
@@ -399,7 +403,11 @@
           <div class="cs-decision-text">
             <h3><span class="cs-problem-icon">2</span> Creator card</h3>
             <div class="cs-decision-body">
-              <p>A brand should reach a yes-or-no decision in about two seconds, and the grid should hold together as it scales. I evaluated four variants against four criteria: <strong>content reads first, the card explains why, height stays uniform, and each tile supports one decision.</strong></p>
+              <dl class="cs-decision-spec">
+                <div><dt>Decision</dt><dd>Content-first card</dd></div>
+                <div><dt>Why</dt><dd>A brand needs to reach a yes/no decision in ~2 seconds.</dd></div>
+                <div><dt>Context</dt><dd>Met all four criteria: content reads first, the card explains why, height stays uniform, one decision per tile.</dd></div>
+              </dl>
             </div>
           </div>
           <div class="cs-decision-visual">
@@ -442,7 +450,11 @@
           <div class="cs-decision-text">
             <h3><span class="cs-problem-icon">3</span> AI search</h3>
             <div class="cs-decision-body">
-              <p>A free-text AI search was the most direct path to intent-driven discovery, and leadership was ready to back it. <strong>I chose not to ship it.</strong> Given the implementation complexity and limited behavioral data available at launch, weak results could have undermined confidence in the entire recommendation experience. I sequenced it for Phase 2, when real usage data could make the model meaningfully better.</p>
+              <dl class="cs-decision-spec">
+                <div><dt>Decision</dt><dd>Phase 2</dd></div>
+                <div><dt>Why</dt><dd>Launching before behavioral data would risk poor recommendations.</dd></div>
+                <div><dt>Context</dt><dd>Leadership was ready to back it. <strong>I chose not to ship</strong> on limited behavioral data and implementation complexity.</dd></div>
+              </dl>
             </div>
           </div>
           <div class="cs-decision-visual">
@@ -557,7 +569,11 @@
           <div class="cs-decision-text">
             <h3><span class="cs-problem-icon">4</span> Feedback Loop</h3>
             <div class="cs-decision-body">
-              <p>Rather than add a rating widget brands wouldn&rsquo;t use, I turned the actions they already take into training signals weighted by intent. Messaging a creator signals the strongest intent; Save and Show More inform feed ranking; <strong>Not Interested provides the clearest corrective signal.</strong></p>
+              <dl class="cs-decision-spec">
+                <div><dt>Decision</dt><dd>Implicit signals</dd></div>
+                <div><dt>Why</dt><dd>Natural actions generate better training signals than explicit ratings.</dd></div>
+                <div><dt>Context</dt><dd>Messaging signals strongest intent; Save and Show More inform ranking; <strong>Not Interested is the clearest corrective signal.</strong></dd></div>
+              </dl>
             </div>
           </div>
           <div class="cs-decision-visual">
@@ -856,7 +872,7 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Results</span>
-          <h2 class="cs-section-title">What shipped, what moved, and what <span class="cs-keep-upper">I</span> can claim.</h2>
+          <h2 class="cs-section-title">The recommendation model drove more creator outreach and partnership ads growth.</h2>
         </div>
 
         <div class="cs-impact-grid cs-impact-grid--stat">
@@ -882,33 +898,66 @@
           </div>
         </div>
 
-        <p class="cs-impact-caveat">Alpha cohort, small n. Ranking and eligibility were partner-owned; <span class="cs-keep-upper">I</span> owned the surface and the controls that fed it. Treat these as the result of that pairing.</p>
-
         <blockquote class="cs-quote cs-quote--card">
           <p>&ldquo;The new recommendations surface was rated extremely intuitive, with zero functionality issues. 100% of partners said the ability to narrow down and inform creator recommendations would increase the value they experience with the product.&rdquo;</p>
           <cite>Alpha testing &middot; n=10 brand partners</cite>
         </blockquote>
+
+        <p class="cs-impact-caveat">Alpha cohort, small n. Ranking and eligibility were partner-owned; <span class="cs-keep-upper">I</span> owned the surface and the controls that fed it.</p>
       </div>
     </section>
 
-    <!-- 11. What I Got Wrong -->
+    <!-- 11. Takeaway -->
     <section class="cs-section" id="reflections">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">What <span class="cs-keep-upper">I</span> Got Wrong</span>
-          <h2 class="cs-section-title">A creator can meet every criterion and still make content that doesn&rsquo;t resonate.</h2>
+          <span class="cs-section-label">Takeaway</span>
+          <h2 class="cs-section-title">A recommendation model doesn&rsquo;t create a marketplace on its own.</h2>
         </div>
         <div class="cs-body">
-          <p>Partnership ads eligibility was the input I trusted most, and it is a floor, not a prediction. Brands rejected creators who passed every check because the work simply wasn&rsquo;t for them. Balancing eligibility against taste is the part I would design first if I started again, and the part that decided whether the surface felt smart or generic.</p>
+          <p>I turned a passive creator directory into a content-led recommendation system, but <strong>the model was only part of the product.</strong> I had to make its signals understandable, give brands enough agency to act on them, and turn their behavior into feedback the system could learn from.</p>
         </div>
         <div class="cs-callouts cs-callouts--plain">
           <div class="cs-callout">
-            <h3>Also, in order</h3>
-            <p>One piece of content isn&rsquo;t enough to decide on. I optimized for the two-second scan and under-served the second look.</p>
+            <svg class="cs-callout-visual" viewBox="0 0 200 56" fill="none" aria-hidden="true">
+              <rect x="6" y="14" width="28" height="28" rx="4" fill="currentColor" opacity="0.35"/>
+              <path d="M44 28h16m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+              <rect x="70" y="14" width="28" height="28" rx="4" fill="currentColor" opacity="0.85"/>
+              <rect x="106" y="14" width="28" height="28" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.85"/>
+              <rect x="142" y="14" width="28" height="28" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.85"/>
+            </svg>
+            <h3>One look isn&rsquo;t enough.</h3>
+            <p>One piece of content isn&rsquo;t enough to make a decision. I optimized the card for a two-second scan, but learned that the experience also needed to reward a deeper second look.</p>
           </div>
           <div class="cs-callout">
-            <h3>And</h3>
-            <p>Brands wanted control (sort, filter, search), not to sit and receive recommendations they could only mark &ldquo;not interested.&rdquo; I read the passive model as simpler; they read it as less agency.</p>
+            <svg class="cs-callout-visual" viewBox="0 0 200 56" fill="none" aria-hidden="true">
+              <!-- The recommendations themselves: a 2x2 grid on the same 28x28
+                   footprint as the squares opposite. -->
+              <g fill="currentColor" opacity="0.35">
+                <rect x="6" y="14" width="12" height="12" rx="2"/>
+                <rect x="22" y="14" width="12" height="12" rx="2"/>
+                <rect x="6" y="30" width="12" height="12" rx="2"/>
+                <rect x="22" y="30" width="12" height="12" rx="2"/>
+              </g>
+              <path d="M46 28h12M52 22v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+              <!-- After: the controls brands actually wanted. Each icon is drawn on
+                   its own 28x28 grid — the same box as the squares opposite — and
+                   placed with a translate, so one number moves one icon. -->
+              <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+                <g transform="translate(106 14)">
+                  <path d="M1 7h6M16 7h11M1 21h11M21 21h6"/>
+                  <rect x="8" y="3.5" width="7" height="7" rx="2.2" fill="currentColor" stroke="none"/>
+                  <rect x="13" y="17.5" width="7" height="7" rx="2.2" fill="currentColor" stroke="none"/>
+                </g>
+                <path transform="translate(70 14)" d="M8 24.5V4.5m-5 5 5-5 5 5M20 3.5v20m5-5-5 5-5-5"/>
+                <g transform="translate(142 14)">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M18.4 18.4 26 26"/>
+                </g>
+              </g>
+            </svg>
+            <h3>Recommendations need agency.</h3>
+            <p>Brands wanted control: sort, filter, search. Not just recommendations they could dismiss. I initially read a passive model as simpler; brands read it as less agency.</p>
           </div>
         </div>
       </div>
@@ -935,7 +984,7 @@
             <div class="project-card-content">
               <span class="project-card-label">Jun 2022 &ndash; Oct 2022</span>
               <h3 class="project-card-title">Instagram Creator Portfolio</h3>
-              <p class="project-card-desc">Designed a portfolio experience for Instagram creators to showcase their work and brand partnerships, helping them present their value to potential brand collaborators.</p>
+              <p class="project-card-desc">Reimagined how Instagram creators showcase their work and attract brand partnerships, exceeding adoption goals within hours of launch.</p>
               <span class="project-card-cta">View case study &#8594;</span>
             </div>
           </a>
