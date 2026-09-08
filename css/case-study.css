@@ -5519,12 +5519,15 @@
    Meta case study — Decisions-driven structure additions
    ============================================================ */
 
-/* Hero subtitle restored + "what I owned / bet on / cut" triad (meta page only) */
-.cs-page--meta .cs-hero-subtitle {
+/* Hero subtitle restored + the owned / bet on / reused triad. Case study pages
+   hide .cs-hero-subtitle by default (line ~659); these two pages opt back in. */
+.cs-page--meta .cs-hero-subtitle,
+.cs-page--creator-portfolio .cs-hero-subtitle {
   display: block;
 }
 
-.cs-page--meta .cs-hero-title {
+.cs-page--meta .cs-hero-title,
+.cs-page--creator-portfolio .cs-hero-title {
   margin-bottom: var(--space-sm);
 }
 
@@ -5935,7 +5938,8 @@
   background: #f7f7f8;
 }
 
-.cs-page--meta .cs-hero--title-first .cs-hero-content {
+.cs-page--meta .cs-hero--title-first .cs-hero-content,
+.cs-page--creator-portfolio .cs-hero--title-first .cs-hero-content {
   padding-top: 6rem;
   padding-bottom: var(--space-3xl);
 }
@@ -5950,6 +5954,22 @@
 
 .cs-hero--title-first .cs-hero-lede-main {
   max-width: 100%;
+}
+
+/* Portfolio hero: the title holds the top of its column and the subtitle drops
+   to sit level with the foot of the triad beside it. Only above 980px, where
+   the lede is still two columns — below that they stack and there is nothing
+   to align to. */
+@media (min-width: 981px) {
+  .cs-page--creator-portfolio .cs-hero--title-first .cs-hero-lede-main {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cs-page--creator-portfolio .cs-hero--title-first .cs-hero-subtitle {
+    margin-top: auto;
+  }
 }
 
 .cs-hero--title-first .cs-hero-title {
@@ -6011,7 +6031,8 @@
 }
 
 @media (max-width: 767px) {
-  .cs-page--meta .cs-hero--title-first .cs-hero-content {
+  .cs-page--meta .cs-hero--title-first .cs-hero-content,
+  .cs-page--creator-portfolio .cs-hero--title-first .cs-hero-content {
     padding-top: 5rem;
     padding-bottom: var(--space-2xl);
   }
@@ -6031,11 +6052,15 @@
 
 /* This page's hero is light from the top, so the nav link can't be white.
    Matches the past-hero treatment from the start. */
-.cs-page--meta .case-study-nav .nav-name {
-  color: var(--color-text-light);
+/* The title-first hero has a light background, so the nav link can't stay
+   white the way it is over a full-bleed hero image. */
+.cs-page--meta .case-study-nav .nav-name,
+.cs-page--creator-portfolio .case-study-nav .nav-name {
+  color: var(--color-text-soft);
 }
 
-.cs-page--meta .case-study-nav .nav-name:hover {
+.cs-page--meta .case-study-nav .nav-name:hover,
+.cs-page--creator-portfolio .case-study-nav .nav-name:hover {
   color: #1a1a2e;
 }
 

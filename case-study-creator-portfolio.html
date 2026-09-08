@@ -38,11 +38,8 @@
   <main>
 
     <!-- 1. Hero -->
-    <section class="cs-hero cs-hero--full-image">
+    <section class="cs-hero cs-hero--full-image cs-hero--title-first">
       <div class="cs-hero-bg"></div>
-      <div class="cs-hero-cover">
-        <img src="img/creator-portfolio-hero.jpg?v=3" alt="Instagram creator portfolio, creators showcasing their work and brand partnerships" loading="eager">
-      </div>
       <div class="container cs-hero-content">
         <div class="cs-hero-meta cs-hero-meta--top">
           <div class="cs-meta-item">
@@ -62,29 +59,50 @@
             <a class="cs-meta-value cs-meta-link" href="https://www.instagram.com/p/Cklnj-0o43K/?img_index=4" target="_blank" rel="noopener noreferrer">Feature Launch &#8599;</a>
           </div>
         </div>
-        <h1 class="cs-hero-title">Creator Portfolio</h1>
-        <p class="cs-hero-subtitle">After the vision sprint, I owned how Creator Portfolio should work natively on Instagram, and drove it from strategy to launch.</p>
-        <div class="cs-hero-leadership">
-          <p class="cs-results-label">My Leadership &amp; Influence</p>
-          <ul class="cs-hero-leadership-list">
-            <li>Owned native product strategy end to end: experience, principles, alignment, launch</li>
-            <li>Bet the marketplace on effortless creation for less experienced creators</li>
-            <li>Reused native patterns; invented the onboarding format other teams adopted</li>
-          </ul>
+        <div class="cs-hero-lede">
+          <div class="cs-hero-lede-main">
+            <h1 class="cs-hero-title">Instagram creator portfolio</h1>
+            <p class="cs-hero-subtitle">I brought the industry-standard media kit natively into Instagram, giving emerging creators a way to showcase their work and get discovered by brands. Adoption hit its goal in two hours.</p>
+          </div>
+          <div class="cs-hero-bets">
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">What I owned</span>
+              <p class="cs-hero-bet-text">Native product strategy end to end: the experience, the principles it was built on, cross-team alignment, and launch.</p>
+            </div>
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">What I bet on</span>
+              <p class="cs-hero-bet-text">Less experienced creators would show up if creation were effortless. Auto-populate from their best content; never a blank page.</p>
+            </div>
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">What I reused</span>
+              <p class="cs-hero-bet-text">Instagram&rsquo;s Guides pattern instead of a new builder. I invented one thing: the creator-led onboarding video other teams adopted.</p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="cs-hero-cover cs-hero-cover--below">
+        <img src="img/creator-portfolio-hero.jpg?v=3" alt="Instagram creator portfolio, creators showcasing their work and brand partnerships" loading="eager">
+      </div>
+    </section>
+
+    <!-- Key results, below the hero image -->
+    <section class="cs-section cs-section--alt" id="metrics">
+      <div class="container cs-container">
         <div class="cs-hero-results">
-          <p class="cs-results-label">Key Results</p>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="13">0</span>&times;</span>
             <span class="cs-result-label">Adoption Goal</span>
+            <span class="cs-result-desc">5,000-portfolio goal hit within two hours of launch; 59.6K by end of H2 &rsquo;22.</span>
           </div>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="60">0</span>%</span>
             <span class="cs-result-label">Creator Activation</span>
+            <span class="cs-result-desc">Up from a ~25% benchmark, with 126K creators activated.</span>
           </div>
           <div class="cs-result-item">
             <span class="cs-result-number"><span class="cs-result-count" data-count-to="216">0</span>K</span>
             <span class="cs-result-label">Creators Onboarded</span>
+            <span class="cs-result-desc">10&times; the previous half, a step-change in marketplace adoption.</span>
           </div>
         </div>
       </div>
@@ -530,19 +548,19 @@
     var yearEl = document.querySelector('.footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Show the nav's blurred background once scrolled past the hero image
-    var hero = document.querySelector('.cs-hero');
-    var heroCover = document.querySelector('.cs-hero-cover');
-    var navTrigger = heroCover || hero;
+    // Show the nav's blurred background as soon as the page moves. The hero
+    // image now sits below the content, so its height is no longer the trigger.
     var nav = document.querySelector('.case-study-nav');
-    if (navTrigger && nav) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY >= navTrigger.offsetHeight - 1) {
+    if (nav) {
+      var onNavScroll = function() {
+        if (window.scrollY > 8) {
           nav.classList.add('nav-past-hero');
         } else {
           nav.classList.remove('nav-past-hero');
         }
-      });
+      };
+      window.addEventListener('scroll', onNavScroll, { passive: true });
+      onNavScroll();
     }
 
     // Animate metrics on scroll
