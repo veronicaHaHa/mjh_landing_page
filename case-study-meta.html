@@ -105,12 +105,12 @@
             <span class="cs-result-desc">Brand-to-creator outreach on the new surface vs. the directory it replaced.</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-count" data-count-to="4">0</span>&times;</span>
+            <span class="cs-result-number"><span class="cs-result-count" data-count-to="1">0</span>K<span class="cs-result-plus">+</span></span>
             <span class="cs-result-label">Partnerships formed</span>
             <span class="cs-result-desc">Completed brand&ndash;creator partnerships against the prior surface&rsquo;s baseline.</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-count" data-count-to="5">0</span>&times;</span>
+            <span class="cs-result-number"><span class="cs-result-plus">+</span><span class="cs-result-count" data-count-to="1.8">0</span>%</span>
             <span class="cs-result-label">Growth rate</span>
             <span class="cs-result-desc">Adoption curve compared with the marketplace&rsquo;s other discovery entry points.</span>
           </div>
@@ -882,7 +882,7 @@
             <p>Brand-to-creator outreach against the surface this replaced, the action closest to an actual partnership.</p>
           </div>
           <div class="cs-impact-card">
-            <span class="cs-stat-value">4&times;</span>
+            <span class="cs-stat-value">1K+</span>
             <h3>Partnerships formed</h3>
             <p>Completed partnerships versus the prior discovery surface&rsquo;s baseline.</p>
             <div class="cs-brand-tags cs-hidden">
@@ -892,9 +892,9 @@
             </div>
           </div>
           <div class="cs-impact-card">
-            <span class="cs-stat-value">5&times;</span>
+            <span class="cs-stat-value">+1.8%</span>
             <h3>Growth rate</h3>
-            <p>Adoption growing roughly five times faster than the marketplace&rsquo;s other surfaces.</p>
+            <p>Adoption growth against the marketplace&rsquo;s other discovery surfaces.</p>
           </div>
         </div>
 
@@ -1057,13 +1057,17 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             countEls.forEach(function(el) {
-              var target = parseInt(el.dataset.countTo, 10);
+              var raw = el.dataset.countTo;
+              var target = parseFloat(raw);
+              // Keep a decimal target's precision: 1.8 must not round to 2.
+              var dot = raw.indexOf('.');
+              var decimals = dot === -1 ? 0 : raw.length - dot - 1;
               var start = null;
               function step(timestamp) {
                 if (start === null) start = timestamp;
                 var progress = Math.min((timestamp - start) / countDuration, 1);
                 var eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.round(eased * target);
+                el.textContent = (eased * target).toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 if (progress < 1) requestAnimationFrame(step);
               }
               requestAnimationFrame(step);
