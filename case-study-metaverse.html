@@ -24,7 +24,20 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/case-study.css?v=54">
+  <link rel="stylesheet" href="css/case-study.css?v=162">
+  <script>
+    // Hide the hero until its title is split into lines (see the reveal script
+    // at the end of body). Skipped entirely for reduced-motion users, and a
+    // failsafe clears it if the reveal script never runs.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      document.documentElement.classList.add('has-hero-reveal');
+      setTimeout(function () {
+        document.documentElement.classList.remove('has-hero-reveal');
+      }, 2500);
+    })();
+  </script>
 </head>
 <body class="case-study-page cs-page--metaverse">
 
@@ -38,93 +51,108 @@
   <main>
 
     <!-- 1. Hero -->
-    <section class="cs-hero cs-hero--full-image">
+    <section class="cs-hero cs-hero--full-image cs-hero--title-first">
       <div class="cs-hero-bg"></div>
-      <div class="cs-hero-cover">
-        <img src="img/metaverse-hero.png" alt="Bridge to Metaverse — playful expressions and virtual spaces on Instagram" loading="eager">
-      </div>
       <div class="container cs-hero-content">
         <div class="cs-hero-meta cs-hero-meta--top">
           <div class="cs-meta-item">
             <span class="cs-meta-label">Scope</span>
-            <span class="cs-meta-value">Vision &middot; Strategy &middot; Org Alignment</span>
-          </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Company</span>
-            <span class="cs-meta-value">Instagram</span>
+            <span class="cs-meta-value">0&rarr;1 Strategy &middot; Vision &middot; Organizational Alignment</span>
           </div>
           <div class="cs-meta-item">
             <span class="cs-meta-label">Duration</span>
-            <span class="cs-meta-value">Nov 2024 &mdash; Mar 2025</span>
+            <span class="cs-meta-value">Nov 2024 &ndash; Mar 2025</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Status</span>
+            <a class="cs-meta-value cs-meta-link" href="https://www.tiktok.com/@kitzy_reviews/video/7566257556524420373" target="_blank" rel="noopener noreferrer">Public Tested &#8599;</a>
           </div>
         </div>
-        <h1 class="cs-hero-title">Instagram x Metaverse Big Bets</h1>
-        <p class="cs-hero-subtitle">I created a strategy for introducing the metaverse to Instagram, aligned two organizations around it, and influenced long-term investment.</p>
-        <div class="cs-hero-leadership">
-          <p class="cs-results-label">My Leadership &amp; Influence</p>
-          <ul class="cs-hero-leadership-list">
-            <li>Created the 0&rarr;1 strategy for bringing the metaverse to Instagram</li>
-            <li>Aligned Instagram and Reality Labs around a shared, fundable investment</li>
-            <li>Reframed Pets as a low-risk bridge &mdash; turning vision into a long-term roadmap</li>
-          </ul>
+        <div class="cs-hero-lede">
+          <div class="cs-hero-lede-main">
+            <h1 class="cs-hero-title">Instagram x Metaverse Big Bets</h1>
+            <p class="cs-hero-subtitle">I defined how the metaverse could become native to Instagram, aligned two organizations around the strategy, and shaped a shared mental model across Facebook, WhatsApp, and Reality Labs.</p>
+          </div>
+          <div class="cs-hero-bets">
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">What I owned</span>
+              <p class="cs-hero-bet-text">The metaverse entry point in the Instagram profile, the Pets vision, and the design language for metaverse surfaces across the app family.</p>
+            </div>
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">What I bet on</span>
+              <p class="cs-hero-bet-text">Adoption comes from embedding new technology in familiar behavior, not from asking people to go somewhere new.</p>
+            </div>
+            <div class="cs-hero-bet">
+              <span class="cs-hero-bet-label">How it ended</span>
+              <p class="cs-hero-bet-text">Pets found product-market fit on Horizon, not Instagram: the behavior needed a destination, and the profile was a waypoint. The team chose not to ship Pets, but the metaverse entry point I defined remained and the pattern carried across the app family.</p>
+            </div>
+          </div>
         </div>
-        <div class="cs-hero-results" id="hero-results">
-          <p class="cs-results-label">Key Results</p>
+      </div>
+      <div class="cs-hero-cover cs-hero-cover--below">
+        <img src="img/metaverse-hero.png" alt="Bridge to Metaverse, playful expressions and virtual spaces on Instagram" loading="eager">
+      </div>
+    </section>
+
+    <!-- Key results, below the hero image -->
+    <section class="cs-section cs-section--alt" id="metrics">
+      <div class="container cs-container">
+        <div class="cs-hero-results">
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-count" data-count-to="15">0</span>&times;</span>
-            <span class="cs-result-label">Horizon MAU growth</span>
+            <span class="cs-result-number"><span class="cs-result-count" data-count-to="6">0</span>&times;</span>
+            <span class="cs-result-label">Avatar Viewer MAU Growth</span>
+            <span class="cs-result-desc">Avatar Viewer usage grew sixfold after launch.</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-count" data-count-to="20">0</span>%</span>
-            <span class="cs-result-label">Conversion to Horizon</span>
+            <span class="cs-result-number"><span class="cs-result-count" data-count-to="3">0</span></span>
+            <span class="cs-result-label">Apps Adopted the Viewer</span>
+            <span class="cs-result-desc">The same Avatar Viewer pattern expanded across Instagram, Facebook, and WhatsApp.</span>
           </div>
           <div class="cs-result-item">
-            <span class="cs-result-number"><span class="cs-result-count" data-count-to="2">0</span>&times;</span>
-            <span class="cs-result-label">Teen adoption rate</span>
+            <span class="cs-result-number"><span class="cs-result-count" data-count-to="2">0</span></span>
+            <span class="cs-result-label">Orgs Aligned</span>
+            <span class="cs-result-desc">Instagram and Reality Labs aligned around a shared metaverse entry-point strategy.</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 2. Challenge -->
-    <section class="cs-section cs-section--alt cs-section--challenge">
+    <section class="cs-section cs-section--challenge" id="opportunity">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Challenges</span>
-          <h2 class="cs-section-title">The Metaverse Audience Is on Mobile</h2>
+          <span class="cs-section-label">Opportunity</span>
+          <h2 class="cs-section-title">The metaverse audience is on mobile.</h2>
         </div>
         <div class="cs-body">
           <p>Making the metaverse mainstream required reaching millions of Instagram users on mobile, even though the broader vision was centered on VR experiences.</p>
         </div>
-        <div class="cs-problems">
-          <div class="cs-problem mv-challenge-card" data-title="Metaverse ≠ Mobile" data-desc="Existing metaverse products required VR hardware — excluding the mobile-first teen audience that drives Instagram engagement." data-image="img/Metaverse audience is on mobile.jpg">
-            <div class="cs-problem-content">
-              <span class="cs-problem-icon">1</span>
-              <h3>Metaverse ≠ Mobile</h3>
-              <p>Existing metaverse products required VR hardware — excluding the mobile-first teen audience that drives Instagram engagement.</p>
-            </div>
-            <div class="cs-problem-thumb">
+        <div class="cs-problems cs-problems--stack">
+          <div class="cs-problem mv-challenge-card" data-title="Hardware mismatch" data-desc="Existing metaverse products required VR hardware, excluding the mobile-first audience that drives Instagram engagement." data-image="img/Metaverse audience is on mobile.jpg">
+            <div class="cs-problem-image">
               <img src="img/Metaverse audience is on mobile.jpg" alt="Metaverse audience is on mobile" loading="lazy">
             </div>
-          </div>
-          <div class="cs-problem mv-challenge-card" data-title="Expression Gap" data-desc="Teens wanted more playful, low-pressure ways to connect beyond photos and text — but Instagram lacked the interactive, identity-driven features they craved." data-image="img/Instagram_notes.png">
             <div class="cs-problem-content">
-              <span class="cs-problem-icon">2</span>
-              <h3>Expression Gap</h3>
-              <p>Teens wanted more playful, low-pressure ways to connect beyond photos and text — but Instagram lacked the interactive, identity-driven features they craved.</p>
+              <h3>Hardware mismatch</h3>
+              <p>Existing metaverse products required VR hardware, excluding the mobile-first audience that drives Instagram engagement.</p>
             </div>
-            <div class="cs-problem-thumb">
+          </div>
+          <div class="cs-problem mv-challenge-card" data-title="Expression gap" data-desc="People wanted more playful, low-pressure ways to connect beyond photos and text, but Instagram lacked the interactive, identity-driven features they craved." data-image="img/Instagram_notes.png">
+            <div class="cs-problem-image">
               <img src="img/Instagram_notes.png" alt="Instagram Notes — current expression landscape" loading="lazy">
             </div>
-          </div>
-          <div class="cs-problem mv-challenge-card" data-title="Identity Mismatch" data-desc="Avatars felt disconnected from Instagram's identity as a platform built on authentic self-expression — and without a clear narrative, leadership hesitated to give them visibility." data-image="img/Instagram brand identity.jpg">
             <div class="cs-problem-content">
-              <span class="cs-problem-icon">3</span>
-              <h3>Identity Mismatch</h3>
-              <p>Avatars felt disconnected from Instagram's identity as a platform built on authentic self-expression — and without a clear narrative, leadership hesitated to give them visibility.</p>
+              <h3>Expression gap</h3>
+              <p>People wanted more playful, low-pressure ways to connect beyond photos and text, but Instagram lacked the interactive, identity-driven features they craved.</p>
             </div>
-            <div class="cs-problem-thumb">
+          </div>
+          <div class="cs-problem mv-challenge-card" data-title="Identity mismatch" data-desc="Avatars felt disconnected from Instagram's identity as a platform built on authentic self-expression, and without a clear narrative, leadership hesitated to give them visibility." data-image="img/Instagram brand identity.jpg">
+            <div class="cs-problem-image">
               <img src="img/Instagram brand identity.jpg" alt="Instagram brand identity" loading="lazy">
+            </div>
+            <div class="cs-problem-content">
+              <h3>Identity mismatch</h3>
+              <p>Avatars felt disconnected from Instagram's identity as a platform built on authentic self-expression, and without a clear narrative, leadership hesitated to give them visibility.</p>
             </div>
           </div>
         </div>
@@ -132,14 +160,15 @@
     </section>
 
     <!-- 3. Strategy & Role -->
-    <section class="cs-section cs-section--dark cs-section--black">
+    <!-- Strategy — hidden for now (remove cs-hidden to show) -->
+    <section class="cs-section cs-section--dark cs-section--black cs-hidden">
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Strategy</span>
-          <h2 class="cs-section-title">Meet Teens Where They Are</h2>
+          <h2 class="cs-section-title">Meet people where they are</h2>
         </div>
         <div class="cs-body">
-          <p>I structured the strategy in two phases — start with lightweight social features teens already understand on Instagram, then use that foundation to draw them into richer virtual spaces over time.</p>
+          <p>I structured the strategy in two phases: start with lightweight social features people already understand on Instagram, then use that foundation to draw them into richer virtual spaces over time.</p>
         </div>
         <!-- 3D Phased Vision Visual -->
         <div class="mv-phases-visual" aria-label="Phased vision — Instagram for lightweight expression, beyond Instagram for richer virtual spaces">
@@ -180,140 +209,77 @@
           </div>
         </div>
         <p class="mv-phases-hint">Drag to explore</p>
-        <p class="cs-image-caption cs-bubbles-caption">This framing was key to earning leadership support — it turned an abstract metaverse bet into a concrete, low-risk product strategy.</p>
+        <p class="cs-image-caption cs-bubbles-caption">This framing was key to earning leadership support: it turned an abstract metaverse bet into a concrete, low-risk product strategy.</p>
       </div>
     </section>
 
     <!-- 4. Process -->
-    <section class="cs-section cs-image-section">
-      <div class="container">
-        <div class="cs-section-header">
-          <span class="cs-section-label">Process</span>
-          <h2 class="cs-section-title">Leading the Vision Sprint</h2>
-        </div>
-        <div class="cs-body">
-          <p>I structured the sprint in 3 phases: diverge on opportunity spaces, converge on promising directions, then pressure-test against teen behaviors and Instagram's existing surfaces. Each week, I led a crit to kill weak concepts and double down on strong ones.</p>
-        </div>
-        <div class="mv-sprint-images">
-          <div class="mv-sprint-image">
-            <img src="img/IG Metaverse Vision Sprint_01.png" alt="Vision sprint — mapping opportunity spaces" loading="lazy">
-          </div>
-          <div class="mv-sprint-image">
-            <img src="img/IG Metaverse Vision Sprint_02.png" alt="Vision sprint — concept exploration" loading="lazy">
-          </div>
-          <div class="mv-sprint-image">
-            <img src="img/IG Metaverse Vision Sprint_03.png" alt="Vision sprint — design directions" loading="lazy">
-          </div>
-        </div>
-        <p class="cs-image-caption">Vision sprint artifacts — from opportunity mapping to concept explorations with the design team.</p>
-      </div>
-    </section>
-
-    <!-- 5. Exploration -->
+    <!-- 4. Big bets: why Pets won, and the five concepts it beat -->
     <section class="cs-section cs-section--alt">
       <div class="container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Explorations</span>
-          <h2 class="cs-section-title">A Breadth of Ideas</h2>
+          <span class="cs-section-label">Big bets</span>
+          <h2 class="cs-section-title">Why Instagram Pets won</h2>
         </div>
         <div class="cs-body">
-          <p>I led the team to explore 6 concepts across expression, companionship, and identity — each prototyped as a working mockup to test how it would feel inside Instagram's real surfaces.</p>
+          <p>Pets was the only concept strong on all four criteria: <strong>self exploratory</strong>, <strong>creative outlet</strong>, <strong>feel at home</strong>, and <strong>bridges to metaverse</strong>. I killed the rest.</p>
         </div>
 
-        <div class="mv-explore-grid">
-
-          <!-- Expression -->
+        <div class="mv-explore-grid mv-explore-grid--killed">
           <div class="mv-explore-card">
             <div class="mv-explore-media">
               <video src="img/IG_Metaverse_AvatarGreenscreen.mp4" muted loop playsinline preload="metadata"></video>
             </div>
             <div class="mv-explore-info">
-              <span class="mv-explore-tag">Expression</span>
-              <h3>Avatar Greenscreen</h3>
-              <p>Teens use their avatars as expressive stand-ins — reacting to content and sharing personality without showing their face.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Creative Outlet">&#x1F3A8; Creative Outlet</span>
-              </div>
+              <span class="mv-explore-tag mv-explore-tag--killed">Killed</span>
+              <h3>Avatar greenscreen</h3>
+              <p>Avatars react to content in your place. Native, but a dead end.</p>
             </div>
           </div>
 
-          <!-- Identity -->
           <div class="mv-explore-card">
-            <div class="mv-explore-media">
+            <div class="mv-explore-media mv-explore-media--homebar">
               <video src="img/IG_Metaverse_Gallery.mp4" muted loop playsinline preload="metadata"></video>
             </div>
             <div class="mv-explore-info">
-              <span class="mv-explore-tag">Identity</span>
-              <h3>My "Vibe"</h3>
-              <p>Personal spaces where teens curate their personality — friends can visit and discover each other's vibe.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Self Exploratory">&#x1F50D; Self Exploratory</span>
-                <span class="mv-explore-principle" title="Creative Outlet">&#x1F3A8; Creative Outlet</span>
-              </div>
+              <span class="mv-explore-tag mv-explore-tag--killed">Killed</span>
+              <h3>My &quot;Vibe&quot;</h3>
+              <p>Personal spaces friends can visit. Closest runner-up, too complex to build.</p>
             </div>
           </div>
 
-          <!-- Social -->
-          <div class="mv-explore-card mv-explore-card--bordered">
-            <div class="mv-explore-media">
-              <video src="img/IG_Metaverse_CF_AvatarViewer_Pet.mp4" muted loop playsinline preload="metadata"></video>
-            </div>
-            <div class="mv-explore-info">
-              <span class="mv-explore-tag">Companionship</span>
-              <h3>Virtual Pets</h3>
-              <p>Virtual companions that live on your profile, react in DMs, and travel with you to Horizon's Pets Park — a bridge between Instagram and the metaverse.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Creative Outlet">&#x1F3A8; Creative Outlet</span>
-                <span class="mv-explore-principle" title="Self Exploratory">&#x1F50D; Self Exploratory</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Play -->
           <div class="mv-explore-card">
             <div class="mv-explore-media">
               <img src="img/IG_Metaverse_MiniGames.gif" alt="Mini Games concept — daily engagement loops through playful interactions">
             </div>
             <div class="mv-explore-info">
-              <span class="mv-explore-tag">Play</span>
-              <h3>Mini Games</h3>
-              <p>Mini-games like fetch create daily engagement loops — a reason to come back and connect with friends.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Bridges to Metaverse">&#x1F52E; Bridges to Metaverse</span>
-              </div>
+              <span class="mv-explore-tag mv-explore-tag--killed">Killed</span>
+              <h3>Mini games</h3>
+              <p>Games like fetch that pull you back daily. Weak on identity.</p>
             </div>
           </div>
 
-          <!-- Expression -->
-          <div class="mv-explore-card">
-            <div class="mv-explore-media">
-              <video src="img/IG_Metaverse_Avatar_Dance2.mp4" muted loop playsinline preload="metadata"></video>
-            </div>
-            <div class="mv-explore-info">
-              <span class="mv-explore-tag">Expression</span>
-              <h3>Avatar Dance</h3>
-              <p>Avatars perform playful dances and emotes — a low-pressure, expressive way for teens to react and share personality in motion.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Creative Outlet">&#x1F3A8; Creative Outlet</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Gamification -->
           <div class="mv-explore-card mv-explore-card--bordered">
             <div class="mv-explore-media">
               <video src="img/IG_Metaverse_MagicalPortal.mp4" muted loop playsinline preload="metadata"></video>
             </div>
             <div class="mv-explore-info">
-              <span class="mv-explore-tag">Immersion</span>
-              <h3>Magical Portal</h3>
-              <p>A portal on Instagram that transports teens to an immersive virtual space — turning an everyday tap into the first step toward the metaverse.</p>
-              <div class="mv-explore-principles">
-                <span class="mv-explore-principle" title="Bridges to Metaverse">&#x1F52E; Bridges to Metaverse</span>
-              </div>
+              <span class="mv-explore-tag mv-explore-tag--killed">Killed</span>
+              <h3>Magical portal</h3>
+              <p>A portal into a virtual space. A bridge out of Instagram, not into it.</p>
             </div>
           </div>
-
+          <div class="mv-explore-card mv-explore-card--bordered mv-explore-card--selected">
+            <div class="mv-explore-media">
+              <video src="img/Pets_BigBets.mp4" muted loop playsinline preload="metadata"></video>
+            </div>
+            <div class="mv-explore-info">
+              <span class="mv-explore-tag mv-explore-tag--selected">Selected</span>
+              <h3>Instagram Pets</h3>
+              <p>Pet companions that travel from profile to Pets Park. Strong on all four.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -321,36 +287,55 @@
     <!-- 6. Solution -->
     <section class="cs-section cs-section--dark mv-bigbets">
       <img class="mv-bigbets-bg" src="img/Pets_VR.jpg" alt="Instagram Pets in Horizon — avatar and pet in a virtual space" loading="lazy">
-      <img class="mv-bigbets-phone" src="img/IG_Pets_animation.gif" alt="Instagram Pets in the Instagram app" loading="lazy">
+      <video class="mv-bigbets-phone" src="img/Pets_adopt_a_pet.mp4" muted loop autoplay playsinline preload="metadata" aria-label="Adopting and naming a pet on Instagram"></video>
+      <div class="mv-scribble">
+        <p class="mv-scribble-text">Pets Park 3D assets</p>
+        <svg class="mv-scribble-arrow" viewBox="0 0 130 100" fill="none" aria-hidden="true">
+          <path d="M8 12C13 33 27 52 49 64c12 6 25 9 38 9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M11 20c6 19 19 35 39 46" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+          <path d="M72 62c5 4 10 7 16 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M71 84c6-3 11-6 16-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Big bets</span>
-          <h2 class="cs-section-title">Why Instagram Pets Won</h2>
+          <span class="cs-section-label">Build the coalition</span>
+          <h2 class="cs-section-title">The teams who could build this didn&rsquo;t work for Instagram.</h2>
         </div>
         <div class="cs-body">
-          <p>By positioning Instagram Pets as a low-friction, &ldquo;cringe-free&rdquo; way for friends to connect, I aligned Instagram and Reality Labs leadership around a shared investment that secured funding. With <strong>existing 3D assets</strong> and Horizon Pets Park <strong>already in development</strong>, it was a <strong>low-risk path</strong> to validate the metaverse.</p>
+          <p>Pets Park and Avatars had separate roadmaps. I positioned Pets as a low-friction, &ldquo;cringe-free&rdquo; way for friends to connect, and aligned both teams around what Instagram could unlock: distribution for Pets and a new surface for Avatars. Both made the work a P0.</p>
+        </div>
+        <div class="cs-callouts">
+          <div class="cs-callout">
+            <h3 class="ig-gradient-text">Pets Park team</h3>
+            <p>They brought the pet assets and the production capacity to keep making them. I brought Instagram&rsquo;s distribution: an audience of millions their roadmap had no way to reach.</p>
+          </div>
+          <div class="cs-callout">
+            <h3 class="ig-gradient-text">Avatars team</h3>
+            <p>They brought the infrastructure. I brought the surface: a persistent profile entry point connecting Pets, quests, emotes, and the Avatar Store.</p>
+          </div>
         </div>
         <div class="mv-solution-principles">
           <div class="mv-solution-card">
             <div class="mv-solution-head">
               <span class="mv-solution-icon">&#x1F50D;</span>
-              <h3>Self Exploratory</h3>
+              <h3>Self exploratory</h3>
             </div>
-            <p>Teens customize and nurture a virtual companion that reflects their personality — encouraging identity exploration through pet styles, accessories, and behaviors.</p>
+            <p>People customize and nurture a virtual companion that reflects their personality, encouraging identity exploration through pet styles, accessories, and behaviors.</p>
           </div>
           <div class="mv-solution-card">
             <div class="mv-solution-head">
               <span class="mv-solution-icon">&#x1F3A8;</span>
-              <h3>Creative Outlet</h3>
+              <h3>Creative outlet</h3>
             </div>
-            <p>Pet accessories, avatar pairings, and shareable moments give teens a canvas for self-expression — without the pressure of posting photos of themselves.</p>
+            <p>Pet accessories, avatar pairings, and shareable moments give people a canvas for self-expression, without the pressure of posting photos of themselves.</p>
           </div>
           <div class="mv-solution-card">
             <div class="mv-solution-head">
               <span class="mv-solution-icon">&#x1F3E0;</span>
-              <h3>Feels at Home in IG</h3>
+              <h3>Feels at home in IG</h3>
             </div>
-            <p>Instagram Pets live across existing surfaces — Notes, DMs, profiles — making the feature feel native to Instagram rather than a foreign metaverse import.</p>
+            <p>Instagram Pets live across Notes, DMs, and profiles, making the feature feel native to Instagram rather than a foreign metaverse import.</p>
           </div>
         </div>
         <div class="mv-convergence cs-hidden">
@@ -409,27 +394,69 @@
               </tr>
             </tbody>
           </table>
-          <p class="cs-image-caption">&#x25CF; Strong &nbsp; &#x25D2; Partial &nbsp; &#x25CB; Weak — Instagram Pets was the only concept that scored strong across all criteria.</p>
+          <p class="cs-image-caption">&#x25CF; Strong &nbsp; &#x25D2; Partial &nbsp; &#x25CB; Weak. Instagram Pets was the only concept that scored strong across all criteria.</p>
         </div>
       </div>
     </section>
 
-    <!-- 6b. Approach -->
+    <!-- 6b. Proposal -->
+    <section class="cs-section cs-section--alt">
+      <div class="container cs-container">
+        <div class="cs-section-header">
+          <span class="cs-section-label">Proposal</span>
+          <h2 class="cs-section-title">One screen, three teams&rsquo; needs</h2>
+        </div>
+        <div class="cs-body">
+          <p>Avatars wanted one centralized hub for the avatar editor and store on Instagram. Instagram needed a reason for people to play with their pets. Pets Park needed a route into Horizon. I proposed one layout that brought all three needs together.</p>
+        </div>
+        <div class="mv-proposal-compare">
+          <figure class="mv-compare-item">
+            <div class="mv-compare-media">
+              <img src="img/avatar-viewer-rl-proposal.jpg" alt="The Avatars team proposal: an avatar on a Horizon backdrop, four unlabeled icons in a left rail, and a full-width View in Horizon button" loading="lazy">
+            </div>
+            <figcaption>
+              <span class="mv-compare-label">Avatars team&rsquo;s proposal</span>
+              <ul class="mv-compare-points">
+                <li>Avatar-first, with tools around it</li>
+                <li>Distinct from Instagram&rsquo;s design system</li>
+                <li>Horizon as a primary action</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure class="mv-compare-item mv-compare-item--mine">
+            <div class="mv-compare-media">
+              <video src="img/IG_native_viewer.mp4" autoplay muted loop playsinline controls controlslist="nodownload" preload="metadata" aria-label="The native avatar viewer opening on an Instagram profile"></video>
+            </div>
+            <figcaption>
+              <span class="mv-compare-label mv-compare-label--mine">What I proposed</span>
+              <ul class="mv-compare-points">
+                <li>Overflow menu for the editor and rewards</li>
+                <li>Play that keeps people with their pet</li>
+                <li>Horizon as an icon, not an exit</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="cs-confidential-note cs-hidden">Visuals recreated to respect Meta confidentiality.</p>
+      </div>
+    </section>
+
+    <!-- 6c. Investment -->
     <section class="cs-section">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Approach</span>
-          <h2 class="cs-section-title">Aligning on Investment Strategies</h2>
+          <span class="cs-section-label">Investment</span>
+          <h2 class="cs-section-title">Alignment turned into funding and a persistent entry point.</h2>
         </div>
         <div class="cs-body">
-          <p>I framed Pets as a gateway to the metaverse and laid out a range of investment options &mdash; from lightweight interactions that learn fast to fully immersive experiences synced with Horizon Pets Park in VR.</p>
+          <p>With all three teams committed, I laid out a range of investment options, from lightweight interactions that learn fast to fully immersive experiences synced with Horizon Pets Park in VR.</p>
         </div>
 
         <div class="mv-spectrum">
           <div class="mv-spectrum-grid">
             <div class="mv-spectrum-col">
               <span class="mv-spectrum-pill">Option 1</span>
-              <h3 class="mv-spectrum-title">Drive Traffic to Horizon</h3>
+              <h3 class="mv-spectrum-title">Drive traffic to Horizon</h3>
               <ul class="mv-spectrum-list">
                 <li>Hard upsell to the metaverse</li>
                 <li>No native pet ownership on Instagram</li>
@@ -437,8 +464,8 @@
               </ul>
             </div>
             <div class="mv-spectrum-col mv-spectrum-col--selected">
-              <span class="mv-spectrum-pill">Option 2</span>
-              <h3 class="mv-spectrum-title">Adopt, Play, and Share on Instagram</h3>
+              <span class="mv-spectrum-pill mv-spectrum-pill--selected">Option 2 <span class="mv-spectrum-chosen">Selected</span></span>
+              <h3 class="mv-spectrum-title">Adopt, play, and share on Instagram</h3>
               <ul class="mv-spectrum-list">
                 <li>Soft upsell to the metaverse</li>
                 <li>Adopt and own a pet on IG</li>
@@ -448,7 +475,7 @@
             </div>
             <div class="mv-spectrum-col">
               <span class="mv-spectrum-pill">Option 3</span>
-              <h3 class="mv-spectrum-title">Seamless Cross-World Experience</h3>
+              <h3 class="mv-spectrum-title">Seamless cross-world experience</h3>
               <ul class="mv-spectrum-list">
                 <li>Persistent pet identity</li>
                 <li>Shared state between IG and VR</li>
@@ -461,55 +488,23 @@
       </div>
     </section>
 
-    <!-- 6c. Proposal -->
-    <section class="cs-section cs-section--alt">
+    <!-- 6d. Handoff -->
+    <!-- TK: the two columns and the artifact frame below need your specifics.
+         Fill in what you closed, what you deliberately left open, and drop the
+         handoff artifact (scope doc, principles, decision log) into the frame. -->
+    <section class="cs-section cs-section--alt" id="handoff">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Proposal</span>
-          <h2 class="cs-section-title">Pets as the Bridge to the Metaverse</h2>
+          <span class="cs-section-label">Scale through others</span>
+          <h2 class="cs-section-title">I handed off the MVP without handing off the thinking.</h2>
         </div>
         <div class="cs-body">
-          <p>I designed Pets to feel native to Instagram &mdash; living across Notes, DMs, and profiles &mdash; with lightweight ways for teens to express themselves and connect with friends. A companion pet could then carry forward into Horizon's Pets Park, bridging Instagram to the metaverse.</p>
+          <p>I onboarded the new product designer, transferred the key context and decisions, and scoped the MVP so the team could execute without me. The MVP reached public testing while I was on leave.</p>
         </div>
-        <div class="mv-approach-row">
-          <div class="mv-approach-item">
-            <div class="mv-approach-media">
-              <video src="img/IG_Pets_Notes2.mp4" muted loop autoplay playsinline preload="metadata"></video>
-            </div>
-            <p class="mv-approach-caption">Express mood</p>
-          </div>
-          <div class="mv-approach-item">
-            <div class="mv-approach-media">
-              <img src="img/IG_Pets_visitors.gif" alt="Friends visiting a Pets space in Horizon" loading="lazy">
-            </div>
-            <p class="mv-approach-caption">Host friends</p>
-          </div>
-          <div class="mv-approach-item">
-            <div class="mv-approach-media">
-              <img src="img/IG_Pets_Stickers.png" alt="Instagram Pets stickers" loading="lazy">
-            </div>
-            <p class="mv-approach-caption">React with stickers</p>
-          </div>
-          <div class="mv-approach-item">
-            <div class="mv-approach-media">
-              <img src="img/IG_Metaverse_Pets_final.png" alt="Instagram Pets final design" loading="lazy">
-            </div>
-            <p class="mv-approach-caption">Show your pet</p>
-          </div>
-          <div class="mv-approach-item">
-            <div class="mv-approach-media mv-approach-media--nav">
-              <img src="img/IG_Metaverse_Pet_Fetch.gif" alt="Instagram Pets fetch mini-game" loading="lazy">
-              <div class="mv-game-nav" aria-hidden="true">
-                <span class="mv-game-nav__close">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
-                </span>
-                <span class="mv-game-nav__score">HI 000</span>
-              </div>
-            </div>
-            <p class="mv-approach-caption">Play fetch</p>
-          </div>
-        </div>
-        <p class="cs-confidential-note cs-hidden">Visuals recreated to respect Meta confidentiality.</p>
+        <figure class="mv-handoff-artifact">
+          <img src="img/handoff-artifact.jpg" alt="The MVP scope handed off as ten annotated flows: NUX, adopt, edit pet, share, play, Horizon rewards, synced rewards, consumption view, and Pets in Notes" loading="lazy">
+        </figure>
+        <p class="cs-image-caption">The scope I handed over: Every MVP flow specified, implementation details deliberately left open.</p>
       </div>
     </section>
 
@@ -518,41 +513,31 @@
       <div class="container cs-container">
         <div class="cs-section-header">
           <span class="cs-section-label">Impact</span>
-          <h2 class="cs-section-title">From Vision Sprint to Strategic Foundation</h2>
+          <h2 class="cs-section-title">The entry point I defined scaled across the app family.</h2>
         </div>
         <div class="cs-body">
-          <p>What started as a vision exercise became a strategic proof point. In smoke tests across Australia, New Zealand, and Malaysia — and a beta in Mexico — Instagram Pets became the most efficient lever for bridging users into <a class="cs-inline-link" href="https://horizon.meta.com/world/9116337161745306/?locale=en_US" target="_blank" rel="noopener noreferrer">Horizon Pets Park</a>, validating demand and aligning Instagram and Reality Labs around a shared Bridge to Metaverse roadmap.</p>
+          <p>The Avatar Viewer shipped, with Facebook and WhatsApp adopting the pattern. Testing also aligned Instagram and Reality Labs around a shared Bridge to Metaverse roadmap.</p>
         </div>
-        <div class="mv-impact-grid">
-            <div class="mv-impact-card">
-              <span class="mv-impact-emoji">&#x1F4C8;</span>
-              <div class="mv-impact-text">
-                <span class="mv-impact-title">15&times; Horizon MAU growth</span>
-                <span class="mv-impact-sub">Instagram Pets became the most efficient lever for acquiring Horizon users from Instagram.</span>
-              </div>
+        <div class="mv-appviewer-row">
+          <div class="mv-appviewer">
+            <div class="mv-appviewer-media">
+              <img src="img/Avatar Viewer_Facebook.png" alt="The avatar viewer on Facebook, with Avatar, Games, and Share controls" loading="lazy">
             </div>
-            <div class="mv-impact-card">
-              <span class="mv-impact-emoji">&#x1F309;</span>
-              <div class="mv-impact-text">
-                <span class="mv-impact-title">20% Conversion to Horizon</span>
-                <span class="mv-impact-sub">Best-in-class conversion &mdash; one in five users crossed from Instagram into the metaverse.</span>
-              </div>
-            </div>
-            <div class="mv-impact-card">
-              <span class="mv-impact-emoji">&#x1F680;</span>
-              <div class="mv-impact-text">
-                <span class="mv-impact-title">2&times; Teen Adoption</span>
-                <span class="mv-impact-sub">Teens adopted Pets at 2&times; the average adoption rate.</span>
-              </div>
-            </div>
-            <div class="mv-impact-card">
-              <span class="mv-impact-emoji">&#x1F91D;</span>
-              <div class="mv-impact-text">
-                <span class="mv-impact-title">Cross-Org Alignment</span>
-                <span class="mv-impact-sub">Aligned Instagram and Reality Labs, laying the foundation for the Bridge to Metaverse roadmap.</span>
-              </div>
-            </div>
+            <p class="mv-appviewer-label">Facebook</p>
           </div>
+          <div class="mv-appviewer">
+            <div class="mv-appviewer-media">
+              <img src="img/Avatar Viewer_Instagram.png" alt="The avatar viewer on Instagram, with an avatar, a pet, and Avatar, Pet, and Share controls" loading="lazy">
+            </div>
+            <p class="mv-appviewer-label">Instagram</p>
+          </div>
+          <div class="mv-appviewer">
+            <div class="mv-appviewer-media">
+              <img src="img/Avatar Viewer_WhatsApp.png" alt="The avatar viewer on WhatsApp, with Avatar, Stickers, and Share controls" loading="lazy">
+            </div>
+            <p class="mv-appviewer-label">WhatsApp</p>
+          </div>
+        </div>
         <div class="mv-impact-media cs-hidden">
           <div class="mv-impact-media-stack">
             <div class="mv-impact-phone">
@@ -565,26 +550,46 @@
               <img class="mv-impact-app-icon mv-impact-app-icon--right" src="img/Horizon_App_Icon.png" alt="Horizon Worlds app icon">
             </div>
           </div>
-          <p class="cs-image-caption">Instagram users can bring their pets to Horizon Pets Park — <a class="cs-inline-link" href="https://www.tiktok.com/@transisbeautifulllll/video/7593551069985148215a" target="_blank" rel="noopener noreferrer">What users play &#8599;</a></p>
+          <p class="cs-image-caption">Instagram users can bring their pets to Horizon Pets Park. <a class="cs-inline-link" href="https://www.tiktok.com/@transisbeautifulllll/video/7593551069985148215a" target="_blank" rel="noopener noreferrer">What users play &#8599;</a></p>
         </div>
       </div>
     </section>
 
     <!-- 8. Reflections -->
-    <section class="cs-section" id="reflections">
+    <!-- 8. Let the market decide -->
+    <section class="cs-section" id="market">
       <div class="container cs-container">
         <div class="cs-section-header">
-          <span class="cs-section-label">Reflections</span>
-          <h2 class="cs-section-title">How This Changed My Thinking</h2>
+          <span class="cs-section-label">Takeaway</span>
+          <h2 class="cs-section-title">Pets found stronger product-market fit on Horizon than Instagram.</h2>
         </div>
-        <div class="cs-reflections">
-          <div class="cs-reflection">
-            <h3>Adoption Through Familiar Behaviors</h3>
-            <p>Adoption doesn&rsquo;t come from exposing people to new technology&mdash;it comes from embedding it into familiar behaviors. Rather than ask users to enter the metaverse, we brought it to where they already were: Instagram.</p>
+        <div class="cs-body">
+          <p>Testing across Australia, New Zealand, Malaysia, and Mexico put the same pet in two contexts. On Horizon, people went to Pets Park for deeper customization and rewards; on Instagram, the lightweight experience felt limited, and the profile was a waypoint rather than a destination. The behavior held on Horizon but didn&rsquo;t transfer to Instagram, so <strong>Pets did not ship</strong>.</p>
+        </div>
+        <figure class="mv-market-artifact">
+          <div class="mv-market-media">
+            <video src="img/Horizon_Pets_Park_TikTok.mp4" autoplay muted loop playsinline controls controlslist="nodownload" preload="metadata" aria-label="Gameplay in Horizon Pets Park: walking a pet through the park and feeding it"></video>
           </div>
-          <div class="cs-reflection">
-            <h3>The Power of Reframing</h3>
-            <p>Product strategy is often about creating alignment before creating interfaces. Reframing avatars and positioning Pets as a low-friction social experience aligned Instagram and Reality Labs around a shared investment that made the vision possible.</p>
+        </figure>
+        <p class="cs-image-caption">Instagram users bring their pets to Horizon Pets Park.</p>
+        <div class="mv-impact-grid">
+          <div class="mv-impact-card">
+            <div class="mv-impact-text">
+              <span class="mv-impact-title">15&times; Horizon MAU growth</span>
+              <span class="mv-impact-sub">Instagram Pets became the most efficient lever for acquiring Horizon users from Instagram.</span>
+            </div>
+          </div>
+          <div class="mv-impact-card">
+            <div class="mv-impact-text">
+              <span class="mv-impact-title">20% conversion to Horizon</span>
+              <span class="mv-impact-sub">Best-in-class conversion; one in five users crossed from Instagram into the metaverse.</span>
+            </div>
+          </div>
+          <div class="mv-impact-card">
+            <div class="mv-impact-text">
+              <span class="mv-impact-title">2&times; teen adoption</span>
+              <span class="mv-impact-sub">Teens adopted Pets at twice the average adoption rate.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -621,7 +626,7 @@
               <img src="img/instagram-cm-hero.jpg" alt="Instagram Creator Marketplace — AI-powered creator card showing ad_sneaks with partnership insights" loading="lazy">
             </div>
             <div class="project-card-content">
-              <span class="project-card-label">Aug 2023 &mdash; Jan 2024</span>
+              <span class="project-card-label">Aug 2023 &ndash; Jan 2024</span>
               <h3 class="project-card-title">ML-Driven Creator Recommendations</h3>
               <p class="project-card-desc">I used ML to rethink how brands discover creators, turning a passive directory into a recommendation system that drove ad conversions and onboarded major advertisers.</p>
               <span class="project-card-cta">View case study &#8594;</span>
@@ -632,7 +637,7 @@
               <img src="img/creator portfolio-hero.png" alt="Instagram Creator Portfolio — creators showcase their work and brand partnerships" loading="lazy">
             </div>
             <div class="project-card-content">
-              <span class="project-card-label">Jun 2022 &mdash; Oct 2022</span>
+              <span class="project-card-label">Jun 2022 &ndash; Oct 2022</span>
               <h3 class="project-card-title">Instagram Creator Portfolio</h3>
               <p class="project-card-desc">Reimagined how Instagram creators showcase their work and attract brand partnerships, exceeding adoption goals within hours of launch.</p>
               <span class="project-card-cta">View case study &#8594;</span>
@@ -670,25 +675,24 @@
     var yearEl = document.querySelector('.footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Show the nav's blurred background once scrolled past the hero IMAGE
-    // (transparent/white over the image, solid background everywhere after).
-    var hero = document.querySelector('.cs-hero');
-    var heroCover = document.querySelector('.cs-hero-cover');
-    var navTrigger = heroCover || hero;
+    // Show the nav's blurred background as soon as the page moves. The hero
+    // image now sits below the content, so its height is no longer the trigger.
     var nav = document.querySelector('.case-study-nav');
-    if (navTrigger && nav) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY >= navTrigger.offsetHeight - 1) {
+    if (nav) {
+      var onNavScroll = function() {
+        if (window.scrollY > 8) {
           nav.classList.add('nav-past-hero');
         } else {
           nav.classList.remove('nav-past-hero');
         }
-      });
+      };
+      window.addEventListener('scroll', onNavScroll, { passive: true });
+      onNavScroll();
     }
 
     // Back to top button
     var backToTop = document.getElementById('back-to-top');
-    var reflectionsSection = document.getElementById('reflections');
+    var reflectionsSection = document.getElementById('market');
     var footer = document.getElementById('footer');
     var showTargets = [reflectionsSection, footer].filter(Boolean);
     if (backToTop && showTargets.length) {
@@ -746,32 +750,20 @@
       updateSpread();
     }
 
-    // Animate metrics on scroll (count-up, matching creator marketplace)
-    var heroResults = document.getElementById('hero-results');
-    if (heroResults) {
-      var countEls = heroResults.querySelectorAll('.cs-result-count');
-      var countDuration = 1200;
-      var resultsObserver = new IntersectionObserver(function(entries) {
+    // Stagger the coalition columns in on scroll
+    var coalition = document.querySelector('.mv-bigbets .cs-callouts');
+    if (coalition) {
+      new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            countEls.forEach(function(el) {
-              var target = parseInt(el.dataset.countTo, 10);
-              var start = null;
-              function step(ts) {
-                if (start === null) start = ts;
-                var progress = Math.min((ts - start) / countDuration, 1);
-                var eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.round(eased * target);
-                if (progress < 1) requestAnimationFrame(step);
-              }
-              requestAnimationFrame(step);
-            });
-            resultsObserver.unobserve(entry.target);
+            // The hand-drawn aside follows the two columns in.
+            var scribble = document.querySelector('.mv-scribble');
+            if (scribble) scribble.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.3 });
-      resultsObserver.observe(heroResults);
+      }, { threshold: 0.3 }).observe(coalition);
     }
 
     // Stagger problem cards in on scroll
@@ -787,17 +779,45 @@
       }, { threshold: 0.2 }).observe(problems);
     }
 
-    // Stagger impact stats in on scroll
-    var impactGrid = document.querySelector('.mv-impact-grid');
-    if (impactGrid) {
+    // Animate metrics on scroll
+    var results = document.querySelector('.cs-hero-results');
+    if (results) {
+      var countEls = results.querySelectorAll('.cs-result-count');
+      var countDuration = 1200;
       new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            countEls.forEach(function(el) {
+              var target = parseInt(el.dataset.countTo, 10);
+              var start = null;
+              function step(timestamp) {
+                if (start === null) start = timestamp;
+                var progress = Math.min((timestamp - start) / countDuration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target);
+                if (progress < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 }).observe(results);
+    }
+
+    // Stagger impact stats in on scroll
+    var impactGrids = document.querySelectorAll('.mv-impact-grid');
+    if (impactGrids.length) {
+      var impactObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.3 }).observe(impactGrid);
+      }, { threshold: 0.3 });
+      impactGrids.forEach(function(grid) { impactObserver.observe(grid); });
     }
 
     // Challenge card modal
@@ -842,6 +862,12 @@
 
     // Play exploration videos — hover on desktop, autoplay on scroll for mobile
     var isMobile = window.matchMedia('(max-width: 600px)').matches || 'ontouchstart' in window;
+    // Pausing leaves a video on whatever frame it stopped at. Where a poster is
+    // set, reload so the card falls back to that still instead.
+    function restStill(video) {
+      video.pause();
+      if (video.getAttribute('poster')) video.load();
+    }
     document.querySelectorAll('.mv-explore-card').forEach(function(card) {
       var video = card.querySelector('video');
       if (!video) return;
@@ -851,14 +877,14 @@
             if (entry.isIntersecting) {
               video.play();
             } else {
-              video.pause();
+              restStill(video);
             }
           });
         }, { threshold: 0.5 });
         vidObserver.observe(card);
       } else {
         card.addEventListener('mouseenter', function() { video.play(); });
-        card.addEventListener('mouseleave', function() { video.pause(); });
+        card.addEventListener('mouseleave', function() { restStill(video); });
       }
     });
 
@@ -948,6 +974,123 @@
     };
     document.addEventListener('contextmenu', blockMedia);
     document.addEventListener('dragstart', blockMedia);
+  </script>
+  <script>
+    // Hero entrance — split the title into rendered lines, each masked so it
+    // slides up into place, with the surrounding hero content rising behind it.
+    (function () {
+      var root = document.documentElement;
+      var heroEl = document.querySelector('.cs-hero--title-first');
+      var titleEl = heroEl && heroEl.querySelector('.cs-hero-title');
+
+      function show() { root.classList.remove('has-hero-reveal'); }
+
+      if (!heroEl || !titleEl || !root.classList.contains('has-hero-reveal')) {
+        show();
+        return;
+      }
+
+      var LINE_STEP = 0.09;
+      var rawText = titleEl.textContent.replace(/\s+/g, ' ').trim();
+
+      // Lay the words out inline, read back which ones share a top offset, then
+      // rebuild the title as one mask per line.
+      function splitTitle() {
+        titleEl.textContent = '';
+        var spans = [];
+        var words = rawText.split(' ');
+        words.forEach(function (word, i) {
+          var span = document.createElement('span');
+          span.textContent = word;
+          titleEl.appendChild(span);
+          spans.push(span);
+          if (i < words.length - 1) titleEl.appendChild(document.createTextNode(' '));
+        });
+
+        var lines = [];
+        var lastTop = null;
+        spans.forEach(function (span) {
+          var top = span.offsetTop;
+          if (lastTop === null || Math.abs(top - lastTop) > 2) {
+            lines.push([]);
+            lastTop = top;
+          }
+          lines[lines.length - 1].push(span.textContent);
+        });
+
+        titleEl.textContent = '';
+        lines.forEach(function (lineWords, i) {
+          var mask = document.createElement('span');
+          mask.className = 'c-mask';
+          var line = document.createElement('span');
+          line.className = 'c-mask__line';
+          line.textContent = lineWords.join(' ');
+          line.style.setProperty('--reveal-delay', (0.15 + i * LINE_STEP).toFixed(2) + 's');
+          mask.appendChild(line);
+          titleEl.appendChild(mask);
+        });
+
+        return lines.length;
+      }
+
+      function rise(el, delay) {
+        if (!el) return;
+        el.classList.add('cs-hero-rise');
+        el.style.setProperty('--reveal-delay', delay.toFixed(2) + 's');
+      }
+
+      function build() {
+        var after = 0.15 + splitTitle() * LINE_STEP;
+
+        var metaItems = heroEl.querySelectorAll('.cs-hero-meta--top .cs-meta-item');
+        Array.prototype.forEach.call(metaItems, function (item, i) {
+          rise(item, 0.05 + i * 0.05);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-subtitle'), after + 0.04);
+
+        var bets = heroEl.querySelectorAll('.cs-hero-bet');
+        Array.prototype.forEach.call(bets, function (bet, i) {
+          rise(bet, after + 0.12 + i * 0.07);
+        });
+
+        rise(heroEl.querySelector('.cs-hero-cover'), after + 0.1);
+      }
+
+      var started = false;
+      function play() {
+        if (started) return;
+        started = true;
+        build();
+        show();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { heroEl.classList.add('is-revealed'); });
+        });
+      }
+
+      // Wait for webfonts so the measured line breaks match what renders.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(play);
+        setTimeout(play, 800);
+      } else {
+        play();
+      }
+
+      // Width changes re-wrap the title, so rebuild the masks — without replaying.
+      var lastWidth = window.innerWidth;
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        if (!started || window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          heroEl.classList.add('is-resplitting');
+          splitTitle();
+          void heroEl.offsetWidth;
+          heroEl.classList.remove('is-resplitting');
+        }, 150);
+      });
+    })();
   </script>
   <script src="js/analytics.js?v=3" defer></script>
 
