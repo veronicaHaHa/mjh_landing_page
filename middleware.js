@@ -18,7 +18,7 @@ export const config = {
 };
 
 // SHA-256 of the current passcode (same hash the client used before).
-const PASSCODE_SHA256 = 'ea255de0fab43aabe699393ddff58187a4f09650c80e7cdb1c941b0e8cbcb104';
+const PASSCODE_SHA256 = 'ae4e366c581cde6146ef2c564bc640a0fbc86790c99f9b2adda5e324ff978a7d';
 
 const COOKIE_NAME = 'cs_auth';
 const MAX_AGE_SEC = 5 * 24 * 60 * 60; // 5 days
